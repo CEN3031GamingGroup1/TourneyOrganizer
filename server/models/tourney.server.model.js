@@ -4,21 +4,21 @@ var mongoose = require('mongoose'),
 
 /* Create your schema */
 var tourneySchema = new Schema({
-  Username: {
+  tournamentName: {
     type: String, 
     required: true
 	unique: true
   }, 
-  email: {
+  game: {
     type: String, 
     required: true, 
     unique: true
   }, 
-  password:  {
+  address:  {
     type: String, 
     required: true
   }, 
-  dob: {
+  tournamentDate: {
     day: Number, 
     month: Number,
 	year: Number
