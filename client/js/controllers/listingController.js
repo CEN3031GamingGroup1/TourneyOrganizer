@@ -29,8 +29,8 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
 		 address : $scope.address,
 		 tournamentDate : scope.tournamentDate,
 		 day : $scope.day,
-                 month : $scope.month,
-                 year : $scope.year,
+                month : $scope.month,
+                year : $scope.year,
 		 address : $scope.address,
 		 fee : $scope.fee,
 		 ageReq : $scope.ageReq
