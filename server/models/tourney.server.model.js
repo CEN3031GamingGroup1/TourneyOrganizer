@@ -23,6 +23,14 @@ var tourneySchema = new Schema({
     month: Number,
 	year: Number
   },
+   fee: {
+	 type: boolean
+	 required: false
+  },
+    ageReq: {
+     type: boolean
+	 required: false
+  },
   created_at: Date,
   updated_at: Date
 });
