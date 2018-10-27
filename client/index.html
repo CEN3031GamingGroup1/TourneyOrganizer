@@ -15,14 +15,14 @@
             <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
             <input type="text" class="form-control" placeholder="Search" ng-model="query">
           </div>
-        
+         
           <form novalidate class="simple-form">
-          		        <h3>New Listing:</h3>
+          		        <h3>Create Tournament</h3>
         <hr class="fr">
         <form>
           <div class="form-group row">
             <div class="col-md-6">
-            <input class="form-control" id="code" ng-model="code" placeholder="code">
+            <input class="form-control" id="tournament name" ng-model="tournament name" placeholder="tournament name">
             </div>
 
           </div>
@@ -31,7 +31,7 @@
 		<form>
 		<div class="form-group row">
             <div class="col-md-10">
-            <input class="form-control" id="name" ng-model="name" placeholder="building name">
+            <input class="form-control" id="game" ng-model="game" placeholder="game">
             </div>
 		</div>
 		</form>
@@ -48,25 +48,28 @@
         <form>
           <div class="form-group row">
           <div class="col-md-4">
-            <input class="form-control" id="latitude" ng-model="latitude" placeholder="latitude">
+            <input class="form-control" id="month" ng-model="month" placeholder="month (mm)">
           </div>
-		  
-		   <div class="col-md-4">
-            <input class="form-control" id="latitude" ng-model="latitude" placeholder="latitude">
-          </div>
-
           <div class="col-md-4">
-            <input class="form-control" id="longitude" ng-model="longitude" placeholder="longitude">
+            <input class="form-control" id="day" ng-model="day" placeholder="day (dd)">
+          </div>
+          <div class="col-md-4">
+            <input class="form-control" id="year" ng-model="year" placeholder="year (yy)">
           </div>
           </div>
         </form>
-		
-		
-<form action="/action_page.php" method="get">
-  <input type="checkbox" name="fee" value="f"> I have a bike<br>
-</form>
+        <form action="/action_page.php" method="get">
 
-        <button type="submit" class="btn btn-primary" ng-click="addListing()">Add location</button>
+          <input type="checkbox" name="fee" value="Car" checked="checked">Fee Required?<br>
+
+        </form>
+        <form action="/action_page.php" method="get">
+
+          <input type="checkbox" name="fee" value="Car" checked="checked">Age Required?<br>
+
+        </form>
+<!-- function name needs to be corrected -->
+        <button type="submit" class="btn btn-primary" ng-click="addListing()">Add tournament</button>
         </div>
      
       </div>
