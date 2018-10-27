@@ -12,7 +12,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
 
     $scope.createTourney = function() {
 	/*  TODO
-	  *Save the article using the Listings factory. If the object is successfully 
+	  *Save the article using the Listings factory. If the object is successfully
 	  saved redirect back to the list page. Otherwise, display the error
 
 	    $scope.listings.push($scope.newListing);
@@ -24,11 +24,13 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
 	  });
 	  */
 	 var newListing = {
-		 code : $scope.code,
-		 name : $scope.name,
-		 latutude : $scope.latitude,
-		 longitude : scope.longitude,
-		 address : $scope.address
+		 trounamentName : $scope.tournamentName,
+		 game : $scope.game,
+		 address : $scope.address,
+		 tournamentDate : scope.tournamentDate,
+		 address : $scope.address,
+		 fee : $scope.fee,
+		 ageReq : $scope.ageReq
 	 };
 	  Listings.create(newListing).then(function(response){
 		  $scope.listings = response.data;
