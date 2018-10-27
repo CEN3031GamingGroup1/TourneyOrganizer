@@ -1,4 +1,4 @@
-angular.module('listings').controller('ListingsController', ['$scope', 'Listings', 
+angular.module('listings').controller('ListingsController', ['$scope', 'Listings',
   function($scope, Listings) {
 
     /* Get all the listings, then bind it to the scope */
@@ -7,21 +7,21 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     }, function(error) {
       console.log('Unable to retrieve listings:', error);
     });
-  
+
     $scope.detailedInfo = undefined;
 
-    $scope.addListing = function() {
-	/*  TODO 
+    $scope.createTourney = function() {
+	/*  TODO
 	  *Save the article using the Listings factory. If the object is successfully 
 	  saved redirect back to the list page. Otherwise, display the error
-	 
+
 	    $scope.listings.push($scope.newListing);
       $scope.newListing = {};
 			Listings.create($scope.listings.listings).then(function(response){
 		  $scope.listings = response.data;
 	  }, function(error) {
 		        console.log('Unable to create listings:', error);
-	  }); 
+	  });
 	  */
 	 var newListing = {
 		 code : $scope.code,
@@ -34,13 +34,13 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
 		  $scope.listings = response.data;
 	  }, function(error) {
 		        console.log('Unable to add listings:', error);
-	  }); 
+	  });
 	};
 
     $scope.deleteListing = function(index) {
 	   /**TODO
-        Delete the article using the Listings factory. If the removal is successful, 
-		navigate back to 'listing.list'. Otherwise, display the error. 
+        Delete the article using the Listings factory. If the removal is successful,
+		navigate back to 'listing.list'. Otherwise, display the error.
        */
 
 	   		   $scope.listings.splice(index, 1);
@@ -49,7 +49,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
 		        console.log('Unable to delete listings:', error);
 	  });
 	};
-	
+
 
 
     $scope.showDetails = function(index) {
