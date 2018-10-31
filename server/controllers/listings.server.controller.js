@@ -13,8 +13,26 @@ var mongoose = require('mongoose'),
   from assignment 3 https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
  */
 
-/* Create a listing */
+/* Create a tournament */
 exports.create = function(req, res) {
+
+  /* Instantiate a Listing */
+  var listing = new Listing(req.body);
+
+
+  /* Then save the listing */
+  listing.save(function(err) {
+    if(err) {
+      console.log(err);
+      res.status(404).send(err);
+    } else {
+      res.json(listing);
+    }
+  });
+};
+
+/* Create a user */
+exports.createU = function(req, res) {
 
   /* Instantiate a Listing */
   var listing = new Listing(req.body);
@@ -65,6 +83,7 @@ exports.update = function(req, res) {
 };
 
 /* Delete a listing */
+/* FOR USE ON ADMIN PAGE */
 	exports.delete = function(req, res) {
 	var listing = req.listing;
 
@@ -80,7 +99,53 @@ exports.update = function(req, res) {
   })
 };
 
+
+/* Checks if password and email are same */
+/* FOR USE ON REGISTRATION PAGE*/
+	exports.isSame = function(req, res) {
+	var listing = req.listing;
+
+  /** TODO **/
+  /* Remove the article */
+    listing.remove(function(err) {
+    if (err) {
+	      console.log(err);
+      res.status(404).send(err);
+    }else{
+      res.json(listing);
+    }
+  })
+};
+/* Listing upcoming event */
+	exports.upcoming = function(req, res) {
+	var listing = req.listing;
+  /** TODO **/
+  
+};
+
+/* Login */
+	exports.login = function(req, res) {
+	var listing = req.listing;
+  /** TODO **/
+  
+};
+/* Update Image for profile pics and tournaments */
+	exports.changeimage = function(req, res) {
+	var listing = req.listing;
+  /** TODO **/
+      Listing.find().sort('code').exec(function(err, listings) {
+    if (err){
+		console.log(err);
+      res.status(404).send(err);
+    } else {
+		res.json(listings);
+    }
+  });
+
+};
+
 /* Retreive all the directory listings, sorted alphabetically by listing code */
+/* UPDATE THIS CODE TO FIND TOURNAMENTS BY NAME*/
 exports.list = function(req, res) {
   /** TODO **/
   /* Your code here */
