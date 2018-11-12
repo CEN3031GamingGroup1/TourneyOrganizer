@@ -1,9 +1,9 @@
-angular.module('listings').controller('ListingsController', ['$scope', 'Listings',
-function($scope, Listings) {
+angular.module('tourneys').controller('TourneyController', ['$scope', 'Tourneys',
+function($scope, Tourneys) {
 
 	/* Get all the listings, then bind it to the scope */
-	Listings.getAll().then(function(response) {
-		$scope.listings = response.data;
+	Tourneys.getAll().then(function(response) {
+		$scope.tourneys = response.data;
 	}, function(error) {
 		console.log('Unable to retrieve listings:', error);
 	});
@@ -23,7 +23,7 @@ function($scope, Listings) {
 	console.log('Unable to create listings:', error);
 });
 */
-var newListing = {
+var newTourney = {
 	trounamentName : $scope.tournamentName,
 	game : $scope.game,
 	address : $scope.address,
@@ -35,22 +35,22 @@ var newListing = {
 	fee : $scope.fee,
 	ageReq : $scope.ageReq
 };
-Listings.create(newListing).then(function(response){
-	$scope.listings = response.data;
+Tourneys.create(newTourney).then(function(response){
+	$scope.tourneys = response.data;
 }, function(error) {
-	console.log('Unable to add listings:', error);
+	console.log('Unable to add tourneys:', error);
 });
 };
 
-$scope.deleteListing = function(index) {
+$scope.deleteTourney = function(index) {
 	/**TODO
 	Delete the article using the Listings factory. If the removal is successful,
 	navigate back to 'listing.list'. Otherwise, display the error.
 	*/
 
-	$scope.listings.splice(index, 1);
-	Listings.delete($scope.listings[index]._id).then(function(response){
-		$scope.listings = response.data;
+	$scope.tourneys.splice(index, 1);
+	Tourneys.delete($scope.tourneys[index]._id).then(function(response){
+		$scope.tourneys = response.data;
 		console.log('Unable to delete listings:', error);
 	});
 };
@@ -60,7 +60,7 @@ $scope.deleteListing = function(index) {
 
 
 $scope.showDetails = function(index) {
-	$scope.detailedInfo = $scope.listings[index];
+	$scope.detailedInfo = $scope.tourneys[index];
 };
 }
 ]);

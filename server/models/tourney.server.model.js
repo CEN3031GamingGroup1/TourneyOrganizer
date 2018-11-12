@@ -30,6 +30,10 @@ var tourneySchema = new Schema({
 		type: boolean,
 		required: false
 	},
+	featured: {
+		type: boolean,
+		required: false
+	},
 	created_at: Date,
 	updated_at: Date
 });

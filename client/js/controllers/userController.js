@@ -1,4 +1,4 @@
-angular.module('Users').controller('usersController', ['$scope', 'Users',
+angular.module('users').controller('UserController', ['$scope', 'Users',
 function($scope, users) {
 
 	/* Get all the users, then bind it to the scope */
