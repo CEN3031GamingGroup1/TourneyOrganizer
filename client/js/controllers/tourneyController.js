@@ -34,6 +34,7 @@ var newTourney = {
 	address : $scope.address,
 	details: $scope.details,
 	fee : $scope.fee,
+	featured : 0,
 	ageReq : $scope.ageReq
 };
 Tourneys.create(newTourney).then(function(response){
@@ -70,8 +71,16 @@ $scope.deleteTourney = function(index) {
 
 $scope.featureTourney = function(index) {
 	$scope.tourneys[index].featured = 1;
+	Tourneys.update($scope.tourneys[index]).then(function(response) {
+		Tourneys.getAll().then(function(response) {
+			$scope.tourneys = response.data; //"redirecting" or updating the table again
+		}, function(error) {
+			console.log('Unable to retrieve tourney:', error);
+		});
+	}, function(err) {
+		console.log('Could not delete tourney:', err);
+	})
 };
-
 
 $scope.showDetails = function(index) {
 	$scope.detailedInfo = $scope.tourneys[index];

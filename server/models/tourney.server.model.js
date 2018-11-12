@@ -37,7 +37,7 @@ var tourneySchema = new Schema({
 	},
 	featured: {
 		type: Number,
-		required: false
+		required: true
 	},
 	created_at: Date,
 	updated_at: Date

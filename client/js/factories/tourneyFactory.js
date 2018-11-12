@@ -8,6 +8,10 @@ angular.module('tourneys', []).factory('Tourneys', function($http) {
 	  return $http.post('http://localhost:8080/api/tourneys', tourney);
     },
 
+		update: function(tourney) {
+			return $http.put('http://localhost:8080/api/tourneys/' + tourney._id, tourney);
+		},
+
     delete: function(id) {
 	   /**TODO
         return result of HTTP delete method
