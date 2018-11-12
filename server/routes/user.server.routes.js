@@ -1,5 +1,5 @@
 /* Dependencies */
-var users = require('../controllers/users.server.controller.js'),
+var users = require('../controllers/user.server.controller.js'),
     express = require('express'),
     router = express.Router();
 
@@ -15,7 +15,7 @@ router.route('/')
 /*
   The ':' specifies a URL parameter.
  */
-router.route('/:userID')
+router.route('/:userId')
   .get(users.read)
   .put(users.update)
   .delete(users.delete);
@@ -33,6 +33,6 @@ router.route('/:userID')
   It will then pass control to the routing function specified above, where it will either
   get, update, or delete that specific listing (depending on the HTTP verb specified)
  */
-router.param('usersId', users.usersByID);
+router.param('userId', users.usersByID);
 
 module.exports = router;

@@ -23,14 +23,14 @@ function($scope, users) {
 	console.log('Unable to create users:', error);
 });
 */
-var newuser = {
-	Username : $scope.Username,
+var newUser = {
+	username : $scope.username,
 	email : $scope.email,
 	address : $scope.address,
 	password : scope.password,
 	dob : $scope.dob
 };
-Users.create(newuser).then(function(response){
+Users.create(newUser).then(function(response){
 	$scope.users = response.data;
 }, function(error) {
 	console.log('Unable to add users:', error);

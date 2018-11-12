@@ -6,7 +6,7 @@ Schema = mongoose.Schema;
 var userSchema = new Schema({
 	username: {
 		type: String,
-		required: true
+		required: true,
 		unique: true
 	},
 	email: {
@@ -39,7 +39,7 @@ userSchema.pre('save', function(next) {
 });
 
 /* Use your schema to instantiate a Mongoose model */
-//var Listing = mongoose.model('Listing', tourneySchema);
+var User = mongoose.model('User', userSchema);
 
 /* Export the model to make it avaiable to other parts of your Node application */
-//module.exports = Listing;
+module.exports = User;

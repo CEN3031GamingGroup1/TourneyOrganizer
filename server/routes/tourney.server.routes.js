@@ -1,5 +1,5 @@
 /* Dependencies */
-var tourneys = require('../controllers/tourneys.server.controller.js'),
+var tourneys = require('../controllers/tourney.server.controller.js'),
     express = require('express'),
     router = express.Router();
 
@@ -15,7 +15,7 @@ router.route('/')
 /*
   The ':' specifies a URL parameter.
  */
-router.route('/:tourneyID')
+router.route('/:tourneyId')
   .get(tourneys.read)
   .put(tourneys.update)
   .delete(tourneys.delete);
@@ -33,6 +33,6 @@ router.route('/:tourneyID')
   It will then pass control to the routing function specified above, where it will either
   get, update, or delete that specific listing (depending on the HTTP verb specified)
  */
-router.param('tourneyID', tourney.tourneyByID);
+router.param('tourneyId', tourneys.tourneysByID);
 
 module.exports = router;
