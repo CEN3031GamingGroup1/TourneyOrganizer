@@ -4,11 +4,11 @@ Schema = mongoose.Schema;
 
 /* Create your schema */
 var userSchema = new Schema({
-	Username: {
+	username: {
 		type: String,
 		required: true
 		unique: true
-	}, 
+	},
 	email: {
 		type: String,
 		required: true,
