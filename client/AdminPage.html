@@ -40,11 +40,12 @@
 <body>
 
 <div class="topnav">
-  <a class="active" href="index.html">Home</a>
+  <a href="index.html">Home</a>
   <a href="#news">Find Tournaments</a>
   <a href="profileView.html">Profile</a>
   <a href="#about">Logout</a>
   <a href="createTourney.html">Create Event</a>
+  <a class="active" href= "AdminPage.html">Admin View</a>
 
 </div>
 
@@ -72,7 +73,8 @@
               <tr ng-repeat="tourney in tourneys | filter: query" ng-click="showDetails($index)">
                 <td>{{tourney.tournamentName}}</td>
                 <td>{{tourney.tournamentDate.month}}/{{tourney.tournamentDate.day}}/{{tourney.tournamentDate.year}}</td>
-                <td ng-click="deleteTourney($index)"><span style="color: red;" class="glyphicon glyphicon-circle-check"></span></td>
+                <td ng-click="deleteTourney($index)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+								<td ng-click="featureTourney($index)"><span style="color: green;" class="glyphicon glyphicon-ok"></span></td>
               </tr>
             </table>
           </div>
@@ -84,11 +86,6 @@
             <p>Game: {{detailedInfo.game}}</p>
 						<p>Date: {{detailedInfo.tournamentDate}}</p>
 						<p>Details: {{detailedInfo.details}}</p>
-			 <tr ng-repeat="tourney in tourneys | filter: query" ng-click="showDetails($index)">
-                <td>{{tourney.tournamentName}}</td>
-                <td>{{tourney.tournamentDate.month}}/{{tourney.tournamentDate.day}}/{{tourney.tournamentDate.year}}</td>
-                <td ng-click="featureTourney($index)"><span style="color: green;" class="glyphicon glyphicon-remove"></span></td>
-              </tr>
           </div>
         </div>
 <!-- function name needs to be corrected -->
