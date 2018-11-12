@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body ng-app="directoryApp">
+    <div class="container">
+      <div class="row">
+        <h1>GTourney</h1>
+      </div>
+      <div class="row" ng-controller="ListingsController">
+        <div class="col-md-6">
+          <div class="input-group" id="searchBar">
+            <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+            <input type="text" class="form-control" placeholder="Search" ng-model="query">
+          </div>
+		  
+<div class="topnav">
+  <a class="active" href="#home">Login/Register</a>
+  <a href="#news">Profile</a>
+  <a href="#contact">View Upcoming Events</a>
+  <a href="#about">Logout</a>
+</div>
+<div/>
+          <form novalidate class="simple-form">
+          		        
+        <hr class="fr">
+    
+     <div class="col-md-21">
+          <div class="jumbotron">
+            
+            <h2>Tournament: {{detailedInfo.tournament}}</h2> <!--"Tournament:" is placeholder-->
+            <p>Game: {{detailedInfo.game}}</p>
+            <p>Host: {{detailedInfo.host}}</p>
+            <p>Date: {{detailedInfo.date}}</p>
+            <p>Details: {{detailedInfo.details}}</p>
+            <p><button type="submit" class="btn btn-primary" ng-click"">register!</button></p>
+          </div>
+        </div>
+<!-- function name needs to be corrected -->
+        </div>
+
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
+  </body>
+</html>
