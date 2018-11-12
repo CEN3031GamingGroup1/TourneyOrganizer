@@ -20,18 +20,22 @@ var tourneySchema = new Schema({
 	tournamentDate: {
 		day: Number,
 		month: Number,
-		year: Number
+		year: Number,
+	},
+	details: {
+		type: String,
+		required: true
 	},
 	fee: {
-		type: boolean,
+		type: Number,
 		required: false
 	},
 	ageReq: {
-		type: boolean,
+		type: Number,
 		required: false
 	},
 	featured: {
-		type: boolean,
+		type: Number,
 		required: false
 	},
 	created_at: Date,
@@ -50,7 +54,7 @@ tourneySchema.pre('save', function(next) {
 });
 
 /* Use your schema to instantiate a Mongoose model */
-//var Listing = mongoose.model('Listing', tourneySchema);
+var Tourney = mongoose.model('Tourney', tourneySchema);
 
 /* Export the model to make it avaiable to other parts of your Node application */
-//module.exports = Listing;
+module.exports = Tourney;

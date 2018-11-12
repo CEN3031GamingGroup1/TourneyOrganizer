@@ -99,7 +99,7 @@ exports.list = function(req, res) {
 	/** TODO **/
 	/* Your code here */
 	User.find().sort({ username: 1 }).exec(function(err, tourneys) {
-		if (err){
+		if (err) {
 			console.log(err);
 			res.status(404).send(err);
 		} else {
@@ -115,7 +115,7 @@ Find the tourney using a mongoose query,
 bind it to the request object as the property 'tourney',
 then finally call next
 */
-exports.userByID = function(req, res, next, id) {
+exports.usersByID = function(req, res, next, id) {
 	User.findById(id).exec(function(err, tourney) {
 		if(err) {
 			res.status(404).send(err);

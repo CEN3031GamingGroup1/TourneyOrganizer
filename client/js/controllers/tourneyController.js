@@ -32,6 +32,7 @@ var newTourney = {
 	month : $scope.month,
 	year : $scope.year,
 	address : $scope.address,
+	details: $scope.details,
 	fee : $scope.fee,
 	ageReq : $scope.ageReq
 };
