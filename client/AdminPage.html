@@ -72,7 +72,7 @@
               </tr>
               <tr ng-repeat="tourney in tourneys | filter: query" ng-click="showDetails($index)">
                 <td>{{tourney.tournamentName}}</td>
-                <td>{{tourney.tournamentDate.month}}/{{tourney.tournamentDate.day}}/{{tourney.tournamentDate.year}}</td>
+                <td>{{tourney.tournamentDate.toLocaleDateString()}}</td>
                 <td ng-click="deleteTourney($index)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
 								<td ng-click="featureTourney($index)"><span style="color: green;" class="glyphicon glyphicon-ok"></span></td>
               </tr>
@@ -84,7 +84,7 @@
             <h3>Tournament: {{detailedInfo.tournamentName}}</h3>
             <!--<p>Host: {{detailedInfo.host}}</p>-->
             <p>Game: {{detailedInfo.game}}</p>
-						<p>Date: {{detailedInfo.tournamentDate}}</p>
+						<p>Date: {{detailedInfo.tournamentDate.toLocaleDateString()}}</p>
 						<p>Details: {{detailedInfo.details}}</p>
           </div>
         </div>

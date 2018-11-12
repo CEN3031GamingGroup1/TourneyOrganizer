@@ -65,7 +65,7 @@
           </div>
 
           <form novalidate class="simple-form">
-          		       
+
 
 
 
@@ -74,10 +74,10 @@
     </div>
     <center> <h1>Featured Events</h1>
          <!-- event page instead of test.html -->
-         <a href="tournamentView.html"><img src="icon.png" alt="event image 1" width="450" height="320"></a>
-         <div>
-          <a href="tournamentView.html">{{detailedInfo.tournamentName}}</a>
-         </div>
+			<div ng-controller="TourneyController">
+         <a ng-repeat="tourney in tourneys | orderBy: 'tournamentDate':true" ng-if="tourney.featured == 1" href="tournamentView.html"><img src="icon.png" alt="event image 1" width="450" height="320"><p>{{tourney.tournamentName}}</p></a>
+          <a href="tournamentView.html">{{tourney.tournamentName}}</a>
+			</div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

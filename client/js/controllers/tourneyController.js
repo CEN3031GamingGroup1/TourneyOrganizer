@@ -3,7 +3,14 @@ function($scope, Tourneys) {
 
 	/* Get all the listings, then bind it to the scope */
 	Tourneys.getAll().then(function(response) {
-		$scope.tourneys = response.data;
+		$scope.tourneys = response.data
+		.map(tourney => {
+			var newTourney = Object.assign({}, tourney);
+			const newDate = new Date(tourney.tournamentDate.year, tourney.tournamentDate.month, tourney.tournamentDate.day);
+			newTourney.tournamentDate = newDate;
+			return newTourney;
+		});
+		console.log(response.data);
 	}, function(error) {
 		console.log('Unable to retrieve listings:', error);
 	});
