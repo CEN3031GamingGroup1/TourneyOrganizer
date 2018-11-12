@@ -24,10 +24,10 @@ function($scope, Tourneys) {
 });
 */
 var newTourney = {
-	trounamentName : $scope.tournamentName,
+	tournamentName : $scope.tournamentName,
 	game : $scope.game,
 	address : $scope.address,
-	tournamentDate : scope.tournamentDate,
+	tournamentDate : $scope.tournamentDate,
 	day : $scope.day,
 	month : $scope.month,
 	year : $scope.year,
