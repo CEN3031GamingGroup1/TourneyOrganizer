@@ -67,7 +67,7 @@ exports.update = function(req, res) {
 /* FOR USE ON ADMIN PAGE */
 exports.delete = function(req, res) {
 	var tourney = req.tourney;
-	Tourney.findOneAndRemove({ code: req.tourney.code }, function(err, oldTourney) {
+	Tourney.findOneAndRemove({ tournamentName: req.tourney.tournamentName }, function(err, oldTourney) {
 		if (err)
 		res.status(400).send(err);
 		else {
@@ -105,7 +105,7 @@ exports.list = function(req, res) {
 exports.listFeatured = function(req, res) {
 	/** TODO **/
 	/* Your code here */
-	Tourney.find().sort({ tournamentName: 1 , featured: 1}).exec(function(err, tourneys) {
+	Tourney.find().sort({ tournamentName: 1}).exec(function(err, tourneys) {
 		if (err){
 			console.log(err);
 			res.status(404).send(err);
