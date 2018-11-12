@@ -57,13 +57,13 @@
         <form>
           <div class="form-group row">
           <div class="col-md-4">
-            Date of Birth:<input class="form-control" id="month" ng-model="month" placeholder="month (mm)">
+            Date of Birth:<input class="form-control" id="month" ng-model="tournamentDate.month" placeholder="month (mm)">
           </div>
           <div class="col-md-4">
-            <input class="form-control" id="day" ng-model="day" placeholder="day (dd)">
+            <input class="form-control" id="day" ng-model="tournamentDate.day" placeholder="day (dd)">
           </div>
           <div class="col-md-4">
-            <input class="form-control" id="year" ng-model="year" placeholder="year (yy)">
+            <input class="form-control" id="year" ng-model="tournamentDate.year" placeholder="year (yy)">
           </div>
           </div>
         </form>
@@ -75,8 +75,12 @@
         <form action="/action_page.php" method="get">
 
           <input type="checkbox" name="fee" value="Car" checked="checked">Age Required?<br>
+				</form>
+				<!-- function name needs to be corrected -->
+        <button type="submit" class="btn btn-primary" ng-click="createTourney()">Add tournament</button>
+        </div>
 
-      
+
 
       </div>
     </div>

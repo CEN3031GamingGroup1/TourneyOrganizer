@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body ng-app="directoryApp">
-  
+
     <style>
   body {
   margin: 0;
@@ -47,7 +47,7 @@
   <a href="createTourney.html">Create Event</a>
 
 </div>
-  
+
     <div class="container">
       <div class="row">
         <h1>GTourney</h1>
@@ -69,9 +69,9 @@
                 <th>Date</th>
                 <th></th>
               </tr>
-              <tr ng-repeat="listing in listings | filter: query" ng-click="showDetails($index)">
+              <tr ng-repeat="tourney in tourneys | filter: query" ng-click="showDetails($index)">
                 <td>{{tourney.tournamentName}}</td>
-                <td>{{tourney.tournamentDate}}</td>
+                <td>{{tourney.tournamentDate.month}}/{{tourney.tournamentDate.day}}/{{tourney.tournamentDate.year}}</td>
                 <td ng-click="deleteTourney($index)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
             </table>
