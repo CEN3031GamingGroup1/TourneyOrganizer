@@ -90,7 +90,7 @@ exports.changeimage = function(req, res) {
 exports.list = function(req, res) {
 	/** TODO **/
 	/* Your code here */
-	Tourney.find().sort({ tournamentDate: 1 }).exec(function(err, tourneys) {
+	Tourney.find().sort({ tournamentName: 1 }).exec(function(err, tourneys) {
 		if (err){
 			console.log(err);
 			res.status(404).send(err);
@@ -105,7 +105,7 @@ exports.list = function(req, res) {
 exports.listFeatured = function(req, res) {
 	/** TODO **/
 	/* Your code here */
-	Tourney.find().sort({ tournamentDate: 1 , featured: 1}).exec(function(err, tourneys) {
+	Tourney.find().sort({ tournamentName: 1 , featured: 1}).exec(function(err, tourneys) {
 		if (err){
 			console.log(err);
 			res.status(404).send(err);

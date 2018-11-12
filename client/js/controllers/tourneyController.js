@@ -37,9 +37,14 @@ var newTourney = {
 	ageReq : $scope.ageReq
 };
 Tourneys.create(newTourney).then(function(response){
-	$scope.tourneys = response.data;
-}, function(error) {
-	console.log('Unable to add tourneys:', error);
+	Tourneys.getAll().then(function(response) {
+		$scope.tourneys = response.data; //"redirecting" or updating the table again
+		
+	}, function(error) {
+		console.log('Unable to retrieve tourneys:', error);
+	});
+}, function(err) {
+	console.log('Could not create new tourney:', err);
 });
 };
 
@@ -48,12 +53,19 @@ $scope.deleteTourney = function(index) {
 	Delete the article using the Listings factory. If the removal is successful,
 	navigate back to 'listing.list'. Otherwise, display the error.
 	*/
-
-	$scope.tourneys.splice(index, 1);
-	Tourneys.delete($scope.tourneys[index]._id).then(function(response){
-		$scope.tourneys = response.data;
-		console.log('Unable to delete listings:', error);
-	});
+	Tourneys.delete($scope.tourneys[index]._id).then(function(response) {
+		/**TODO
+		Delete the article using the Listings factory. If the removal is successful,
+		navigate back to 'listing.list'. Otherwise, display the error.
+		*/
+		Tourneys.getAll().then(function(response) {
+			$scope.tourneys = response.data; //"redirecting" or updating the table again
+		}, function(error) {
+			console.log('Unable to retrieve tourney:', error);
+		});
+	}, function(err) {
+		console.log('Could not delete tourney:', err);
+	})
 };
 
 

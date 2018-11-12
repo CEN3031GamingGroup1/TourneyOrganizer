@@ -5,6 +5,51 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body ng-app="directoryApp">
+  
+    <style>
+  body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: blue;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="active" href="index.html">Home</a>
+  <a href="#news">Find Tournaments</a>
+  <a href="profileView.html">Profile</a>
+  <a href="#about">Logout<a>
+  <a href="createTourney.html">Create Event<a>
+	<a href="signup.html">Register</a>
+
+
+</div>
+  
     <div class="container">
       <div class="row">
         <h1>GTourney</h1>
@@ -57,13 +102,13 @@
         <form>
           <div class="form-group row">
           <div class="col-md-4">
-            Date of Birth:<input class="form-control" id="month" ng-model="month" placeholder="month (mm)">
+            Date of Birth:<input class="form-control" id="month" ng-model="tournamentDate.month" placeholder="month (mm)">
           </div>
           <div class="col-md-4">
-            <input class="form-control" id="day" ng-model="day" placeholder="day (dd)">
+            <input class="form-control" id="day" ng-model="tournamentDate.day" placeholder="day (dd)">
           </div>
           <div class="col-md-4">
-            <input class="form-control" id="year" ng-model="year" placeholder="year (yy)">
+            <input class="form-control" id="year" ng-model="tournamentDate.year" placeholder="year (yy)">
           </div>
           </div>
         </form>
@@ -75,11 +120,12 @@
         <form action="/action_page.php" method="get">
 
           <input type="checkbox" name="fee" value="Car" checked="checked">Age Required?<br>
-
-        </form>
-<!-- function name needs to be corrected -->
+				</form>
+				<!-- function name needs to be corrected -->
         <button type="submit" class="btn btn-primary" ng-click="createTourney()">Add tournament</button>
         </div>
+
+
 
       </div>
     </div>

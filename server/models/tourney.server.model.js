@@ -8,7 +8,7 @@ var tourneySchema = new Schema({
 		type: String,
 		required: true,
 		unique: true
-	},
+	},//ADD HOST after authentication
 	game: {
 		type: String,
 		required: true
@@ -21,6 +21,7 @@ var tourneySchema = new Schema({
 		day: Number,
 		month: Number,
 		year: Number,
+		required: true
 	},
 	details: {
 		type: String,

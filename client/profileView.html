@@ -39,16 +39,16 @@
 <body>
 
 <div class="topnav">
-  <a class="active" href="index.html">Home</a>
+  <a href="index.html">Home</a>
   <a href="#news">Find Tournaments</a>
-  <a href="profileView.html">Profile</a>
-  <a href="#about">Logout<a>
-  <a href="createTourney.html">Create Event<a>
-	<a href="signup.html">Register</a>
+  <a class="active" href="#contact">Profile</a>
+  <a href="#about">Logout</a>
+  <a href="createTourney.html">Create Event</a>
+  <a href="AdminPage.html">See All Tournaments (ADMIN ONLY)</a>
 
+  
 
-</div>
-
+</div>  
     <div class="container">
       <div class="row">
         <h1>GTourney</h1>
@@ -56,31 +56,30 @@
       <div class="row" ng-controller="TourneyController">
         <div class="col-md-6">
           <div class="input-group" id="searchBar">
-            <span class="input-group-addon" id="sizing-addon1">
-            	<span class="glyphicon glyphicon-search">
-
-            	</span>
-            </span>
+            <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
             <input type="text" class="form-control" placeholder="Search" ng-model="query">
           </div>
 
           <form novalidate class="simple-form">
-          		        <h1>Featured Events</h1>
-         <!-- event page instead of test.html -->
-         <a href="tournamentView.html"><img src="icon.png" alt="event image 1" width="300" height="200"></a>
-         <div>
-         	<a href="tournamentView.html">{{tournamentInfo.tournamentName}}</a>
-         </div>
- 			 <a href="tournamentView.html"><img src="icon.png" alt="event image 2" width="300" height="200"></a>
-         <div>
-         	<a href="tournamentView.html">tournament name 2</a>
-         </div>
-          <a href="tournamentView.html"><img src="icon.png" alt="event image 3" width="300" height="200"></a>
-         <div>
-         	<a href="tournamentView.html">tournament name 3</a>
-         </div>
 
+        <hr class="fr">
 
+     <div class="col-md-21">
+          <div class="jumbotron">
+
+            <h2>Tournament: {{detailedInfo.tournament}}</h2> <!--"Tournament:" is placeholder-->
+            <p>Game: {{detailedInfo.game}}</p>
+            <p>Host: {{detailedInfo.host}}</p>
+            <p>Date: {{detailedInfo.date}}</p>
+            <p>Details: {{detailedInfo.details}}</p>
+            <p> <a href="sucessfulRegistration.html" class= "topnav"> register! </a>
+
+            <!-- <p><button type="submit" href="sucessfulRegistration.html" class="btn btn-primary" ng-click"">register!</button></p> 
+              *figure out how to get button to redirect to sucessful registration page*--> 
+          </div>
+        </div>
+<!-- function name needs to be corrected -->
+        </div>
 
       </div>
     </div>
@@ -88,7 +87,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/factories/tourneyFactory.js"></script>
-    <script src="js/controllers/tourneyController.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
   </body>
 </html>
