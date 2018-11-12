@@ -24,7 +24,7 @@ var tourneySchema = new Schema({
 	},
 	details: {
 		type: String,
-		required: true
+		required: false
 	},
 	fee: {
 		type: Number,
