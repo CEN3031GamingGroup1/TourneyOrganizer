@@ -39,14 +39,14 @@ var newTourney = {
 Tourneys.create(newTourney).then(function(response){
 	Tourneys.getAll().then(function(response) {
 		$scope.tourneys = response.data; //"redirecting" or updating the table again
-
+		
 	}, function(error) {
 		console.log('Unable to retrieve tourneys:', error);
 	});
-	}, function(err) {
-	 console.log('Could not create new tourney:', err);
-	});
-	};
+}, function(err) {
+	console.log('Could not create new tourney:', err);
+});
+};
 
 $scope.deleteTourney = function(index) {
 	/**TODO
@@ -66,7 +66,7 @@ $scope.deleteTourney = function(index) {
 	}, function(err) {
 		console.log('Could not delete tourney:', err);
 	})
-	};
+};
 
 
 

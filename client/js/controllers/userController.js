@@ -31,9 +31,14 @@ var newUser = {
 	dob : $scope.dob
 };
 Users.create(newUser).then(function(response){
-	$scope.users = response.data;
-}, function(error) {
-	console.log('Unable to add users:', error);
+	Users.getAll().then(function(response) {
+		$scope.users = response.data; //"redirecting" or updating the table again
+
+	}, function(error) {
+		console.log('Unable to retrieve tourneys:', error);
+	});
+}, function(err) {
+	console.log('Could not create new tourney:', err);
 });
 };
 
