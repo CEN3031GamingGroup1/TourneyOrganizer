@@ -39,7 +39,7 @@ var newTourney = {
 Tourneys.create(newTourney).then(function(response){
 	Tourneys.getAll().then(function(response) {
 		$scope.tourneys = response.data; //"redirecting" or updating the table again
-		
+
 	}, function(error) {
 		console.log('Unable to retrieve tourneys:', error);
 	});
@@ -68,8 +68,9 @@ $scope.deleteTourney = function(index) {
 	})
 };
 
-
-
+$scope.featureTourney = function(index) {
+	$scope.tourneys[index].featured = 1;
+};
 
 
 $scope.showDetails = function(index) {
