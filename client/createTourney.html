@@ -9,7 +9,7 @@
       <div class="row">
         <h1>GTourney</h1>
       </div>
-      <div class="row" ng-controller="ListingsController">
+      <div class="row" ng-controller="tourneyController">
         <div class="col-md-6">
           <div class="input-group" id="searchBar">
             <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
@@ -22,7 +22,7 @@
         <form>
           <div class="form-group row">
             <div class="col-md-6">
-            <input class="form-control" id="tournament name" ng-model="tournamentName" placeholder="tournament name">
+            Tournament Name: <input class="form-control" id="tournament name" ng-model="tournamentName" placeholder="tournament name">
             </div>
 
           </div>
@@ -48,7 +48,7 @@
         <form>
           <div class="form-group row">
           <div class="col-md-4">
-            <input class="form-control" id="month" ng-model="month" placeholder="month (mm)">
+            Date of Birth:<input class="form-control" id="month" ng-model="month" placeholder="month (mm)">
           </div>
           <div class="col-md-4">
             <input class="form-control" id="day" ng-model="day" placeholder="day (dd)">
