@@ -21,7 +21,7 @@ var tourneySchema = new Schema({
 		day: Number,
 		month: Number,
 		year: Number,
-		required: true
+		
 	},
 	details: {
 		type: String,
