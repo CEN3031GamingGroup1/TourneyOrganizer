@@ -1,5 +1,5 @@
 angular.module('users').controller('UserController', ['$scope', 'Users',
-function($scope, users) {
+function($scope, Users) {
 
 	/* Get all the users, then bind it to the scope */
 	Users.getAll().then(function(response) {
@@ -27,7 +27,7 @@ var newUser = {
 	username : $scope.username,
 	email : $scope.email,
 	address : $scope.address,
-	password : scope.password,
+	password : $scope.password,
 	dob : $scope.dob
 };
 Users.create(newUser).then(function(response){

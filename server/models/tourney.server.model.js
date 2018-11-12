@@ -8,7 +8,7 @@ var tourneySchema = new Schema({
 		type: String,
 		required: true,
 		unique: true
-	},
+	},//ADD HOST
 	game: {
 		type: String,
 		required: true

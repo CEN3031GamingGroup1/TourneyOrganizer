@@ -1,6 +1,7 @@
 
 /* Dependencies */
 var mongoose = require('mongoose'),
+//var passport = require('passport'),
 User = require('../models/user.server.model.js');
 
 
@@ -22,7 +23,7 @@ exports.create = function(req, res) {
 
 
 	/* Then save the user */
-	User.save(function(err) {
+	user.save(function(err) {
 		if(err) {
 			console.log(err);
 			res.status(404).send(err);
@@ -80,11 +81,31 @@ exports.delete = function(req, res) {
 };
 
 /* Login */
-exports.login = function(req, res) {
-	var user = req.user;
-	/** TODO **/
-
-};
+// exports.login = function(req, res) {
+//
+//   passport.authenticate('local', function(err, user, info){
+//     var token;
+//
+//     // If Passport throws/catches an error
+//     if (err) {
+//       res.status(404).json(err);
+//       return;
+//     }
+//
+//     // If a user is found
+//     if(user){
+//       token = user.generateJwt();
+//       res.status(200);
+//       res.json({
+//         "token" : token
+//       });
+//     } else {
+//       // If user is not found
+//       res.status(401).json(info);
+//     }
+//   })(req, res);
+//
+// };
 
 /* Update Image for profile pics and tournaments */
 exports.changeImage = function(req, res) {
@@ -98,7 +119,7 @@ exports.changeImage = function(req, res) {
 exports.list = function(req, res) {
 	/** TODO **/
 	/* Your code here */
-	User.find().sort({ username: 1 }).exec(function(err, tourneys) {
+	User.find().sort({ username: 1 }).exec(function(err, users) {
 		if (err) {
 			console.log(err);
 			res.status(404).send(err);
