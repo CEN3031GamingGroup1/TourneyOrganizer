@@ -82,14 +82,6 @@ exports.delete = function(req, res) {
 exports.changeimage = function(req, res) {
 	var tourney = req.tourney;
 	/** TODO **/
-	Tourney.find().sort('code').exec(function(err, tourneys) {
-		if (err){
-			console.log(err);
-			res.status(404).send(err);
-		} else {
-			res.json(tourneys);
-		}
-	});
 
 };
 
@@ -113,16 +105,12 @@ exports.list = function(req, res) {
 exports.listFeatured = function(req, res) {
 	/** TODO **/
 	/* Your code here */
-	Tourney.find().sort({ tournamentDate: 1 }).exec(function(err, tourneys) {
+	Tourney.find().sort({ tournamentDate: 1 , featured: 1}).exec(function(err, tourneys) {
 		if (err){
 			console.log(err);
 			res.status(404).send(err);
 		} else {
-			if(tourneys.featured == true)
 				res.json(tourneys);
-			else {
-
-			}
 		}
 	});
 };
@@ -134,7 +122,7 @@ Find the listing using a mongoose query,
 bind it to the request object as the property 'listing',
 then finally call next
 */
-exports.tourneyByID = function(req, res, next, id) {
+exports.tourneysByID = function(req, res, next, id) {
 	Tourney.findById(id).exec(function(err, tourney) {
 		if(err) {
 			res.status(404).send(err);
