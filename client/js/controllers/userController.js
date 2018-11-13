@@ -23,6 +23,8 @@ function($scope, Users) {
 	console.log('Unable to create users:', error);
 });
 */
+var confirm_password = document.getElementById("confirm_password"), confirm_email = document.getElementById("confirm_email");
+if(confirm_email == $scope.email && confirm_password == $scope.password) {
 var newUser = {
 	username : $scope.username,
 	email : $scope.email,
@@ -40,6 +42,10 @@ Users.create(newUser).then(function(response){
 }, function(err) {
 	console.log('Could not create new tourney:', err);
 });
+}
+else {
+	console.log("email or password does not match");
+}
 };
 
 $scope.deleteUser = function(index) {
