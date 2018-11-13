@@ -1,5 +1,5 @@
-angular.module('tourneys').controller('TourneyController', ['$scope', 'Tourneys',
-function($scope, Tourneys) {
+angular.module('tourneys').controller('TourneyController', ['$scope', '$cookies', 'Tourneys',
+function($scope, $cookies, Tourneys) {
 
 	/* Get all the listings, then bind it to the scope */
 	Tourneys.getAll().then(function(response) {
@@ -91,6 +91,15 @@ $scope.featureTourney = function(index) {
 
 $scope.showDetails = function(index) {
 	$scope.detailedInfo = $scope.tourneys[index];
+};
+
+
+$scope.sendCookies = function(index) {
+	$cookies.put('index', index);
+};
+
+$scope.getCookies = function() {
+	$scope.showDetails($cookies.get('index'));
 };
 }
 ]);

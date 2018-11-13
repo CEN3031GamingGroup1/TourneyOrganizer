@@ -75,16 +75,18 @@
     <center> <h1>Featured Events</h1>
          <!-- event page instead of test.html -->
 			<div ng-controller="TourneyController">
-         <a ng-repeat="tourney in tourneys | orderBy: 'tournamentDate':true" ng-if="tourney.featured == 1" href="tournamentView.html"><img src="icon.png" alt="event image 1" width="450" height="320"><p>{{tourney.tournamentName}}</p></a>
-          <a href="tournamentView.html">{{tourney.tournamentName}}</a>
+         <a ng-repeat="tourney in tourneys | orderBy: 'tournamentName':true" ng-if="tourney.featured == 1" href="tournamentView.html" ng-click="sendCookies($index)">
+					 <img src="icon.png" alt="event image 1" width="450" height="320">
+					 <p>{{tourney.tournamentName}}</p></a>
 			</div>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/factories/tourneyFactory.js"></script>
-    <script src="js/controllers/tourneyController.js"></script>
-  </body>
-</html>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+	    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+			<script src="https://code.angularjs.org/1.4.3/angular-cookies.js"></script>
+	    <script src="js/app.js"></script>
+	    <script src="js/factories/tourneyFactory.js"></script>
+	    <script src="js/controllers/tourneyController.js"></script>
+	  </body>
+	</html>
