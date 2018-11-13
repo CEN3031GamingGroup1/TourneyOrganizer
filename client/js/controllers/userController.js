@@ -24,7 +24,7 @@ function($scope, Users) {
 });
 */
 var confirm_password = document.getElementById("confirm_password"), confirm_email = document.getElementById("confirm_email");
-if(confirm_email == $scope.email && confirm_password == $scope.password) {
+if(confirm_email.value == $scope.email && confirm_password.value == $scope.password) {
 var newUser = {
 	username : $scope.username,
 	email : $scope.email,
