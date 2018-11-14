@@ -89,17 +89,18 @@ $scope.featureTourney = function(index) {
 	})
 };
 
-$scope.showDetails = function(index) {
-	$scope.detailedInfo = $scope.tourneys[index];
+$scope.showDetails = function(tourney) {
+	$scope.detailedInfo = tourney;
 };
 
 
-$scope.sendCookies = function(index) {
-	$cookies.put('index', index);
+$scope.sendCookies = function(id) {
+	$cookies.put('id', id);
 };
 
 $scope.getCookies = function() {
-	$scope.showDetails($cookies.get('index'));
+	console.log($cookies.get('id'));
+	return $cookies.get('id');
 };
 
 

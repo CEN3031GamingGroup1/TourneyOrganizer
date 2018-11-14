@@ -77,7 +77,7 @@
     <center> <h1>Featured Events</h1>
          <!-- event page instead of test.html -->
 			<div ng-controller="TourneyController">
-         <a ng-repeat="tourney in tourneys | orderBy: 'tournamentName':true" ng-if="tourney.featured == 1" href="tournamentView.html" ng-click="sendCookies($index)">
+         <a ng-repeat="tourney in tourneys | orderBy: 'tournamentName':true" ng-if="tourney.featured == 1" href="tournamentView.html" ng-click="sendCookies(tourney._id)">
 					 <img src="icon.png" alt="event image 1" width="450" height="320">
 					 <p>{{tourney.tournamentName}}</p></a>
 			</div>

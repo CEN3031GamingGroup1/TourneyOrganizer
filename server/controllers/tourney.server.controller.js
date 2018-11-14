@@ -105,7 +105,7 @@ exports.list = function(req, res) {
 exports.listFeatured = function(req, res) {
 	/** TODO **/
 	/* Your code here */
-	Tourney.find().sort({ tournamentName: 1}).exec(function(err, tourneys) {
+	Tourney.find().sort({ tournamentName: 1 }).exec(function(err, tourneys) {
 		if (err){
 			console.log(err);
 			res.status(404).send(err);

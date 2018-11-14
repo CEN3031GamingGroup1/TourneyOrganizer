@@ -74,8 +74,8 @@
         <hr class="fr">
 
      <div class="col-md-21">
-          <div class="jumbotron" >
-						{{getCookies()}}
+          <div class="jumbotron"  ng-repeat="tourney in tourneys" ng-if="tourney._id == getCookies()">
+						{{showDetails(tourney)}}
             <h2>Tournament: {{detailedInfo.tournamentName}}</h2> <!--"Tournament:" is placeholder-->
             <p>Game: {{detailedInfo.game}}</p>
             <!--<p>Host: {{detailedInfo.host}}</p>-->

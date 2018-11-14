@@ -71,7 +71,7 @@
 								<th>Remove</th>
 								<th>Feature</th>
               </tr>
-              <tr ng-repeat="tourney in tourneys | filter: query" ng-click="showDetails($index)">
+              <tr ng-repeat="tourney in tourneys | orderBy: 'tournamentName':true" ng-click="showDetails(tourney)">
                 <td>{{tourney.tournamentName}}</td>
                 <td>{{displayDate(tourney)}}</td>
                 <td ng-click="deleteTourney($index)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
