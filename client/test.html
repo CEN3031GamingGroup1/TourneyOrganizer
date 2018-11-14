@@ -15,7 +15,7 @@
             <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
             <input type="text" class="form-control" placeholder="Search" ng-model="query">
           </div>
-		  
+
 <div class="tov">
   <a class="active" href="#home">Login/Register</a>
   <a href="#news">Profile</a>
@@ -45,7 +45,7 @@
             <h2>Detailed Information</h2>
             <h4>Tournament: {{detailedInfo.tournament}}</h4>
             <p>Host: {{detailedInfo.host}}</p>
-            <p>Date: {{detailedInfo.date}}</p>
+            <p>Date: {{displayDate(detailedInfo)}}</p>
           </div>
         </div>
 <!-- function name needs to be corrected -->
