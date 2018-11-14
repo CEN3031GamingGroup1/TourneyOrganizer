@@ -3,13 +3,13 @@ function($scope, $cookies, Tourneys) {
 
 	/* Get all the listings, then bind it to the scope */
 	Tourneys.getAll().then(function(response) {
-		$scope.tourneys = response.data
-		.map(tourney => {
-			var newTourney = Object.assign({}, tourney);
-			const newDate = new Date(tourney.tournamentDate.year, tourney.tournamentDate.month, tourney.tournamentDate.day);
-			newTourney.tournamentDate = newDate;
-			return newTourney;
-		});
+		$scope.tourneys = response.data;
+		// .map(tourney => {
+		// 	var newTourney = Object.assign({}, tourney);
+		// 	const newDate = new Date(tourney.tournamentDate.year, tourney.tournamentDate.month-1, tourney.tournamentDate.day);
+		// 	newTourney.tournamentDate = newDate;
+		// 	return newTourney;
+		// });
 		console.log(response.data);
 	}, function(error) {
 		console.log('Unable to retrieve listings:', error);
@@ -30,20 +30,20 @@ function($scope, $cookies, Tourneys) {
 	console.log('Unable to create listings:', error);
 });
 */
+const newDate = new Date($scope.tournamentDate.year, $scope.tournamentDate.month-1, $scope.tournamentDate.day);
+console.log(newDate);
 var newTourney = {
 	tournamentName : $scope.tournamentName,
 	game : $scope.game,
 	address : $scope.address,
-	tournamentDate : $scope.tournamentDate,
-	day : $scope.day,
-	month : $scope.month,
-	year : $scope.year,
+	tournamentDate : newDate,
 	address : $scope.address,
 	details: $scope.details,
 	fee : $scope.fee,
 	featured : 0,
 	ageReq : $scope.ageReq
 };
+console.log(newTourney.tournamentDate.toLocaleDateString());
 Tourneys.create(newTourney).then(function(response){
 	Tourneys.getAll().then(function(response) {
 		$scope.tourneys = response.data; //"redirecting" or updating the table again
@@ -101,5 +101,17 @@ $scope.sendCookies = function(index) {
 $scope.getCookies = function() {
 	$scope.showDetails($cookies.get('index'));
 };
+
+
+$scope.displayDate = function(tourney) {
+	var newDate = new Date;
+	try {
+		newDate = new Date(tourney.tournamentDate);
+	}
+	catch(err) {
+		return '';
+	}
+	return newDate.toLocaleDateString();
+}
 }
 ]);

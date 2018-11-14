@@ -18,10 +18,8 @@ var tourneySchema = new Schema({
 		required: true
 	},
 	tournamentDate: {
-		day: Number,
-		month: Number,
-		year: Number,
-		
+		type: Date,
+		required: true
 	},
 	details: {
 		type: String,
