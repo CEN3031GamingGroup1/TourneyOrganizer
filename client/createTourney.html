@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <!-- <body ng-app="directoryApp"> -->
-  <body style="padding-top: 70px">
+  <body ng-app="directoryApp" style="padding-top: 70px">
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -47,7 +47,7 @@
       <hr class="col-md-6">
     </center>
 
-    <div class="container">
+    <div class="container" ng-controller="TourneyController">
       <form>
         <div class="form-row">
           <div class="form-group col-md-4">
@@ -58,13 +58,13 @@
           </div>
           <div class="form-group col-md-8">
             <label for="tourneyDescription">Description:</label>
-            <textarea class="form-control" id="tourneyDescription" placeholder="A description about your tournament..." rows="4"></textarea>
+            <textarea class="form-control" id="tourneyDescription" ng-model="details" placeholder="A description about your tournament..." rows="4"></textarea>
           </div>
         </div>
 
         <div class="form-group">
           <label for="tourneyAddress">Address:</label>
-          <input type="text" class="form-control" id="tourneyAddress" placeholder="1234 Main St">
+          <input type="text" class="form-control" id="tourneyAddress" ng-model="address" placeholder="1234 Main St">
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
@@ -84,7 +84,7 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="tournamentDate">Date:</label>
-            <select class="month-select" id="tournamentDate">
+            <select class="month-select" id="tournamentDate" ng-model="tournamentDate.month">
               <option selected>Select month...</option>
               <option value="1">January</option>
               <option value="2">February</option>
@@ -99,7 +99,7 @@
               <option value="11">November</option>
               <option value="12">December</option>
             </select>
-            <select class="day-select" id="tournamentDate">
+            <select class="day-select" id="tournamentDate"ng-model="tournamentDate.day">
               <option selected>Select day...</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -133,7 +133,7 @@
               <option value="30">30</option>
               <option value="31">31</option>
             </select>
-            <input class="year-select" id="tournamentDate" type="number" placeholder="Year..." style="width: 25%">
+            <input class="year-select" id="tournamentDate" type="number" ng-model="tournamentDate.year" placeholder="Year..." style="width: 25%">
           </div>
           <div class="form-group col-md-3">
             <label for="tournamentAge">Age requirement:</label>
@@ -158,7 +158,7 @@
         </div>
 
         <center>
-          <button type="submit" class="btn btn-primary">Create Event!</button>
+          <button type="submit" class="btn btn-primary" ng-click = "createTourney" >Create Event!</button>
         </center>
       </form>
     </div>
