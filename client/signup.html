@@ -43,15 +43,15 @@
         <form>
           <div class="col-md-6">
             <label for="userEmail">Email:</label>
-            <input type="email" class="form-control" id="userEmail" ng-model="email"  placeholder="Email...">
+            <input type="email" class="form-control" id="email" ng-model="email"  placeholder="Email...">
             <label for="username">Username:</label>
             <input type="text" class="form-control" id="username"  ng-model="username" placeholder="Username...">
             <label for="userPassword">Password:</label>
-            <input class="form-control" id="userPassword" type="password" ng-model="password" placeholder="Password...">
+            <input class="form-control" id="password" type="password" ng-model="password" placeholder="Password...">
             <div class="row-md-6">
               <label for="tournamentDate">Birth Day:</label>
               <div class="form-group">
-                <select class="month-select" id="tournamentDate" ng-model="month" >
+                <select class="month-select" id="month" ng-model="month" >
                   <option selected>Select month...</option>
                   <option value="1">January</option>
                   <option value="2">February</option>
@@ -66,7 +66,7 @@
                   <option value="11">November</option>
                   <option value="12">December</option>
                 </select>
-                <select class="day-select" id="tournamentDate" ng-model="day" >
+                <select class="day-select" id="day" ng-model="day" >
                   <option selected>Select day...</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -100,7 +100,7 @@
                   <option value="30">30</option>
                   <option value="31">31</option>
                 </select>
-                <input class="year-select" id="tournamentDate"  ng-model="year"  type="number" placeholder="Year..." style="width: 25%">
+                <input class="year-select" id="year"  ng-model="year"  type="number" placeholder="Year..." style="width: 25%">
               </div>
             </div>
           </div>
