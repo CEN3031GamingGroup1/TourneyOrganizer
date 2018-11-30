@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <!-- <body ng-app="directoryApp"> -->
-  <body  ng-app="directoryApp"  style="padding-top: 70px">
+  <body style="padding-top: 70px">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <a class="navbar-brand"> <font color="orange">GT</font><font color= "blue">ourney</font> </a>
@@ -38,16 +38,20 @@
       <hr class="col-md-6">
     </center>
 
-    <div class="container"  ng-controller="UserController">
+    <div class="container" ng-app="directoryApp" ng-controller="UserController">
       <center>
         <form>
           <div class="col-md-6"
             <label for="userEmail">Email:</label>
-            <input type="email" class="form-control" id="email" ng-model="email"  placeholder="Email...">
+            <input type="email" class="form-control" id="userEmail" ng-model="email"  placeholder="Email...">
+			<label for="confirm_email">Confirm your email:</label>
+            <input type="email" class="form-control" id="confirm_email"  placeholder="Confirm email...">
             <label for="username">Username:</label>
-            <input type="text" class="form-control" id="username"  ng-model="username" placeholder="Username...">
+            <input type="text" class="form-control" id="username"  ng-model="username" placeholder="Pick a username...">
             <label for="userPassword">Password:</label>
             <input class="form-control" id="password" type="password" ng-model="password" placeholder="Password...">
+			<label for="confirm_password">Confirm your password:</label>
+            <input class="form-control" id="confirm_password" type="password" placeholder="Confirm password...">
             <div class="row-md-6">
               <label for="tournamentDate">Birth Day:</label>
               <div class="form-group">
