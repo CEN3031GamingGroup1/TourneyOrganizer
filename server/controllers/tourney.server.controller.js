@@ -3,7 +3,6 @@
 var mongoose = require('mongoose'),
 Tourney = require('../models/tourney.server.model.js');
 
-
 /*
 In this file, you should use Mongoose queries in order to retrieve/add/remove/update listings.
 On an error you should send a 404 status code, as well as the error message.
