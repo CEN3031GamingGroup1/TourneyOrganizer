@@ -10,6 +10,18 @@
   <!-- <body ng-app="directoryApp"> -->
   <body style="padding-top: 70px">
 
+    <style>
+      @media screen{
+        .noPrint{}
+        .noScreen{display:none;}
+      }
+
+      @media print{
+        .noPrint{display:none;}
+        .noScreen{}
+      }
+    </style>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <a class="navbar-brand"> <font color="orange">GT</font><font color= "blue">ourney</font> </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,6 +55,8 @@
       <h1 class="display-4">Registration Successful!</h1>
       <img src="happy-gamer.jpg" alt= "RSVP image" width="500" height= "400">
     </center>
+
+    <div class="noScreen">  <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://i.redd.it/7k0zytm6va121.jpg&choe=UTF-8" alt="QR Code"/> </div>
 
     <!-- Scripts I've added-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
