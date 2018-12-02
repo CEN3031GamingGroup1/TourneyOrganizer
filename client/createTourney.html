@@ -137,16 +137,16 @@
           </div>
           <div class="form-group col-md-3">
             <label for="tournamentAge">Age requirement:</label>
-            <select class="age-select" id="tournamentAge" required>
+            <select class="age-select" id="tournamentAge" ng-model="ageReq" required>
               <option selected>Select age requirement...</option>
-              <option value="1">All ages</option>
-              <option value="2">18+</option>
-              <option value="3">21+</option>
+              <option value="0">All ages</option>
+              <option value="18">18+</option>
+              <option value="21">21+</option>
             </select>
           </div>
           <div class="form-group col-md-2">
             <label for="tournamentFee">Entrance Fee:</label>
-            <select class="fee-select" id="tournamentFee">
+            <select class="fee-select" id="tournamentFee" ng-model="fee" required>
               <option selected>Entrance fee...</option>
               <option value="0">Free</option>
               <option value="5">$5</option>
