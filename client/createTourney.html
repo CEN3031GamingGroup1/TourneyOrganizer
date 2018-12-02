@@ -64,27 +64,27 @@
 
         <div class="form-group">
           <label for="tourneyAddress">Address:</label>
-          <input type="text" class="form-control" id="tourneyAddress" ng-model="address" placeholder="1234 Main St">
+          <input type="text" class="form-control" id="tourneyAddress" ng-model="address" placeholder="1234 Main St" required>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="tourneyCity">City:</label>
-            <input type="text" class="form-control" id="tourneyCity">
+            <input type="text" class="form-control" id="tourneyCity" required>
           </div>
           <div class="form-group col-md-4">
             <label for="tourneyState">State:</label>
-            <input type="text" class="form-control" id="tourneyState">
+            <input type="text" class="form-control" id="tourneyState" required>
           </div>
           <div class="form-group col-md-2">
             <label for="tourneyZip">Zip:</label>
-            <input type="number" class="form-control" id="tourneyZip">
+            <input type="number" class="form-control" id="tourneyZip" required>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="tournamentDate">Date:</label>
-            <select class="month-select" id="tournamentDate" ng-model="tournamentDate.month">
+            <select class="month-select" id="tournamentDate" ng-model="tournamentDate.month" required>
               <option selected>Select month...</option>
               <option value="1">January</option>
               <option value="2">February</option>
@@ -99,7 +99,7 @@
               <option value="11">November</option>
               <option value="12">December</option>
             </select>
-            <select class="day-select" id="tournamentDate" ng-model="tournamentDate.day">
+            <select class="day-select" id="tournamentDate" ng-model="tournamentDate.day" required>
               <option selected>Select day...</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -133,11 +133,11 @@
               <option value="30">30</option>
               <option value="31">31</option>
             </select>
-            <input class="year-select" id="tournamentDate" type="number" ng-model="tournamentDate.year" placeholder="Year..." style="width: 25%">
+            <input class="year-select" id="tournamentDate" type="number" ng-model="tournamentDate.year" placeholder="Year..." style="width: 25%" required>
           </div>
           <div class="form-group col-md-3">
             <label for="tournamentAge">Age requirement:</label>
-            <select class="age-select" id="tournamentAge">
+            <select class="age-select" id="tournamentAge" required>
               <option selected>Select age requirement...</option>
               <option value="1">All ages</option>
               <option value="2">18+</option>
