@@ -91,11 +91,14 @@
 			</center>
 			<div class="card" ng-repeat="tourney in tourneys | orderBy: 'tournamentName':true">
 				<div class="card-header">
-					{{tourney.tournamentName}}
+					<p>{{tourney.tournamentName}}</p>
 				</div>
 				<div class="card-body">
-					<h5 class="card-title">Special title treatment</h5>
-					<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+					<h5 class="card-title">Game: {{tourney.game}}</h5>
+					<h5 class="card-title">Date: {{tourney.tournamentDate}}</h5>
+					<p class="card-text">Address: {{tourney.address}}</p>
+					<p class="card-text">Details: {{tourney.details}}</p>
+					<p class="card-text">Fee: {{tourney.fee}} || Age Requirement: {{tourney.ageReq}}</p>
 					<a href="#" class="btn btn-primary">Go somewhere</a>
 				</div>
 			</div>    
