@@ -23,6 +23,10 @@ var userSchema = new Schema({
 		month: Number,
 		year: Number
 	},
+	following: {
+		type: [String],
+		default: undefined
+	},
 	created_at: Date,
 	updated_at: Date
 });

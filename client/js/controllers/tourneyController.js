@@ -31,7 +31,6 @@ function($scope, $cookies, Tourneys) {
 });
 */
 const newDate = new Date($scope.tournamentDate.year, $scope.tournamentDate.month-1, $scope.tournamentDate.day);
-console.log(newDate);
 var newTourney = {
 	tournamentName : $scope.tournamentName,
 	game : $scope.game,
@@ -43,7 +42,6 @@ var newTourney = {
 	featured : 0,
 	ageReq : $scope.ageReq
 };
-console.log(newTourney.tournamentDate.toLocaleDateString());
 Tourneys.create(newTourney).then(function(response){
 	Tourneys.getAll().then(function(response) {
 		$scope.tourneys = response.data; //"redirecting" or updating the table again
