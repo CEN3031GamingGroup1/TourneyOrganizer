@@ -114,9 +114,27 @@ exports.list = function (req, res) {
 	});
 };
 
-exports.usersByID = function (req, res, next, id) {
-	User.findById(id).exec(function (err, tourney) {
-		if (err) {
+/*
+Middleware: find a tourney by its ID, then pass it to the next request handler.
+
+Find the tourney using a mongoose query,
+bind it to the request object as the property 'tourney',
+then finally call next
+*/
+exports.usersByID = function(req, res, next, id) {
+	User.findById(id).exec(function(err, user) {
+		if(err) {
+			res.status(404).send(err);
+		} else {
+			req.user = user;
+			next();
+		}
+	});
+};
+
+exports.usersByUsername = function(req, res, next, username) {
+	User.find({username: username}).exec(function(err, user) {
+		if(err) {
 			res.status(404).send(err);
 		} else {
 			req.user = user;

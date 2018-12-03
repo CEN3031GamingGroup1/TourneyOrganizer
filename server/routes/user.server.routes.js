@@ -19,6 +19,9 @@ router.route('/:userId')
 	.put(users.update)
 	.delete(users.delete);
 
+router.route('/username/:username')
+	.get(users.read);
+
 /*
   The 'router.param' method allows us to specify middleware we would like to use to handle
   requests with a parameter.
@@ -33,5 +36,6 @@ router.route('/:userId')
   get, update, or delete that specific listing (depending on the HTTP verb specified)
  */
 router.param('userId', users.usersByID);
+router.param('username', users.usersByUsername);
 
 module.exports = router;
