@@ -1,16 +1,19 @@
-	<!DOCTYPE html>
-	<html>
-	<head>
-		<title> Home </title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-		<link rel="stylesheet" href="../client/styles/index.css">
-	</head>
-	<body ng-app="directoryApp" style="padding-top: 70px">
+<!DOCTYPE html>
+<html>
 
-		<style>
-			@media screen{
+<head>
+	<title> Home </title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="../client/styles/index.css">
+</head>
+
+<body ng-app="directoryApp" style="padding-top: 70px">
+
+	<style>
+		@media screen{
         .noPrint{}
         .noScreen{display:none;}
       }
@@ -21,116 +24,125 @@
       }
 		</style>
 
-		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-		<a class="navbar-brand"> <font color="orange">GT</font><font color= "blue">ourney</font> </a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<a class="navbar-brand">
+			<font color="orange">GT</font>
+			<font color="blue">ourney</font>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+		 aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
-			<li class="nav-item">
-				<a class="nav-link active" href="index.html">Home<span class="sr-only"></span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#news">Find Tournaments</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="profileView.html">Profile</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#about">Logout<span class="sr-only"></span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="createTourney.html">Create Event<span class="sr-only"></span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="AdminPage.html">Admin Page<span class="sr-only"></span></a>
-			</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="index.html">Home<span class="sr-only"></span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#news">Find Tournaments</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="profileView.html">Profile</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#about">Logout<span class="sr-only"></span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="createTourney.html">Create Event<span class="sr-only"></span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="AdminPage.html">Admin Page<span class="sr-only"></span></a>
+				</li>
 			</ul>
 		</div>
-		</nav>
+	</nav>
 
-		<center>
+	<center>
 		<h1 class="display-4">Featured Events</h1>
 		<hr class="col-md-6">
-		</center>
+	</center>
 
-		<div class="container" ng-controller="TourneyController">
-			<center>
-				<div id="carouselExampleIndicators" class="carousel slide row-sm-12" data-ride="carousel">
-					<ol class="carousel-indicators">
-						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-					</ol>
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<img class="d-block w-100" src="Testpic.jpg"  alt="First slide">
-							<div class="carousel-caption d-none d-md-block">
-								<h3>Tournament Event Title Here</h3>
-								<p>Some relevant information about this featured tournament event!</p>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<img class="d-block w-100" src="Testpic1.jpg" alt="Second slide">
-							<div class="carousel-caption d-none d-md-block">
-								<h3>Tournament Event Title Here</h3>
-								<p>Some relevant information about this featured tournament event!</p>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<img class="d-block w-100" src="Testpic2.jpg" alt="Third slide">
-							<div class="carousel-caption d-none d-md-block">
-								<h3>Tournament Event Title Here</h3>
-								<p>Some relevant information about this featured tournament event!</p>
-							</div>
+	<div class="container" ng-controller="TourneyController">
+		<center>
+			<div id="carouselExampleIndicators" class="carousel slide row-sm-12" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img class="d-block w-100" src="Testpic.jpg" alt="First slide">
+						<div class="carousel-caption d-none d-md-block">
+							<h3>Tournament Event Title Here</h3>
+							<p>Some relevant information about this featured tournament event!</p>
 						</div>
 					</div>
-					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="sr-only">Next</span>
-					</a>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="Testpic1.jpg" alt="Second slide">
+						<div class="carousel-caption d-none d-md-block">
+							<h3>Tournament Event Title Here</h3>
+							<p>Some relevant information about this featured tournament event!</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="Testpic2.jpg" alt="Third slide">
+						<div class="carousel-caption d-none d-md-block">
+							<h3>Tournament Event Title Here</h3>
+							<p>Some relevant information about this featured tournament event!</p>
+						</div>
+					</div>
 				</div>
-			</center>
-			<br><br><br>
-			<center>
-				<h3 class="display-4">All Current Events</h3>
-				<hr>
-			</center>
-			<div class="card" ng-repeat="tourney in tourneys | orderBy: 'tournamentName':true">
-				<div class="card-header">
-					<p>{{tourney.tournamentName}}</p>
-				</div>
-				<div class="card-body">
-					<h5 class="card-title">Game: {{tourney.game}}</h5>
-					<h5 class="card-title">Date: {{tourney.tournamentDate}}</h5>
-					<p class="card-text">Address: {{tourney.address}}</p>
-					<p class="card-text">Details: {{tourney.details}}</p>
-					<p class="card-text">Fee: {{tourney.fee}} || Age Requirement: {{tourney.ageReq}}</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</center>
+		<br><br><br>
+		<center>
+			<h3 class="display-4">All Current Events</h3>
+			<hr>
+		</center>
+		<div class="card" ng-repeat="tourney in tourneys | orderBy: 'tournamentName':true">
+			<div class="card-header">
+				<p>{{tourney.tournamentName}}</p>
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">Game: {{tourney.game}}</h5>
+				<h5 class="card-title">Date: {{tourney.tournamentDate}}</h5>
+				<p class="card-text">Address: {{tourney.address}}</p>
+				<p class="card-text">Details: {{tourney.details}}</p>
+				<p class="card-text">Fee: {{tourney.fee}} || Age Requirement: {{tourney.ageReq}}</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
 			</div>
 		</div>
+	</div>
 
-		<div class="noScreen">  <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://i.redd.it/7k0zytm6va121.jpg&choe=UTF-8" alt="QR Code"/> </div>
+	<div class="noScreen"> <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://i.redd.it/7k0zytm6va121.jpg&choe=UTF-8"
+		 alt="QR Code" /> </div>
 
-		<br><br><br>
-		<!-- Scripts I've added-->
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-		<!-- Scripts that were already there before minus redundancies -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<!-- What are these for? -->
-		<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
-		<script src="https://code.angularjs.org/1.4.3/angular-cookies.js"></script>
-		<script src="js/app.js"></script>
-		<script src="js/factories/tourneyFactory.js"></script>
-		<script src="js/controllers/tourneyController.js"></script>
+	<br><br><br>
+	<!-- Scripts I've added-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+	 crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	 crossorigin="anonymous"></script>
+	<!-- Scripts that were already there before minus redundancies -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!-- What are these for? -->
+	<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+	<script src="https://code.angularjs.org/1.4.3/angular-cookies.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/factories/tourneyFactory.js"></script>
+	<script src="js/controllers/tourneyController.js"></script>
 
-	</body>
-	</html>
+</body>
+
+</html>

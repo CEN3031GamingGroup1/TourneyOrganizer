@@ -11,6 +11,7 @@ function($scope, $location, Users) {
 	$scope.detailedInfo = undefined;
 
 	$scope.createUser = function() {
+<<<<<<< HEAD
 		/*  TODO
 		*Save the article using the users factory. If the object is successfully
 		saved redirect back to the list page. Otherwise, display the error
@@ -72,5 +73,53 @@ $scope.login = function() {
 $scope.showDetails = function(index) {
 	$scope.detailedInfo = $scope.users[index];
 };
+=======
+        
+        var confirm_password = document.getElementById("confirm_password"), confirm_email = document.getElementById("confirm_email");
+
+        if(confirm_email.value == $scope.email && confirm_password.value == $scope.password) {
+            var newUser = {
+                username : $scope.username,
+                email : $scope.email,
+                address : $scope.address,
+                password: $scope.password,
+                dob : $scope.dob
+            }
+            Users.create(newUser).then(function(response){
+
+            }, function(err) {
+                console.log('Could not create new tourney:', err);
+            });
+        }
+        else {
+            console.log("email or password does not match");
+        }
+    };
+    
+    $scope.deleteUser = function(index) {
+        /** TODO Delete the article using the users factory. If the removal is successful, navigate back to 'user.list'. Otherwise, display the error. */
+        $scope.users.splice(index, 1);
+        Users.delete($scope.users[index]._id).then(function(response) {
+            $scope.users = response.data;
+            console.log('Unable to delete user:', error);
+        });
+    };
+
+    $scope.login = function() {
+        var newUser = {
+            username: $scope.username,
+            password: $scope.password
+        }
+        Users.loginn(newUser).then(function(response) {
+            $window.location.href='/home';
+        }, function(err) {
+            alert('Incorrect username or password');
+        });
+    }
+
+    $scope.showDetails = function(index) {
+        $scope.detailedInfo = $scope.users[index];
+    };
+>>>>>>> 2e95d10f390ac096a0f61fe172118bf884130d86
 }
 ]);

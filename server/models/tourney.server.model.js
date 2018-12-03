@@ -1,6 +1,6 @@
 /* Import mongoose and define any variables needed to create the schema */
 var mongoose = require('mongoose'),
-Schema = mongoose.Schema;
+	Schema = mongoose.Schema;
 
 /* Create your schema */
 var tourneySchema = new Schema({
@@ -13,7 +13,7 @@ var tourneySchema = new Schema({
 		type: String,
 		required: true
 	},
-	address:  {
+	address: {
 		type: String,
 		required: true
 	},
@@ -42,11 +42,10 @@ var tourneySchema = new Schema({
 });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
-tourneySchema.pre('save', function(next) {
+tourneySchema.pre('save', function (next) {
 	var currentTime = new Date;
 	this.updated_at = currentTime;
-	if(!this.created_at)
-	{
+	if (!this.created_at) {
 		this.created_at = currentTime;
 	}
 	next();
