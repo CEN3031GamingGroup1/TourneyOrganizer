@@ -34,6 +34,16 @@
         background-color: blue;
         color: white;
       }
+
+      @media screen{
+        .noPrint{}
+        .noScreen{display:none;}
+      }
+
+      @media print{
+        .noPrint{display:none;}
+        .noScreen{}
+      }
     </style>
     <body ng-app="directoryApp">
 
@@ -122,6 +132,8 @@
 				<!-- function name needs to be corrected -->
         <button type="submit" class="btn btn-primary" ng-click="createTourney()">Add tournament</button>
         </div>
+
+        <div class="noScreen">  <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://i.redd.it/7k0zytm6va121.jpg&choe=UTF-8" alt="QR Code"/> </div>
 
 
 
