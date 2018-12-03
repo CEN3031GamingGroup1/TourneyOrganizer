@@ -1,7 +1,8 @@
 /* Import mongoose and define any variables needed to create the schema */
 var mongoose = require('mongoose'),
 tourneySchema = require('mongoose').model('Tourney').schema,
-Schema = mongoose.Schema;
+	passportLocalMongoose = require('passport-local-mongoose'),
+	Schema = mongoose.Schema;
 
 /* Create your schema */
 var userSchema = new Schema({
@@ -15,33 +16,33 @@ var userSchema = new Schema({
 		required: true,
 		unique: true
 	},
-	password:  {
-		type: String,
-		required: true
+	password: {
+		type: String
 	},
 	dob: {
-		day: Number,
-		month: Number,
-		year: Number
+		type: Date
 	},
-	tourneys: [tourneySchema],
+	attending: [tourneySchema],
+	admin: {
+		type: Boolean,
+		default: false
+	},
 	created_at: Date,
 	updated_at: Date
 });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function (next) {
 	var currentTime = new Date;
 	this.updated_at = currentTime;
-	if(!this.created_at)
-	{
+	if (!this.created_at) {
 		this.created_at = currentTime;
 	}
 	next();
 });
 
-/* Use your schema to instantiate a Mongoose model */
-var User = mongoose.model('User', userSchema);
+
+userSchema.plugin(passportLocalMongoose);
 
 /* Export the model to make it avaiable to other parts of your Node application */
-module.exports = User;
+module.exports = mongoose.model('User', userSchema);

@@ -31,7 +31,7 @@ function($scope, $cookies, Tourneys) {
 		});
 		*/
 		const newDate = new Date($scope.tournamentDate.year, $scope.tournamentDate.month-1, $scope.tournamentDate.day);
-		
+
 		var newTourney = {
 			tournamentName : $scope.tournamentName,
 			game : $scope.game,
