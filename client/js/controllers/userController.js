@@ -29,16 +29,10 @@ var newUser = {
 	username : $scope.username,
 	email : $scope.email,
 	address : $scope.address,
-	password : $scope.password,
+	password: $scope.password,
 	dob : $scope.dob
 };
 Users.create(newUser).then(function(response){
-	Users.getAll().then(function(response) {
-		$scope.users = response.data; //"redirecting" or updating the table again
-
-	}, function(error) {
-		console.log('Unable to retrieve tourneys:', error);
-	});
 }, function(err) {
 	console.log('Could not create new tourney:', err);
 });
@@ -62,7 +56,17 @@ $scope.deleteUser = function(index) {
 };
 
 
-
+$scope.login = function() {
+	var newUser = {
+		username: $scope.username,
+		password: $scope.password
+	}
+	Users.loginn(newUser).then(function(response) {
+		$window.location.href='/home';
+	}, function(err) {
+		alert('Incorrect username or password');
+	});
+}
 
 
 $scope.showDetails = function(index) {

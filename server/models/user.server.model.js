@@ -1,5 +1,6 @@
 /* Import mongoose and define any variables needed to create the schema */
 var mongoose = require('mongoose'),
+passportLocalMongoose = require('passport-local-mongoose'),
 Schema = mongoose.Schema;
 
 /* Create your schema */
@@ -15,8 +16,7 @@ var userSchema = new Schema({
 		unique: true
 	},
 	password:  {
-		type: String,
-		required: true
+		type: String
 	},
 	dob: {
 		day: Number,
@@ -42,8 +42,8 @@ userSchema.pre('save', function(next) {
 	next();
 });
 
-/* Use your schema to instantiate a Mongoose model */
-var User = mongoose.model('User', userSchema);
+
+userSchema.plugin(passportLocalMongoose);
 
 /* Export the model to make it avaiable to other parts of your Node application */
-module.exports = User;
+module.exports = mongoose.model('User', userSchema);;

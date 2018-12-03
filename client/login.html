@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <!-- <body ng-app="directoryApp"> -->
-  <body style="padding-top: 70px">
+  <body style="padding-top: 70px" ng-app="directoryApp">
 
     <style>
       @media screen{
@@ -50,20 +50,21 @@
       <h1 class="display-4">Login</h1>
       <hr class="col-md-6">
     </center>
-    <div class="container">
+    <div class="container" ng-controller="UserController">
       <center>
         <br>
         <form>
           <div class="form-group col-lg-4">
-            <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Enter email...">
-            <tr>or</tr>
-            <input type="text" class="form-control" id="username" placeholder="Enter username...">
+						<form>
+            <!--<input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Enter email...">
+            <tr>or</tr>-->
+            <input type="text" class="form-control" id="username" ng-model="username" placeholder="Enter username...">
             <br>
             <input type="password" ng-model="password" class="form-control" id="userPassword" placeholder="Enter password...">
           </div>
-          <button type="submit" ng-click="Login" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-primary" ng-click="login()">Login</button>
           <hr class="col-lg-2">
-          <a class="btn btn-primary" href="signup.html" role="button">New User?</a>
+          <a class="btn btn-primary" href="/signup" role="button">New User?</a>
           <a class="btn btn-primary" href="#" role="button">Forgot Password?</a>
         </form>
       </center>
@@ -82,8 +83,8 @@
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="https://code.angularjs.org/1.4.3/angular-cookies.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/factories/tourneyFactory.js"></script>
-    <script src="js/controllers/tourneyController.js"></script>
+    <script src="js/factories/userFactory.js"></script>
+    <script src="js/controllers/userController.js"></script>
 
   </body>
 </html>
