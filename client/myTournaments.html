@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/main.css">
   </head>
-  <body style="padding-top: 70px">
-    <!-- WHERE IS THIS SUPPOSED TO GO??
-          ng-app="directoryApp" -->
+  <body ng-app="directoryApp" style="padding-top: 70px">
 
     <style>
       @media screen{
@@ -24,7 +22,6 @@
         .noScreen{}
       }
     </style>
-
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <a class="navbar-brand"> <font color="orange">GT</font><font color= "blue">ourney</font> </a>
@@ -60,14 +57,13 @@
       <a class="btn btn-primary" href="profileView.html" role="button">Profile View</a>
     </center>
 
-    <div class="container">
+    <div class="container" ng-controller="UserController">
       <hr>
-      <div class="jumbotron" ng-controller="TourneyController">
-
-        <div class="row" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'">
+      <div class="jumbotron" ng-repeat="x in users | orderBy: 'username'">
+        <div class="row">
           <h3 class="display-4">Tournament: {{detailedInfo.tournamentName}}</h3>
         </div>
-        <div class="row" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'">
+        <div class="row">
           <div class="col-md-4">
             <img src="/Users/christiansarmiento/TourneyOrganizer/TourneyOrganizer-develop/GTourney Wireframes/GTourney Admin View.jpg" style="width: 100%;">
             <hr class="my-4">
@@ -82,7 +78,6 @@
             <p>Details: {{detailedInfo.details}}</p>
           </div>
         </div>
-
       </div>
     </div>
 

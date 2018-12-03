@@ -112,5 +112,6 @@ function($scope, $cookies, Tourneys) {
 		}
 		return newDate.toLocaleDateString();
 	}
+
 }
 ]);
