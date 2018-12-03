@@ -91,7 +91,7 @@
 			<hr>
 			<div class="card" ng-repeat="tourney in tourneys | orderBy: 'tournamentName':true">
 				<div class="card-header">
-					<p>{{tourney.tournamentName}}</p>
+					<p ng-model="tournamentName">{{tourney.tournamentName}}</p>
 				</div>
 				<div class="card-body">
 					<h5 class="card-title">Game: {{tourney.game}}</h5>
