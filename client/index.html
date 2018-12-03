@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title> Home </title>
+	<title>Home</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -18,11 +18,7 @@
         .noScreen{display:none;}
       }
 
-      @media print{
-        .noPrint{display:none;}
-        .noScreen{}
-      }
-		</style>
+<body ng-app="directoryApp" style="padding-top: 70px">
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" ng-controller="UserController">
 		<a class="navbar-brand">
@@ -65,51 +61,41 @@
 		<hr class="col-md-6">
 	</center>
 
-		<div class="container" ng-controller="TourneyController">
-			<center>
-				<div id="carouselExampleIndicators" class="carousel slide row-sm-12" data-ride="carousel">
-					<ol class="carousel-indicators">
-						<li data-target="#carouselExampleIndicators" data-ng-repeat="t in tourneys" ng-if="tourney.featured == 1" data-ng-class="{active : $first}" data-slide-to="0" class="ng-scope"></li>
-						<li data-target="#carouselExampleIndicators" data-ng-repeat="t in tourneys" ng-if="tourney.featured == 1" data-ng-class="{active : $first}" data-slide-to="1" class="ng-scope"></li>
-						<li data-target="#carouselExampleIndicators" data-ng-repeat="t in tourneys" ng-if="tourney.featured == 1" data-ng-class="{active : $first}" data-slide-to="2" class="ng-scope"></li>
-						<li data-target="#carouselExampleIndicators" data-ng-repeat="t in tourneys" ng-if="tourney.featured == 1" data-ng-class="{active : $first}" data-slide-to="3" class="ng-scope"></li>
-						<li data-target="#carouselExampleIndicators" data-ng-repeat="t in tourneys" ng-if="tourney.featured == 1" data-ng-class="{active : $first}" data-slide-to="4" class="ng-scope"></li>
-					</ol>
-					<div class="carousel-inner">
-						<div class="carousel-item ng-scope" data-ng-repeat="tourney in tourneys" ng-if="tourney.featured == 1" data-ng-class="{active : $first}">
-							<img class="d-block w-100" src="Testpic.jpg"  alt="First slide">
-							<div class="carousel-caption d-none d-md-block">
-								<h3>{{tourney.tournamentName}}</h3>
-								<p>{{displayDate(tourney)}}</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</center>
-			<br><br><br>
-			<center>
-				<h3 class="display-4">All Current Events</h3>
-			</center>
-			<hr>
-			<div class="card" ng-repeat="tourney in tourneys | orderBy: 'tournamentName':true">
-				<div class="card-header">
-					<p ng-model="tournamentName">{{tourney.tournamentName}}</p>
-				</div>
-				<div class="card-body">
-					<h5 class="card-title">Game: {{tourney.game}}</h5>
-					<h5 class="card-title">Date: {{displayDate(tourney)}}</h5>
-					<p class="card-text">Address: {{tourney.address}}</p>
-					<p class="card-text">Details: {{tourney.details}}</p>
-					<p class="card-text">Fee: ${{tourney.fee}} || Age Requirement: {{tourney.ageReq}}</p>
-					<a type="submit" href="#" class="btn btn-primary" ng-click="attendTourney()">Attend!</a>
-				</div>
+	<div class="container" ng-controller="TourneyController">
+		<center>
+			<div class="jumbotron" ng-repeat="tourney in tourneys" ng-if="tourney.featured == 1">
+				<h1 class="display-4">{{tourney.tournamentName}}</h1>
+				<hr class="my-4">
+				<p></p>
+				<p>{{displayDate(tourney)}}</p>
+				<button type="submit" href="#" class="btn btn-primary">Attend!</button>
 			</div>
-			<hr>
+		</center>
+
+		<br><br><br><br>
+
+		<center>
+			<h3 class="display-4">All Current Events</h3>
+		</center>
+		<hr>
+		<div class="card" ng-repeat="x in tourneys | orderBy: 'tournamentName':true">
+			<div class="card-header">
+				<p>{{x.tournamentName}}</p>
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">Game: {{x.game}}</h5>
+				<h5 class="card-title">Date: {{displayDate(x)}}</h5>
+				<p class="card-text">Address: {{x.address}}</p>
+				<p class="card-text">Details: {{x.details}}</p>
+				<p class="card-text">Fee: ${{x.fee}} || Age Requirement: {{x.ageReq}}</p>
+				<button type="submit" href="#" class="btn btn-primary">Attend!</button>
+				<!-- ng-click="attendTourney()" -->
+			</div>
 		</div>
+		<hr>
 	</div>
 
-	<div class="noScreen"> <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://i.redd.it/7k0zytm6va121.jpg&choe=UTF-8"
-		 alt="QR Code" /> </div>
+	<div class="noScreen"> <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://i.redd.it/7k0zytm6va121.jpg&choe=UTF-8" alt="QR Code" /> </div>
 
 	<br><br><br>
 	<!-- Scripts I've added-->
@@ -127,9 +113,6 @@
 	<script src="js/app.js"></script>
 	<script src="js/factories/tourneyFactory.js"></script>
 	<script src="js/controllers/tourneyController.js"></script>
-	<script src="js/factories/userFactory.js"></script>
-	<script src="js/controllers/userController.js"></script>
-
 </body>
 
 </html>

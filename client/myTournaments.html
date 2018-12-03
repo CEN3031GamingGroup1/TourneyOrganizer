@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
   <head>
     <title>
       My Tournaments
@@ -11,23 +10,6 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body ng-app="directoryApp" style="padding-top: 70px">
-=======
-
-<head>
-	<title>
-		My Tournaments
-	</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	 crossorigin="anonymous">
-	<link rel="stylesheet" href="styles/main.css">
-</head>
-
-<body style="padding-top: 70px">
-	<!-- WHERE IS THIS SUPPOSED TO GO??
-          ng-app="directoryApp" -->
->>>>>>> authentication
 
 	<style>
 		@media screen{
@@ -41,7 +23,6 @@
       }
     </style>
 
-<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <a class="navbar-brand"> <font color="orange">GT</font><font color= "blue">ourney</font> </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,76 +80,6 @@
         </div>
       </div>
     </div>
-=======
-
-	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-		<a class="navbar-brand">
-			<font color="orange">GT</font>
-			<font color="blue">ourney</font>
-		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-		 aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="index.html">Home<span class="sr-only"></span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#news">Find Tournaments</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link active" href="profileView.html">Profile</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#about">Logout<span class="sr-only"></span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="createTourney.html">Create Event<span class="sr-only"></span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="AdminPage.html">Admin Page<span class="sr-only"></span></a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-	<center>
-		<h1 class="display-4">My Tournaments</h1>
-		<p>These are the tournaments you've chosen to attend.</p>
-		<a class="btn btn-primary" href="profileView.html" role="button">Profile View</a>
-	</center>
-
-	<div class="container">
-		<hr>
-		<div class="jumbotron" ng-controller="TourneyController">
-
-			<div class="row" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'">
-				<h3 class="display-4">Tournament: {{detailedInfo.tournamentName}}</h3>
-			</div>
-			<div class="row" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'">
-				<div class="col-md-4">
-					<img src="/Users/christiansarmiento/TourneyOrganizer/TourneyOrganizer-develop/GTourney Wireframes/GTourney Admin View.jpg"
-					 style="width: 100%;">
-					<hr class="my-4">
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-danger">Remove</button>
-					</div>
-				</div>
-				<div class="col-md-8">
-					<!-- <hr class="my-4"> -->
-					<p>Game: {{detailedInfo.game}}</p>
-					<p>Date: {{displayDate(detailedInfo)}}</p>
-					<p>Details: {{detailedInfo.details}}</p>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-	<div class="noScreen"> <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://i.redd.it/7k0zytm6va121.jpg&choe=UTF-8"
-		 alt="QR Code" /> </div>
->>>>>>> authentication
 
 	<!-- Scripts I've added-->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

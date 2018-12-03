@@ -1,17 +1,11 @@
-
-/* Dependencies */
 var mongoose = require('mongoose'),
 	//var passport = require('passport'),
 	User = require('../models/user.server.model.js');
-
 
 /*
 In this file, you should use Mongoose queries in order to retrieve/add/remove/update tourneys.
 On an error you should send a 404 status code, as well as the error message.
 On success (aka no error), you should send the tourney(s) as JSON in the response.
-
-HINT: if you are struggling with implementing these functions, refer back to this tutorial
-from assignment 3 https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
 */
 
 
@@ -20,7 +14,6 @@ exports.create = function (req, res) {
 
 	/* Instantiate a Tourney */
 	var user = new User(req.body);
-
 
 	/* Then save the user */
 	user.save(function (err) {
@@ -43,10 +36,6 @@ exports.read = function (req, res) {
 exports.update = function (req, res) {
 	var user = req.user;
 
-	/** TODO **/
-	/* Replace the article's properties with the new properties found in req.body */
-	/* Save the article */
-
 	User.findOneAndUpdate({ username: req.body.username }, req.body, function (err) {
 		if (err)
 			res.status(400).send(err);
@@ -65,7 +54,6 @@ exports.update = function (req, res) {
 
 };
 
-/* Delete a user */
 /* FOR USE ON ADMIN PAGE */
 exports.delete = function (req, res) {
 	var user = req.user;
@@ -114,11 +102,8 @@ exports.changeImage = function (req, res) {
 
 };
 
-/* Retreive all the directory tourneys, sorted alphabetically by tourney code */
 /* UPDATE THIS CODE TO FIND TOURNAMENTS BY NAME*/
 exports.list = function (req, res) {
-	/** TODO **/
-	/* Your code here */
 	User.find().sort({ username: 1 }).exec(function (err, users) {
 		if (err) {
 			console.log(err);

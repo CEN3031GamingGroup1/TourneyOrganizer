@@ -31,7 +31,6 @@ var userSchema = new Schema({
 	updated_at: Date
 });
 
-/* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 userSchema.pre('save', function (next) {
 	var currentTime = new Date;
 	this.updated_at = currentTime;
