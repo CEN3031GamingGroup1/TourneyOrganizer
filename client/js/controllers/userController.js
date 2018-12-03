@@ -77,6 +77,7 @@ $scope.getLoggedInUser = function() {
 		console.log(response.data.username);
 		Users.getUser(response.data.username).then(function(response) {
 			$scope.loggedInUser = response.data[0];
+			console.log(loggedInUser);
 		}, function(error) {
 			console.log(error);
 		});

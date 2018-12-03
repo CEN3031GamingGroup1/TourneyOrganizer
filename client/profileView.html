@@ -60,13 +60,13 @@
 			</ul>
 		</div>
 	</nav>
-	<div ng-controller="UserController" ng-app="directoryApp">
+	<div ng-controller="UserController" ng-app="directoryApp" ng-init="getLoggedInUser()">
 	<center >
 		<p>Username: {{loggedInUser.username}}</p>
 		<p>Email: {{loggedInUser.email}}</p>
 		<p>DOB: {{displayDate(loggedInUser)}}</p>
 		<h1 class="display-4">Admin View</h1>
-		<a class="btn btn-primary" ng-click="getLoggedInUser()" role="button">View My Tournaments</a>
+		<a class="btn btn-primary"  role="button">View My Tournaments</a>
 	</center>
 	</div>
 
