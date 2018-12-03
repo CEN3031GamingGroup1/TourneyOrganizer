@@ -12,7 +12,6 @@
   <body style="padding-top: 70px">
     <!-- WHERE IS THIS SUPPOSED TO GO?? -->
     <!-- ng-app="directoryApp" -->
-
     <style>
       @media screen{
         .noPrint{}
@@ -55,17 +54,16 @@
     </nav>
     <center>
       <h1 class="display-4">Admin View</h1>
-      <a class="btn btn-primary" href="myTournaments.html" role="button">View My Tournaments</a>
+      <a class="btn btn-primary" href="myTournaments.html" role="button" >View My Tournaments</a>
     </center>
-    
-    <div class="container">
+
+    <div class="container" ng-app="directoryApp">
       <hr>
       <div class="jumbotron" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'" ng-controller="TourneyController">
 
         <div class="row">
           <h3 class="display-4">Tournament: {{detailedInfo.tournamentName}}</h3>
           <div class="col-md-4">
-            <img src="/Users/christiansarmiento/TourneyOrganizer/TourneyOrganizer-develop/GTourney Wireframes/GTourney Admin View.jpg" style="width: 100%;">
             <hr class="my-4">
             <div class="btn-group" role="group" aria-label="Basic example">
               <button type="button" class="btn btn-secondary">Edit</button>

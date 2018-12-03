@@ -36,7 +36,7 @@ module.exports.init = function() {
 
   //body parsing middleware
   app.use(bodyParser.json());
-
+	app.use(bodyParser.urlencoded({ extended: false }));
 
   /**TODO
   Serve static files */
@@ -58,12 +58,13 @@ app.get('/createTourney', function(req, res) {
 });
 
 app.get('/home', function(req, res) {
+	console.log(path.join(__dirname+'../../../client/index.html'));
 	res.sendFile(path.join(__dirname+'../../../client/index.html'));
 });
 
 
 app.get('/profile', isLoggedIn, function(req, res) {
-	res.sendFile(path.join(__dirname+'../../../client/profileView.html'));
+res.sendFile(path.join(__dirname+'../../../client/profileView.html'), {headers: {username: req.user.username}});
 });
 
 
@@ -75,7 +76,7 @@ app.get('/profile', isLoggedIn, function(req, res) {
 	});
 
 	app.post('/signup', function(req, res) {
-		User.register(new User({username: req.body.username, email: req.body.email, dob: {day: req.body.day, month: req.body.month, year: req.body.year}, following: []}),
+		User.register(new User({username: req.body.username, email: req.body.email, dob: req.body.username, following: []}),
 		req.body.password, function(err, user) {
 			if(err) {
 				console.log(err);
@@ -94,9 +95,10 @@ app.get('/profile', isLoggedIn, function(req, res) {
 	app.post('/login', passport.authenticate('local', {
 		successRedirect: '/home',
 		failureRedirect: '/login',
-		failureFlash: 'Incorrect Username or Password'
+		sucessFlash: 'Welcome!',
+		failureFlash: 'Try again'
 	}), function(req, res) {
-		console.log('tried');
+		res.redirect('/home');
 	});
 
 	app.get('/logout', function(req, res) {

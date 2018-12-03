@@ -1,5 +1,5 @@
-angular.module('users').controller('UserController', ['$scope', 'Users',
-function($scope, Users) {
+angular.module('users').controller('UserController', ['$scope', '$location', 'Users',
+function($scope, $location, Users) {
 
 	/* Get all the users, then bind it to the scope */
 	Users.getAll().then(function(response) {
@@ -62,7 +62,7 @@ $scope.login = function() {
 		password: $scope.password
 	}
 	Users.loginn(newUser).then(function(response) {
-		$window.location.href='/home';
+		alert('Login Successful');
 	}, function(err) {
 		alert('Incorrect username or password');
 	});

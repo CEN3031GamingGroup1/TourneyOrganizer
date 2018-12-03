@@ -137,7 +137,18 @@ bind it to the request object as the property 'tourney',
 then finally call next
 */
 exports.usersByID = function(req, res, next, id) {
-	User.findById(id).exec(function(err, tourney) {
+	User.findById(id).exec(function(err, user) {
+		if(err) {
+			res.status(404).send(err);
+		} else {
+			req.user = user;
+			next();
+		}
+	});
+};
+
+exports.usersByUsername = function(req, res, next, username) {
+	User.find({username: username}).exec(function(err, user) {
 		if(err) {
 			res.status(404).send(err);
 		} else {
