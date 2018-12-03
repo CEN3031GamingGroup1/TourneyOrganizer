@@ -7,7 +7,7 @@ var path = require('path'),
 	tourneyRouter = require('../routes/tourney.server.routes.js'),
 	userRouter = require('../routes/user.server.routes.js'),
 	passport = require('passport'),
-	LocalStrategy = require('passport-local'),
+	LocalStrategy = require('passport-local').Strategy,
 	passportLocalMongoose = require('passport-local-mongoose'),
 	User = require('../models/user.server.model.js');
 
@@ -34,15 +34,9 @@ module.exports.init = function () {
 	//enable request logging for development debugging
 	app.use(morgan('dev'));
 
-<<<<<<< HEAD
   //body parsing middleware
   app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: false }));
-=======
-	//body parsing middleware
-	app.use(bodyParser.json());
-
->>>>>>> 2e95d10f390ac096a0f61fe172118bf884130d86
 
 	/**TODO
 	Serve static files */
@@ -59,32 +53,31 @@ module.exports.init = function () {
 	////////////
 	// ROUTES //
 	////////////
-	app.get('/createTourney', function (req, res) {
+	app.get('/home', function (req, res) {
+		res.sendFile(path.join(__dirname + '../../../client/index.html'));
+	});
+
+
+	app.get('/create', function (req, res) {
 		res.sendFile(path.join(__dirname + '../../../client/createTourney.html'));
 	});
 
-<<<<<<< HEAD
-app.get('/home', function(req, res) {
-	console.log(path.join(__dirname+'../../../client/index.html'));
-	res.sendFile(path.join(__dirname+'../../../client/index.html'));
-});
 
-
-app.get('/profile', isLoggedIn, function(req, res) {
-res.sendFile(path.join(__dirname+'../../../client/profileView.html'), {headers: {username: req.user.username}});
-});
-=======
-	app.get('/home', function (req, res) {
-		res.sendFile(path.join(__dirname + '../../../client/index.html'));
+	app.get('/admin', isAdmin, function (req, res) {
+		res.sendFile(path.join(__dirname + '../../../client/AdminPage.html'));
 	});
 
 
 	app.get('/profile', isLoggedIn, function (req, res) {
 		res.sendFile(path.join(__dirname + '../../../client/profileView.html'));
 	});
->>>>>>> 2e95d10f390ac096a0f61fe172118bf884130d86
 
 
+	app.get('/getUsername', isLoggedIn, function (req, res) {
+		console.log(req.user.username);
+		res.send({username: req.user.username});
+		res.end();
+	});
 
 
 	//Auth routes
@@ -92,54 +85,45 @@ res.sendFile(path.join(__dirname+'../../../client/profileView.html'), {headers: 
 		res.sendFile(path.join(__dirname + '../../../client/signup.html'));
 	});
 
-<<<<<<< HEAD
+
 	app.post('/signup', function(req, res) {
-		User.register(new User({username: req.body.username, email: req.body.email, dob: req.body.username, following: []}),
+		User.register(new User({username: req.body.username, email: req.body.email, dob: req.body.username, tourneys: []}),
 		req.body.password, function(err, user) {
 			if(err) {
 				console.log(err);
 				return res.redirect('/signup');
 			}
 				passport.authenticate('local')(req, res, function() {
-=======
-	app.post('/signup', function (req, res) {
-		User.register(new User({ username: req.body.username, email: req.body.email, dob: { day: req.body.day, month: req.body.month, year: req.body.year }, following: [] }),
-			req.body.password, function (err, user) {
-				if (err) {
-					console.log(err);
-					return res.redirect('/signup');
-				}
-				passport.authenticate('local')(req, res, function () {
->>>>>>> 2e95d10f390ac096a0f61fe172118bf884130d86
 					res.redirect('/home');
 				});
 			});
 	});
 
+
 	app.get('/login', function (req, res) {
 		res.sendFile(path.join(__dirname + '../../../client/login.html'));
 	});
 
+
 	app.post('/login', passport.authenticate('local', {
 		successRedirect: '/home',
-		failureRedirect: '/login',
-<<<<<<< HEAD
-		sucessFlash: 'Welcome!',
-		failureFlash: 'Try again'
+		failureRedirect: '/login'
 	}), function(req, res) {
 		res.redirect('/home');
-=======
-		failureFlash: 'Incorrect Username or Password'
-	}), function (req, res) {
-		console.log('tried');
->>>>>>> 2e95d10f390ac096a0f61fe172118bf884130d86
 	});
+
 
 	app.get('/logout', function (req, res) {
 		req.logout();
 		res.redirect('/home');
 	});
 
+	app.get('/admin', isAdmin, function (req, res) {
+		res.sendFile(path.join(__dirname + '../../../client/AdminPage.html'));
+	});
+
+
+//auth functions
 	function isLoggedIn(req, res, next) {
 		if (req.isAuthenticated()) {
 			return next();
@@ -147,10 +131,17 @@ res.sendFile(path.join(__dirname+'../../../client/profileView.html'), {headers: 
 		res.redirect('/login');
 	}
 
+	function isAdmin(req, res, next) {
+		if (req.isAuthenticated() && req.user.admin) {
+			return next();
+		}
+		res.redirect('/home');
+	}
+
 	/**TODO
 	// Go to homepage for all routes not specified */
 	app.get('*', function (req, res) {
-		res.redirect('/');
+		res.redirect('/home');
 	});
 
 

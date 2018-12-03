@@ -19,13 +19,15 @@ var userSchema = new Schema({
 		type: String
 	},
 	dob: {
-		day: Number,
-		month: Number,
-		year: Number
+		type: Date
 	},
-	following: {
+	tourneys: {
 		type: [String],
 		default: undefined
+	},
+	admin: {
+		type: Boolean,
+		default: false
 	},
 	created_at: Date,
 	updated_at: Date
@@ -45,4 +47,4 @@ userSchema.pre('save', function (next) {
 userSchema.plugin(passportLocalMongoose);
 
 /* Export the model to make it avaiable to other parts of your Node application */
-module.exports = mongoose.model('User', userSchema);;
+module.exports = mongoose.model('User', userSchema);
