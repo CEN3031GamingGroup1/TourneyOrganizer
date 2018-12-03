@@ -1,146 +1,149 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Sign Up</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/main.css">
-  </head>
-  <!-- <body ng-app="directoryApp"> -->
-  <body style="padding-top: 70px">
 
-    <style>
-      @media screen{
-        .noPrint{}
-        .noScreen{display:none;}
-      }
-
-      @media print{
-        .noPrint{display:none;}
-        .noScreen{}
-      }
-    </style>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <a class="navbar-brand"> <font color="orange">GT</font><font color= "blue">ourney</font> </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home<span class="sr-only"></span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#news">Find Tournaments</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">Login<span class="sr-only"></span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="createTourney.html">Sign Up<span class="sr-only"></span></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <center>
-      <h1 class="display-4">Sign Up</h1>
-      <hr class="col-md-6">
-    </center>
-
-    <div class="container" ng-app="directoryApp" ng-controller="UserController">
-      <center>
-        <form>
-          <div class="col-md-6"
-            <label for="userEmail">Email:</label>
-            <input type="email" class="form-control" id="userEmail" ng-model="email"  placeholder="Email...">
-			<label for="confirm_email">Confirm your email:</label>
-            <input type="email" class="form-control" id="confirm_email"  placeholder="Confirm email...">
-            <label for="username">Username:</label>
-            <input type="text" class="form-control" id="username"  ng-model="username" placeholder="Pick a username...">
-            <label for="userPassword">Password:</label>
-            <input class="form-control" id="password" type="password" ng-model="password" placeholder="Password...">
-			<label for="confirm_password">Confirm your password:</label>
-            <input class="form-control" id="confirm_password" type="password" placeholder="Confirm password...">
-            <div class="row-md-6">
-              <label for="tournamentDate">Birth Day:</label>
-              <div class="form-group">
-                <select class="month-select" id="month" ng-model="month">
-                  <option selected>Select month...</option>
-                  <option value="1">January</option>
-                  <option value="2">February</option>
-                  <option value="3">March</option>
-                  <option value="4">April</option>
-                  <option value="5">May</option>
-                  <option value="6">June</option>
-                  <option value="7">July</option>
-                  <option value="8">August</option>
-                  <option value="9">September</option>
-                  <option value="10">October</option>
-                  <option value="11">November</option>
-                  <option value="12">December</option>
-                </select>
-                <select class="day-select" id="day" ng-model="day" >
-                  <option selected>Select day...</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                  <option value="25">25</option>
-                  <option value="26">26</option>
-                  <option value="27">27</option>
-                  <option value="28">28</option>
-                  <option value="29">29</option>
-                  <option value="30">30</option>
-                  <option value="31">31</option>
-                </select>
-                <input class="year-select" id="year"  ng-model="year"  type="number" placeholder="Year..." style="width: 25%">
-
-              </div>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary"  ng-click="createUser()">Sign Up!</button>
-        </form>
-      </center>
-    </div>
-
-    <div class="noScreen">  <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://i.redd.it/7k0zytm6va121.jpg&choe=UTF-8" alt="QR Code"/> </div>
+<head>
+	<title>Sign Up</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="styles/main.css">
+</head>
 
 
-    <!-- Scripts I've added-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <!-- Scripts that were already there before minus redundancies -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <!-- What are these for? -->
-    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
-    <script src="https://code.angularjs.org/1.4.3/angular-cookies.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/factories/userFactory.js"></script>
-    <script src="js/controllers/userController.js"></script>
-  
-  </body>
+<body style="padding-top: 70px">
+	<!-- <body ng-app="directoryApp"> -->
+
+	<style>
+		@media screen{
+			.noPrint{}
+			.noScreen{display:none;}
+		}
+
+		@media print{
+			.noPrint{display:none;}
+			.noScreen{}
+		}
+	</style>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<a class="navbar-brand">
+			<font color="orange">GT</font>
+			<font color="blue">ourney</font>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home<span class="sr-only"></span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#news">Find Tournaments</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="login.html">Login<span class="sr-only"></span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="createTourney.html">Sign Up<span class="sr-only"></span></a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<center>
+		<h1 class="display-4">Sign Up</h1>
+		<hr class="col-md-6">
+	</center>
+
+	<div class="container" ng-app="directoryApp" ng-controller="UserController">
+		<center>
+			<form>
+				<div class="col-md-6" <label for="userEmail">Email:</label>
+					<input type="email" class="form-control" id="userEmail" ng-model="email" placeholder="Email...">
+					<label for="confirm_email">Confirm your email:</label>
+					<input type="email" class="form-control" id="confirm_email" placeholder="Confirm email...">
+					<label for="username">Username:</label>
+					<input type="text" class="form-control" id="username" ng-model="username" placeholder="Pick a username...">
+					<label for="userPassword">Password:</label>
+					<input class="form-control" id="password" type="password" ng-model="password" placeholder="Password...">
+					<label for="confirm_password">Confirm your password:</label>
+					<input class="form-control" id="confirm_password" type="password" placeholder="Confirm password...">
+					<div class="row-md-6">
+						<label for="tournamentDate">Birth Day:</label>
+						<div class="form-group">
+							<select class="month-select" id="month" ng-model="month">
+								<option selected>Select month...</option>
+								<option value="1">January</option>
+								<option value="2">February</option>
+								<option value="3">March</option>
+								<option value="4">April</option>
+								<option value="5">May</option>
+								<option value="6">June</option>
+								<option value="7">July</option>
+								<option value="8">August</option>
+								<option value="9">September</option>
+								<option value="10">October</option>
+								<option value="11">November</option>
+								<option value="12">December</option>
+							</select>
+							<select class="day-select" id="day" ng-model="day">
+								<option selected>Select day...</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="30">30</option>
+								<option value="31">31</option>
+							</select>
+							<input class="year-select" id="year" ng-model="year" type="number" placeholder="Year..." style="width: 25%">
+						</div>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary" ng-click="createUser()">Sign Up!</button>
+			</form>
+		</center>
+	</div>
+
+	<div class="noScreen"> <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://i.redd.it/7k0zytm6va121.jpg&choe=UTF-8" alt="QR Code" /> </div>
+
+	<!-- Scripts I've added-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<!-- Scripts that were already there before minus redundancies -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!-- What are these for? -->
+	<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+	<script src="https://code.angularjs.org/1.4.3/angular-cookies.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/factories/userFactory.js"></script>
+	<script src="js/controllers/userController.js"></script>
+</body>
+
 </html>

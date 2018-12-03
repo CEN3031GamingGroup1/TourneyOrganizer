@@ -1,24 +1,23 @@
-/* Dependencies */
 var tourneys = require('../controllers/tourney.server.controller.js'),
-    express = require('express'),
-    router = express.Router();
+	express = require('express'),
+	router = express.Router();
 
 /*
   These method calls are responsible for routing requests to the correct request handler.
   Take note that it is possible for different controller functions to handle requests to the same route.
  */
 router.route('/')
-  .get(tourneys.list)
-  .post(tourneys.create);
+	.get(tourneys.list)
+	.post(tourneys.create);
 
 
 /*
   The ':' specifies a URL parameter.
  */
 router.route('/:tourneyId')
-  .get(tourneys.read)
-  .put(tourneys.update)
-  .delete(tourneys.delete);
+	.get(tourneys.read)
+	.put(tourneys.update)
+	.delete(tourneys.delete);
 
 /*
   The 'router.param' method allows us to specify middleware we would like to use to handle
