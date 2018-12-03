@@ -5,7 +5,7 @@ angular.module('tourneys', []).factory('Tourneys', function($http) {
     },
 
 	create: function(tourney) {
-	  return $http.post('http://localhost:8080/api/tourneys', tourney);
+    return $http.post('http://localhost:8080/api/tourneys', tourney);
     },
 
 		update: function(tourney) {
@@ -13,12 +13,8 @@ angular.module('tourneys', []).factory('Tourneys', function($http) {
 		},
 
     delete: function(id) {
-	   /**TODO
-        return result of HTTP delete method
-       */
-	   return $http.delete('http://localhost:8080/api/tourneys/' + id);
+      return $http.delete('http://localhost:8080/api/tourneys/' + id);
     }
   };
-
   return methods;
 });

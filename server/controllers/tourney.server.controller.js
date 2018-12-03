@@ -1,7 +1,7 @@
 
 /* Dependencies */
 var mongoose = require('mongoose'),
-Tourney = require('../models/tourney.server.model.js');
+	Tourney = require('../models/tourney.server.model.js');
 
 /*
 In this file, you should use Mongoose queries in order to retrieve/add/remove/update listings.
@@ -13,15 +13,15 @@ from assignment 3 https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mo
 */
 
 /* Create a tournament */
-exports.create = function(req, res) {
+exports.create = function (req, res) {
 
 	/* Instantiate a Listing */
 	var tourney = new Tourney(req.body);
 
 
 	/* Then save the listing */
-	tourney.save(function(err) {
-		if(err) {
+	tourney.save(function (err) {
+		if (err) {
 			console.log(err);
 			res.status(404).send(err);
 		} else {
@@ -31,27 +31,27 @@ exports.create = function(req, res) {
 };
 
 /* Show the current tourney */
-exports.read = function(req, res) {
+exports.read = function (req, res) {
 	/* send back the tourney as json from the request */
 	res.json(req.tourney);
 };
 
 /* Update a listing */
-exports.update = function(req, res) {
+exports.update = function (req, res) {
 	var tourney = req.tourney;
 
 	/** TODO **/
 	/* Replace the article's properties with the new properties found in req.body */
 	/* Save the article */
 
-	Tourney.findOneAndUpdate({ tournamentName: req.tourney.tournamentName }, req.body, function(err) {
+	Tourney.findOneAndUpdate({ tournamentName: req.tourney.tournamentName }, req.body, function (err) {
 		if (err)
-		res.status(400).send(err);
+			res.status(400).send(err);
 		else {
 			console.log('Updated tourney!')
-			Tourney.findOne({ tournamentName: req.body.tournamentName }, function(err, updatedTourney) {
+			Tourney.findOne({ tournamentName: req.body.tournamentName }, function (err, updatedTourney) {
 				if (err)
-				res.status(400).send(err);
+					res.status(400).send(err);
 				else {
 					console.log(updatedTourney);
 					res.json(updatedTourney);
@@ -64,11 +64,11 @@ exports.update = function(req, res) {
 
 /* Delete a listing */
 /* FOR USE ON ADMIN PAGE */
-exports.delete = function(req, res) {
+exports.delete = function (req, res) {
 	var tourney = req.tourney;
-	Tourney.findOneAndRemove({ tournamentName: req.tourney.tournamentName }, function(err, oldTourney) {
+	Tourney.findOneAndRemove({ tournamentName: req.tourney.tournamentName }, function (err, oldTourney) {
 		if (err)
-		res.status(400).send(err);
+			res.status(400).send(err);
 		else {
 			console.log('Removed tourney!');
 			console.log(oldTourney);
@@ -78,7 +78,7 @@ exports.delete = function(req, res) {
 };
 
 /* Update Image for profile pics and tournaments */
-exports.changeimage = function(req, res) {
+exports.changeimage = function (req, res) {
 	var tourney = req.tourney;
 	/** TODO **/
 
@@ -86,11 +86,11 @@ exports.changeimage = function(req, res) {
 
 /* Retreive all the directory listings, sorted alphabetically by listing code */
 /* UPDATE THIS CODE TO FIND TOURNAMENTS BY NAME*/
-exports.list = function(req, res) {
+exports.list = function (req, res) {
 	/** TODO **/
 	/* Your code here */
-	Tourney.find().sort({ tournamentName: 1 }).exec(function(err, tourneys) {
-		if (err){
+	Tourney.find().sort({ tournamentName: 1 }).exec(function (err, tourneys) {
+		if (err) {
 			console.log(err);
 			res.status(404).send(err);
 		} else {
@@ -101,15 +101,15 @@ exports.list = function(req, res) {
 
 /* Retreive all the directory listings, sorted alphabetically by listing code */
 /* UPDATE THIS CODE TO FIND TOURNAMENTS BY NAME*/
-exports.listFeatured = function(req, res) {
+exports.listFeatured = function (req, res) {
 	/** TODO **/
 	/* Your code here */
-	Tourney.find().sort({ tournamentName: 1 }).exec(function(err, tourneys) {
-		if (err){
+	Tourney.find().sort({ tournamentName: 1 }).exec(function (err, tourneys) {
+		if (err) {
 			console.log(err);
 			res.status(404).send(err);
 		} else {
-				res.json(tourneys);
+			res.json(tourneys);
 		}
 	});
 };
@@ -121,9 +121,9 @@ Find the listing using a mongoose query,
 bind it to the request object as the property 'listing',
 then finally call next
 */
-exports.tourneysByID = function(req, res, next, id) {
-	Tourney.findById(id).exec(function(err, tourney) {
-		if(err) {
+exports.tourneysByID = function (req, res, next, id) {
+	Tourney.findById(id).exec(function (err, tourney) {
+		if (err) {
 			res.status(404).send(err);
 		} else {
 			req.tourney = tourney;

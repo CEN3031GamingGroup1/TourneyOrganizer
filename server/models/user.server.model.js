@@ -1,7 +1,7 @@
 /* Import mongoose and define any variables needed to create the schema */
 var mongoose = require('mongoose'),
-passportLocalMongoose = require('passport-local-mongoose'),
-Schema = mongoose.Schema;
+	passportLocalMongoose = require('passport-local-mongoose'),
+	Schema = mongoose.Schema;
 
 /* Create your schema */
 var userSchema = new Schema({
@@ -15,7 +15,7 @@ var userSchema = new Schema({
 		required: true,
 		unique: true
 	},
-	password:  {
+	password: {
 		type: String
 	},
 	dob: {
@@ -32,11 +32,10 @@ var userSchema = new Schema({
 });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function (next) {
 	var currentTime = new Date;
 	this.updated_at = currentTime;
-	if(!this.created_at)
-	{
+	if (!this.created_at) {
 		this.created_at = currentTime;
 	}
 	next();

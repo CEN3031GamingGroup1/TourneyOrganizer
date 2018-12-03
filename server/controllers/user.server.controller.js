@@ -1,8 +1,8 @@
 
 /* Dependencies */
 var mongoose = require('mongoose'),
-//var passport = require('passport'),
-User = require('../models/user.server.model.js');
+	//var passport = require('passport'),
+	User = require('../models/user.server.model.js');
 
 
 /*
@@ -16,15 +16,15 @@ from assignment 3 https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mo
 
 
 /* Create a user */
-exports.create = function(req, res) {
+exports.create = function (req, res) {
 
 	/* Instantiate a Tourney */
 	var user = new User(req.body);
 
 
 	/* Then save the user */
-	user.save(function(err) {
-		if(err) {
+	user.save(function (err) {
+		if (err) {
 			console.log(err);
 			res.status(404).send(err);
 		} else {
@@ -34,27 +34,27 @@ exports.create = function(req, res) {
 };
 
 /* Show the current tourney */
-exports.read = function(req, res) {
+exports.read = function (req, res) {
 	/* send back the user as json from the request */
 	res.json(req.user);
 };
 
 /* Update a tourney */
-exports.update = function(req, res) {
+exports.update = function (req, res) {
 	var user = req.user;
 
 	/** TODO **/
 	/* Replace the article's properties with the new properties found in req.body */
 	/* Save the article */
 
-	User.findOneAndUpdate({ username: req.body.username }, req.body, function(err) {
+	User.findOneAndUpdate({ username: req.body.username }, req.body, function (err) {
 		if (err)
-		res.status(400).send(err);
+			res.status(400).send(err);
 		else {
 			console.log('Updated tourney!')
-			User.findOne({ username: req.body.username }, function(err, updatedUser) {
+			User.findOne({ username: req.body.username }, function (err, updatedUser) {
 				if (err)
-				res.status(400).send(err);
+					res.status(400).send(err);
 				else {
 					console.log(updatedUser);
 					res.json(updatedUser);
@@ -67,11 +67,11 @@ exports.update = function(req, res) {
 
 /* Delete a user */
 /* FOR USE ON ADMIN PAGE */
-exports.delete = function(req, res) {
+exports.delete = function (req, res) {
 	var user = req.user;
-	User.findOneAndRemove({ username: req.user.username }, function(err, oldUser) {
+	User.findOneAndRemove({ username: req.user.username }, function (err, oldUser) {
 		if (err)
-		res.status(400).send(err);
+			res.status(400).send(err);
 		else {
 			console.log('Removed user!');
 			console.log(oldUser);
@@ -108,7 +108,7 @@ exports.delete = function(req, res) {
 // };
 
 /* Update Image for profile pics and tournaments */
-exports.changeImage = function(req, res) {
+exports.changeImage = function (req, res) {
 	var tourney = req.tourney;
 	/** TODO **/
 
@@ -116,10 +116,10 @@ exports.changeImage = function(req, res) {
 
 /* Retreive all the directory tourneys, sorted alphabetically by tourney code */
 /* UPDATE THIS CODE TO FIND TOURNAMENTS BY NAME*/
-exports.list = function(req, res) {
+exports.list = function (req, res) {
 	/** TODO **/
 	/* Your code here */
-	User.find().sort({ username: 1 }).exec(function(err, users) {
+	User.find().sort({ username: 1 }).exec(function (err, users) {
 		if (err) {
 			console.log(err);
 			res.status(404).send(err);
@@ -136,9 +136,9 @@ Find the tourney using a mongoose query,
 bind it to the request object as the property 'tourney',
 then finally call next
 */
-exports.usersByID = function(req, res, next, id) {
-	User.findById(id).exec(function(err, tourney) {
-		if(err) {
+exports.usersByID = function (req, res, next, id) {
+	User.findById(id).exec(function (err, tourney) {
+		if (err) {
 			res.status(404).send(err);
 		} else {
 			req.user = user;
