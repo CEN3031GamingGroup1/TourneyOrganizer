@@ -1,5 +1,6 @@
 /* Import mongoose and define any variables needed to create the schema */
 var mongoose = require('mongoose'),
+tourneySchema = require('mongoose').model('Tourney').schema,
 Schema = mongoose.Schema;
 
 /* Create your schema */
@@ -23,10 +24,7 @@ var userSchema = new Schema({
 		month: Number,
 		year: Number
 	},
-	following: {
-		type: [String],
-		default: undefined
-	},
+	tourneys: [tourneySchema],
 	created_at: Date,
 	updated_at: Date
 });

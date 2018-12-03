@@ -1,7 +1,7 @@
 angular.module('tourneys').controller('TourneyController', ['$scope', '$cookies', 'Tourneys',
 function($scope, $cookies, Tourneys) {
 
-	/* Get all the listings, then bind it to the scope */
+	/* Get all the tourneys, then bind it to the scope */
 	Tourneys.getAll().then(function(response) {
 		$scope.tourneys = response.data;
 		// .map(tourney => {
@@ -31,6 +31,7 @@ function($scope, $cookies, Tourneys) {
 		});
 		*/
 		const newDate = new Date($scope.tournamentDate.year, $scope.tournamentDate.month-1, $scope.tournamentDate.day);
+		
 		var newTourney = {
 			tournamentName : $scope.tournamentName,
 			game : $scope.game,
@@ -45,7 +46,6 @@ function($scope, $cookies, Tourneys) {
 		Tourneys.create(newTourney).then(function(response){
 			Tourneys.getAll().then(function(response) {
 				$scope.tourneys = response.data; //"redirecting" or updating the table again
-
 			}, function(error) {
 				console.log('Unable to retrieve tourneys:', error);
 			});

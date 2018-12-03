@@ -65,5 +65,6 @@ function($scope, Users) {
 	$scope.showDetails = function(index) {
 		$scope.detailedInfo = $scope.users[index];
 	};
+	
 }
 ]);
