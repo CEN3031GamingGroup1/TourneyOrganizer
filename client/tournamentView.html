@@ -86,15 +86,18 @@
 		</div>
 	</nav>
 
+	<br><br><br>
+
 	<center>
 		<h1 class="display-4">Tournament View</h1>
 	</center>
 
 	<div class="container">
+		<hr>
 		<div class="row" ng-controller="TourneyController">
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<form novalidate class="simple-form">
-					<div class="col-md-21">
+					<div class="col-md-12">
 						<div class="jumbotron" ng-repeat="tourney in tourneys" ng-if="tourney._id == getCookies()">
 							{{showDetails(tourney)}}
 							<h2>Tournament: {{detailedInfo.tournamentName}}</h2>

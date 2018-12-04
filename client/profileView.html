@@ -58,6 +58,7 @@
 			</ul>
 		</div>
 	</nav>
+	
 	<div>
 		<div class="row">
 			<div class="col-md-4">
@@ -87,9 +88,8 @@
 		<hr>
 		<div class="jumbotron">
 			<div class="row" ng-if="showHostTourneys && tourney.host == loggedInUser.username" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'">
-					<h3 class="display-4">Tournament: {{tourney.tournamentName}}</h3>
+				<h3 class="display-4">Tournament: {{tourney.tournamentName}}</h3>
 				<div class="col-md-4">
-					<hr>
 					<center>
 						<div class="btn-group" role="group" aria-label="Basic example">
 							<button type="button" class="btn btn-secondary">Edit</button>
@@ -107,7 +107,6 @@
 			<div class="row" ng-if="!showHostTourneys" ng-repeat="tourney in loggedInUser.attending | orderBy: 'tournamentName'">
 					<h3 class="display-4">Tournament: {{tourney.tournamentName}}</h3>
 				<div class="col-md-4">
-					<hr>
 					<center>
 						<div class="btn-group" role="group" aria-label="Basic example">
 						</div>
