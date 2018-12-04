@@ -59,8 +59,11 @@ var newUser = {
 console.log(newUser);
 Users.create(newUser).then(function(response) {
 	alert("Success!");
+	location.href='/home';
 }, function(err) {
 	console.log('Could not create new user:', err);
+	alert("something went wrong");
+	location.href='/signup';
 });
 }
 else {

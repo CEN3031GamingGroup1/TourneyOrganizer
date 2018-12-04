@@ -71,19 +71,20 @@
 	<div class="container" ng-controller="TourneyController">
 		<hr>
 		<div class="jumbotron">
-			<div class="row" ng-if="showHostTourneys" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'" ng-if="tourney.host == loggedInUser">
+			<div class="row" ng-if="showHostTourneys" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'" ng-if="tourney.host === loggedInUser">
 					<h3 class="display-4">Tournament: {{tourney.tournamentName}}</h3>
 				<div class="col-md-4">
 					<hr>
 					<center>
 						<div class="btn-group" role="group" aria-label="Basic example">
 							<button type="button" class="btn btn-secondary">Edit</button>
-							<button type="button" ng-click="deleteTourney(detailedInfo)" class="btn btn-danger">Delete</button>
+							<button type="button" ng-click="deleteTourney(tourney)" class="btn btn-danger">Delete</button>
 						</div>
 					</center>
 				</div>
 				<div class="col-md-8">
 					<p>Game: {{tourney.game}}</p>
+					<p>Host: {{tourney.host.username}}</p>
 					<p>Date: {{displayDate(tourney)}}</p>
 					<p>Details: {{tourney.details}}</p>
 				</div>
@@ -99,6 +100,7 @@
 				</div>
 				<div class="col-md-8">
 					<p>Game: {{tourney.game}}</p>
+					<p>Host: {{tourney.host.username}}</p>
 					<p>Date: {{displayDate(tourney)}}</p>
 					<p>Details: {{tourney.details}}</p>
 				</div>

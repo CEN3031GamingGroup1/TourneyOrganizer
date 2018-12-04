@@ -32,8 +32,10 @@ angular.module('tourneys')
 			};
 			Tourneys.create(newTourney).then(function (response) {
 				alert('Event Created :)');
+				location.href="/home";
 			}, function (err) {
 				console.log('Could not create new tourney:', err);
+				alert("something went wrong");
 			});
 		};
 
