@@ -32,15 +32,14 @@ exports.read = function (req, res) {
 	res.json(req.user);
 };
 
-/* Update a tourney */
+/* Update a user */
 exports.update = function (req, res) {
-	var user = req.user;
-
 	User.findOneAndUpdate({ username: req.body.username }, req.body, function (err) {
+		console.log(req.body);
 		if (err)
 			res.status(400).send(err);
 		else {
-			console.log('Updated tourney!')
+			console.log('Updated user!')
 			User.findOne({ username: req.body.username }, function (err, updatedUser) {
 				if (err)
 					res.status(400).send(err);

@@ -36,7 +36,7 @@ module.exports.init = function () {
 
   //body parsing middleware
   app.use(bodyParser.json());
-	app.use(bodyParser.urlencoded({ extended: false }));
+	app.use(bodyParser.urlencoded({ extended: true }));
 
 	/**TODO
 	Serve static files */
