@@ -27,7 +27,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/home">Home<span class="sr-only"></span></a>
                 </li>
@@ -50,6 +50,12 @@
                     <a class="nav-link" href="/admin" ng-if="loggedInUser.admin == true">Admin Page<span class="sr-only"></span></a>
                 </li>
             </ul>
+            <div align="right">
+                <form class="form-inline my-2 my-lg-8" id="navSearchBar">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" ng-click="search()" type="submit">Search</button>
+                </form>
+            </div>
         </div>
     </nav>
     

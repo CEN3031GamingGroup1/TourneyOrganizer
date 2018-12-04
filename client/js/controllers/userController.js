@@ -119,7 +119,7 @@ $scope.UFdup = function(){
 }
 
 $scope.search = function(){
-	alert('Nice Try, just press cntrl+F (command+F for MacOS) ')
+	alert('Nice Try, just press command+F (ctrl+F for Windows) ')
 }
 
 $scope.getLoggedInUser = function() {
