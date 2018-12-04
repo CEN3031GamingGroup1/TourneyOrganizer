@@ -53,6 +53,10 @@ module.exports.init = function () {
 	////////////
 	// ROUTES //
 	////////////
+	app.get('/', function (req, res) {
+		res.redirect('/home');
+	});
+
 	app.get('/home', function (req, res) {
 		res.sendFile(path.join(__dirname + '../../../client/index.html'));
 	});
