@@ -57,6 +57,11 @@ module.exports.init = function () {
 		res.sendFile(path.join(__dirname + '../../../client/index.html'));
 	});
 
+	app.get('/tourney', function (req, res) {
+		res.sendFile(path.join(__dirname + '../../../client/tournamentView.html'));
+	});
+
+
 	app.get('/map', function (req, res) {
 		res.sendFile(path.join(__dirname + '../../../client/findTournaments.html'));
 	});
