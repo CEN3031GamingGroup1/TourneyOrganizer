@@ -6,6 +6,7 @@ angular.module('tourneys')
 		/* Get all the tourneys, then bind it to the scope */
 		Tourneys.getAll().then(function (response) {
 			$scope.tourneys = response.data;
+			console.log(response.data);
 		}, function (error) {
 			console.log('Unable to retrieve listings:', error);
 		});
@@ -49,9 +50,9 @@ angular.module('tourneys')
 			})
 		};
 
-		$scope.featureTourney = function (tourney) {
-			tourney.featured = 1;
-			Tourneys.update(tourney).then(function (response) {
+		$scope.featureTourney = function (index) {
+			$scope.tourneys[index].featured = 1;
+			Tourneys.update($scope.tourneys[index]).then(function (response) {
 				Tourneys.getAll().then(function (response) {
 					$scope.tourneys = response.data; //"redirecting" or updating the table again
 				}, function (error) {
