@@ -98,7 +98,6 @@ module.exports.init = function () {
 			});
 	});
 
-
 	app.get('/login', function (req, res) {
 		res.sendFile(path.join(__dirname + '../../../client/login.html'));
 	});

@@ -10,7 +10,6 @@ function($scope, Users) {
 	});
 
 	$scope.detailedInfo = undefined;
-	$scope.loggedInUser = undefined;
 	$scope.createUser = function() {
 		/*  TODO
 		*Save the article using the users factory. If the object is successfully

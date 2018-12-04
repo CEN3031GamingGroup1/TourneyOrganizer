@@ -73,8 +73,8 @@
 				<tr ng-repeat="tourney in tourneys | orderBy: 'tournamentName':true" ng-click="showDetails(tourney)">
 					<td>{{tourney.tournamentName}}</td>
 					<td>{{displayDate(tourney)}}</td>
-					<td ng-click="deleteTourney($index)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
-					<td ng-click="featureTourney($index)"><span style="color: green;" class="glyphicon glyphicon-ok"></span></td>
+					<td><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+					<td><span style="color: green;" class="glyphicon glyphicon-ok"></span></td>
 				</tr>
 			</table>
 		</div>
@@ -88,7 +88,8 @@
 						<hr class="my-4">
 						<div class="btn-group" role="group" aria-label="Basic example">
 							<button type="button" class="btn btn-secondary">Edit</button>
-							<button type="button" class="btn btn-danger">Delete</button>
+							<button type="button" ng-click="deleteTourney(detailedInfo)" class="btn btn-danger">Delete</button>
+								<button type="button" ng-click="featureTourney(detailedInfo)" class="btn btn-secondary">Feature</button>
 						</div>
 					</div>
 					<div class="col-md-8">
@@ -96,6 +97,8 @@
 						<p>Game: {{detailedInfo.game}}</p>
 						<p>Date: {{displayDate(detailedInfo)}}</p>
 						<p>Details: {{detailedInfo.details}}</p>
+						<p>Featured: {{detailedInfo.featured == 1}}</p>
+
 					</div>
 				</div>
 			</div>

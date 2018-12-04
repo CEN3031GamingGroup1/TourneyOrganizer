@@ -4,7 +4,6 @@ angular.module('tourneys').controller('TourneyController', ['$scope', '$cookies'
 		/* Get all the tourneys, then bind it to the scope */
 		Tourneys.getAll().then(function (response) {
 			$scope.tourneys = response.data;
-			console.log(response.data);
 		}, function (error) {
 			console.log('Unable to retrieve listings:', error);
 		});
@@ -36,8 +35,8 @@ angular.module('tourneys').controller('TourneyController', ['$scope', '$cookies'
 			});
 		};
 
-		$scope.deleteTourney = function (index) {
-			Tourneys.delete($scope.tourneys[index]._id).then(function (response) {
+		$scope.deleteTourney = function (tourney) {
+			Tourneys.delete(tourney._id).then(function (response) {
 				Tourneys.getAll().then(function (response) {
 					$scope.tourneys = response.data; //"redirecting" or updating the table again
 				}, function (error) {
@@ -48,9 +47,9 @@ angular.module('tourneys').controller('TourneyController', ['$scope', '$cookies'
 			})
 		};
 
-		$scope.featureTourney = function (index) {
-			$scope.tourneys[index].featured = 1;
-			Tourneys.update($scope.tourneys[index]).then(function (response) {
+		$scope.featureTourney = function (tourney) {
+			tourney.featured = 1;
+			Tourneys.update(tourney).then(function (response) {
 				Tourneys.getAll().then(function (response) {
 					$scope.tourneys = response.data; //"redirecting" or updating the table again
 				}, function (error) {
@@ -65,10 +64,17 @@ angular.module('tourneys').controller('TourneyController', ['$scope', '$cookies'
 			$scope.detailedInfo = tourney;
 		};
 
-$scope.attend = function(tourney) {
-	console.log($scope.loggedInUser);
-	$scope.loggedInUser.attending.push(tourney);
-}
+		$scope.attend = function(tourney) {
+			if($scope.loggedInUser != undefined) {
+				console.log($scope.loggedInUser);
+				$scope.loggedInUser.attending.push(tourney);
+				console.log($scope.loggedInUser);
+			}
+			else{
+				console.log("not logged in?");
+				console.log($scope.loggedInUser);
+			}
+		}
 
 
 		$scope.sendCookies = function (id) {

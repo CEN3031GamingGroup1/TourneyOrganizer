@@ -76,7 +76,7 @@
 				<hr class="my-4">
 				<p></p>
 				<p>{{displayDate(tourney)}}</p>
-				<button type="submit" href="#" ng-click="attend()" class="btn btn-primary">Attend!</button>
+				<button type="submit" ng-click="attend(tourney)" class="btn btn-primary">Attend!</button>
 			</div>
 		</center>
 
@@ -96,7 +96,7 @@
 				<p class="card-text">Address: {{x.address}}</p>
 				<p class="card-text">Details: {{x.details}}</p>
 				<p class="card-text">Fee: ${{x.fee}} || Age Requirement: {{x.ageReq}}</p>
-				<button type="submit" href="#" ng-click="attend()" class="btn btn-primary">Attend!</button>
+				<button type="submit" ng-click="attend(tourney)" class="btn btn-primary">Attend!</button>
 				<!-- ng-click="attendTourney()" -->
 			</div>
 		</div>
