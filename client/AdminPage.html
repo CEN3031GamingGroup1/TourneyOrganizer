@@ -38,19 +38,19 @@
 					<a class="nav-link" href="/home">Home<span class="sr-only"></span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#news">Find Tournaments</a>
+					<a class="nav-link" href="/map">Find Tournaments</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/profile">Profile</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#about">Logout<span class="sr-only"></span></a>
+					<a class="nav-link" href="/logout">Logout<span class="sr-only"></span></a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/create">Create Event<span class="sr-only"></span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link active" href="/admin">Admin Page<span class="sr-only"></span></a>
+					<a class="nav-link active" href="/admin" ng-if="loggedInUser.admin == true">Admin Page<span class="sr-only"></span></a>
 				</li>
 			</ul>
 		</div>
