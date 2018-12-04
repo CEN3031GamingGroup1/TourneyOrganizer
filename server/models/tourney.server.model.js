@@ -1,6 +1,5 @@
 /* Import mongoose and define any variables needed to create the schema */
 var mongoose = require('mongoose'),
-	userSchema = require('./user.server.model.js').schema,
 	Schema = mongoose.Schema;
 
 /* Create your schema */

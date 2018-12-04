@@ -74,7 +74,7 @@
 	<div class="container" ng-controller="TourneyController">
 		<hr>
 		<div class="jumbotron">
-			<div class="row" ng-if="showHostTourneys" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'" ng-if="tourney.host.username == loggedInUser.username">
+			<div class="row" ng-if="showHostTourneys" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'" ng-if="tourney.host == loggedInUser.username">
 					<h3 class="display-4">Tournament: {{tourney.tournamentName}}</h3>
 				<div class="col-md-4">
 					<hr>
@@ -87,7 +87,7 @@
 				</div>
 				<div class="col-md-8">
 					<p>Game: {{tourney.game}}</p>
-					<p>Host: {{tourney.host.username}}</p>
+					<p>Host: {{tourney.host}}</p>
 					<p>Date: {{displayDate(tourney)}}</p>
 					<p>Details: {{tourney.details}}</p>
 				</div>
@@ -103,7 +103,7 @@
 				</div>
 				<div class="col-md-8">
 					<p>Game: {{tourney.game}}</p>
-					<p>Host: {{tourney.host.username}}</p>
+					<p>Host: {{tourney.host}}</p>
 					<p>Date: {{displayDate(tourney)}}</p>
 					<p>Details: {{tourney.details}}</p>
 				</div>
