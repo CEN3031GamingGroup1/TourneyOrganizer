@@ -24,7 +24,7 @@ describe('Listing Schema Unit Tests', function () {
 
 	describe('Saving to database', function () {
 		/*
-		  Mocha's default timeout for tests is 2000ms. To ensure that the tests do not fail 
+		  Mocha's default timeout for tests is 2000ms. To ensure that the tests do not fail
 		  prematurely, we can increase the timeout setting with the method this.timeout()
 		 */
 		this.timeout(10000);

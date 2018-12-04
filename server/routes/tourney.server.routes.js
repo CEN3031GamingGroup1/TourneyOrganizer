@@ -1,4 +1,3 @@
-/* Dependencies */
 var tourneys = require('../controllers/tourney.server.controller.js'),
 	express = require('express'),
 	router = express.Router();
