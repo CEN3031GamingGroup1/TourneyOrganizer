@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="../client/styles/index.css">
 </head>
 
-<body ng-app="directoryApp" style="padding-top: 70px">
+<body ng-app="directoryApp" style="padding-top: 70px" ng-controller="UserController">
 
 	<style>
 		@media screen {
@@ -28,7 +28,7 @@
 		}
 	</style>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" ng-controller="UserController">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 		<a class="navbar-brand">
 			<font color="orange">GT</font><font color="blue">ourney</font>
 		</a>
@@ -75,7 +75,7 @@
 				<hr class="my-4">
 				<p></p>
 				<p>{{displayDate(tourney)}}</p>
-				<button type="submit" ng-click="attend(tourney)" class="btn btn-primary">Attend!</button>
+				<button type="submit" ng-click="attend(tourney); updateUser(loggedInUser);" class="btn btn-primary" ng-controller="UserController">Attend!</button>
 			</div>
 		</center>
 

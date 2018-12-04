@@ -19,10 +19,9 @@ var userSchema = new Schema({
 	password: {
 		type: String
 	},
-	dob: {
-		type: Date
-	},
+	dob: Date,
 	attending: [tourneySchema],
+	hosting: [tourneySchema],
 	admin: {
 		type: Boolean,
 		default: false

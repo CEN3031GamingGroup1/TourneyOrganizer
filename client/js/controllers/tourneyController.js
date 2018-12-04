@@ -78,6 +78,7 @@ angular.module('tourneys')
 			else {
 				console.log("not logged in?");
 				console.log(userInfo.loggedInUser);
+				location.href='/login';
 			}
 		}
 

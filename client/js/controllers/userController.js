@@ -15,7 +15,7 @@ function($scope, Users, userInfo) {
 	$scope.detailedInfo = undefined;
 
 	$scope.updateUser = function(user) {
-		Users.update(user._id).then(function(response) {
+		Users.update(user._id, user).then(function(response) {
 			userInfo.loggedInUser = response.data[0];
 		}, function(err) {
 			console.log(err);
