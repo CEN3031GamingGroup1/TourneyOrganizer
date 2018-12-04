@@ -12,8 +12,8 @@ angular.module('users', []).factory('Users', function ($http) {
       return $http.post('http://localhost:8080/login', user);
 		},
 
-		update: function(id) {
-      return $http.put('http://localhost:8080/api/users'+ id);
+		update: function(id, user) {
+      return $http.put('http://localhost:8080/api/users/'+ id, user);
 		},
 
 		getUsername: function() {
