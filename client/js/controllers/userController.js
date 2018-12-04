@@ -71,9 +71,8 @@ $scope.login = function() {
 		password: $scope.password
 	}
 	Users.loginn(newUser).then(function(response) {
-		alert('Login Successful');
 	}, function(err) {
-		alert('Incorrect username or password');
+		console.log(err);
 	});
 }
 

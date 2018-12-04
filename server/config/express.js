@@ -74,7 +74,6 @@ module.exports.init = function () {
 
 
 	app.get('/getUsername', isLoggedIn, function (req, res) {
-		console.log(req.user.username);
 		res.send({username: req.user.username});
 		res.end();
 	});
@@ -109,7 +108,7 @@ module.exports.init = function () {
 		successRedirect: '/home',
 		failureRedirect: '/login'
 	}), function(req, res) {
-		res.redirect('/home');
+		console.log(req.user.username + ' Logged in!');
 	});
 
 
