@@ -60,14 +60,12 @@
 		<hr class="col-md-6">
 	</center>
 
-	<div ng-controller="TourneyController">
+	<div class="container" ng-controller="TourneyController">
 		<div class="tableWrapper">
-			<table class="table table-striped table-hover">
+			<table class="table table-striped">
 				<tr>
 					<th>Name</th>
 					<th>Date</th>
-					<th>Remove</th>
-					<th>Feature</th>
 				</tr>
 				<tr ng-repeat="tourney in tourneys | orderBy: 'tournamentName':true" ng-click="showDetails(tourney)">
 					<td>{{tourney.tournamentName}}</td>
@@ -88,7 +86,7 @@
 						<div class="btn-group" role="group" aria-label="Basic example">
 							<button type="button" class="btn btn-secondary">Edit</button>
 							<button type="button" ng-click="deleteTourney(detailedInfo)" class="btn btn-danger">Delete</button>
-								<button type="button" ng-click="featureTourney(detailedInfo)" class="btn btn-secondary">Feature</button>
+							<button type="button" ng-click="featureTourney(detailedInfo)" class="btn btn-secondary">Feature</button>
 						</div>
 					</div>
 					<div class="col-md-8">
