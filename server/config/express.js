@@ -103,12 +103,24 @@ module.exports.init = function () {
 		res.sendFile(path.join(__dirname + '../../../client/login.html'));
 	});
 
+	app.get('/loginSuccess', function(req, res) {
+		res.send(req.user.username);
+	});
+
+	app.get('/loginFailure', function(req, res) {
+		res.send(undefined);
+	});
 
 	app.post('/login', passport.authenticate('local', {
-		successRedirect: '/home',
-		failureRedirect: '/login'
+		successRedirect: '/loginSuccess',
+		failureRedirect: '/loginFailure'
 	}), function(req, res) {
-		console.log(req.user.username + ' Logged in!');
+		if(req.isAuthenticated()) {
+			res.send(req.user.username);
+		}
+		else {
+			res.send(undefined);
+		}
 	});
 
 

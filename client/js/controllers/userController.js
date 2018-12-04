@@ -51,6 +51,16 @@ else {
 }
 };
 
+$scope.isLoggedIn = function() {
+	Users.getUsername().then(function(response) {
+		console.log(response);
+		return true;
+	}, function(error) {
+		console.log(error);
+		return false;
+	});
+}
+
 $scope.deleteUser = function(index) {
 	/**TODO
 	Delete the article using the users factory. If the removal is successful,
@@ -70,9 +80,17 @@ $scope.login = function() {
 		username: $scope.username,
 		password: $scope.password
 	}
-	Users.loginn(newUser).then(function(response) {
-	}, function(err) {
-		console.log(err);
+	Users.loginn(newUser).then(function(response, err) {
+		console.log(response.data);
+		if(err || response.data == undefined || response.data == '') {
+			console.log(err);
+			alert('Incorrect username or password');
+			window.location.href='/login';
+		}
+		else {
+			alert('Successful login! Welcome, ' + response.data + '. :)');
+			window.location.href='/home';
+		}
 	});
 }
 
@@ -90,15 +108,7 @@ $scope.getLoggedInUser = function() {
 	});
 }
 
-$scope.isLoggedIn = function() {
-	Users.getUsername().then(function(response) {
-		console.log(response);
-		return true;
-	}, function(error) {
-		console.log(error);
-		return false;
-	});
-}
+
 
 $scope.displayDate = function(user) {
 	var newDate = new Date;
