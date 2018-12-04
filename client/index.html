@@ -13,6 +13,10 @@
 <body ng-app="directoryApp" style="padding-top: 70px" ng-controller="UserController">
 
 	<style>
+		body{
+			background-color: #537291;
+			background-image: url(gatorhead-striped.jpg)
+		}
 		@media screen {
 			.noPrint{}
 			.noScreen{display:none;}
@@ -53,6 +57,9 @@
 				<li class="nav-item" ng-if="loggedInUser == undefined">
 					<a class="nav-link" href="/login">Login<span class="sr-only"></span></a>
 				</li>
+				<li class="nav-item" ng-if="loggedInUser == undefined">
+						<a class="nav-link" href="/signup">Sign Up<span class="sr-only"></span></a>
+				</li>
 				<li class="nav-item" ng-if="loggedInUser != undefined">
 					<a class="nav-link" href="/create">Create Event<span class="sr-only"></span></a>
 				</li>
@@ -85,7 +92,7 @@
 			<h3 class="display-4">All Current Events</h3>
 		</center>
 		<hr>
-		<div class="card" ng-repeat="x in tourneys | orderBy: 'tournamentName':true">
+		<div class="card" ng-repeat="x in tourneys | orderBy: '-tournamentName':true">
 			<div class="card-header">
 				<p class="display-4">{{x.tournamentName}}</p>
 			</div>
