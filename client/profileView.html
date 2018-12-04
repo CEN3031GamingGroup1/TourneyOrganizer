@@ -56,22 +56,6 @@
 	</nav>
 	<div>
 		<center >
-
-
-
-			<div class="card">
-				<div class="card-header">
-					Your Profile Information
-				</div>
-				<div class="card-body">
-					<blockquote class="blockquote mb-0">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-					<footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-					</blockquote>
-				</div>
-			</div>
-
-
 			<p>Username: {{loggedInUser.username}}</p>
 			<p>Email: {{loggedInUser.email}}</p>
 			<p>DOB: {{displayDate(loggedInUser)}}</p>
@@ -86,7 +70,7 @@
 	<div class="container" ng-controller="TourneyController">
 		<hr>
 		<div class="jumbotron">
-			<div class="row" ng-if="showHostTourneys" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'" ng-if="tourney.host === loggedInUser">
+			<div class="row" ng-if="showHostTourneys" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'" ng-if="tourney.host.username == loggedInUser.username">
 					<h3 class="display-4">Tournament: {{tourney.tournamentName}}</h3>
 				<div class="col-md-4">
 					<hr>

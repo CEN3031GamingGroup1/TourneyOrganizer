@@ -23,7 +23,7 @@ angular.module('tourneys')
 				tournamentName: $scope.tournamentName,
 				game: $scope.game,
 				tournamentDate: newDate,
-				host: $scope.loggedInUser,
+				host: $scope.loggedInUser.username,
 				address: address,
 				details: $scope.details,
 				fee: $scope.fee,

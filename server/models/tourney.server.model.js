@@ -11,9 +11,9 @@ var tourneySchema = new Schema({
 		unique: true
 	}, //ADD HOST after authentication
 	host: {
-		type: userSchema,
+		type: String,
 		unique: false
-	}, 
+	},
 	game: {
 		type: String,
 		required: true
