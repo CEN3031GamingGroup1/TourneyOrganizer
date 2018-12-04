@@ -29,9 +29,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/home">Home<span class="sr-only"></span></a>
+                    <a class="nav-link" href="/home">Home<span class="sr-only"></span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" ng-init="getLoggedInUser()" href="/map">Find Tournaments</a>
                 </li>
                 <li class="nav-item" ng-if="loggedInUser != undefined">
@@ -52,7 +52,6 @@
             </ul>
         </div>
     </nav>
-<<<<<<< Updated upstream
     
     <div id='map'></div>
     <script src='https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js'></script>
@@ -120,78 +119,6 @@
         </div>
         <hr>
     </div>
-=======
-<div id='map'></div>
-<script src='https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js'></script>
-<script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
-<script>
-mapboxgl.accessToken = 'pk.eyJ1Ijoid2VpbGluMTIyMSIsImEiOiJjanAzZHA3a3IwZ3NzM3NxcmxuazNvb2ZyIn0.M-0ttKHcot2nJ65rbu6p7w';
-// eslint-disable-next-line no-undef
-var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9',
-    center: [-82.325020, 29.651979],
-    zoom: 12
-});
-</script>
-<div class="container" ng-controller="TourneyController">
-<div class="info" ng-repeat="x in tourneys | orderBy: 'tournamentName':true" ng-open="setPoint(x.adderss)">
-			<div class="card-body">
-				<h5 class="Game">Game: {{x.game}}
-				<h5 class="Date">Date: {{displayDate(x)}}
-				<p class="Address">{{x.address}}
-				<p class="Details">Details: {{x.details}}
-
-<script>
-function setPoint(address) {
-var a = new mapboxgl.Popup({ offset: 25 })
-    .setText('what');
-mapboxClient.geocoding.forwardGeocode({
-    query: '2330 sw williston rd, gainesville, fl',
-    autocomplete: false,
-    limit: 1
-})
-    .send()
-    .then(function (response) {
-        if (response && response.body && response.body.features && response.body.features.length) {
-            feature = response.body.features[0];
-            new mapboxgl.Marker()
-                .setLngLat(feature.center)
-                .setPopup(a)
-                .addTo(map);
-        }
-    });
-
-var des = "Address: " + address;
-var b = new mapboxgl.Popup({ offset: 25 })
-    .setText(des);
-mapboxClient.geocoding.forwardGeocode({
-    query: '2601 sw archer rd, gainesville, fl',
-    autocomplete: false,
-    limit: 1
-})
-    .send()
-    .then(function (response) {
-        if (response && response.body && response.body.features && response.body.features.length) {
-            feature = response.body.features[0];
-            new mapboxgl.Marker()
-                .setLngLat(feature.center)
-                .setPopup(b)
-                .addTo(map);
-        }
-    });
-	}
-</script>
-</h5>
-</h5>
-</p>
-</p>
-			</div>
-		</div>
-		<hr>
-	</div>
->>>>>>> Stashed changes
     <!-- Scripts I've added-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
