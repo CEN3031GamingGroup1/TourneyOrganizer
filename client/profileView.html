@@ -71,7 +71,7 @@
 	<div class="container" ng-controller="TourneyController">
 		<hr>
 		<div class="jumbotron">
-			<div class="row" ng-if="showHostTourneys" ng-repeat="tourney in loggedInUser.hosting | orderBy: 'tournamentName'">
+			<div class="row" ng-if="showHostTourneys" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'" ng-if="tourney.host == loggedInUser">
 					<h3 class="display-4">Tournament: {{tourney.tournamentName}}</h3>
 				<div class="col-md-4">
 					<hr>

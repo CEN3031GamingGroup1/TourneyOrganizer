@@ -21,7 +21,6 @@ var userSchema = new Schema( {
 	},
 	dob: Date,
 	attending: [tourneySchema],
-	hosting: [tourneySchema],
 	admin: {
 		type: Boolean,
 		default: false

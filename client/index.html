@@ -13,6 +13,10 @@
 <body ng-app="directoryApp" style="padding-top: 70px" ng-controller="UserController">
 
 	<style>
+		body{
+			background-color: #537291;
+			background-image: url(gatorhead-striped.jpg)
+		}
 		@media screen {
 			.noPrint{}
 			.noScreen{display:none;}
@@ -78,7 +82,7 @@
 				<hr class="my-4">
 				<p></p>
 				<p>{{displayDate(tourney)}}</p>
-				<button type="submit" ng-click="attend(tourney); updateUser(loggedInUser);" class="btn btn-primary" ng-controller="UserController">Attend!</button>
+				<button type="submit" ng-click="attend(tourney); updateUser(loggedInUser);" class="btn btn-primary">Attend!</button>
 			</div>
 		</center>
 
@@ -88,7 +92,7 @@
 			<h3 class="display-4">All Current Events</h3>
 		</center>
 		<hr>
-		<div class="card" ng-repeat="x in tourneys | orderBy: 'tournamentName':true">
+		<div class="card" ng-repeat="x in tourneys | orderBy: '-tournamentName':true">
 			<div class="card-header">
 				<p class="display-4">{{x.tournamentName}}</p>
 			</div>
@@ -98,7 +102,7 @@
 				<p class="card-text">Address: {{x.address}}</p>
 				<p class="card-text">Details: {{x.details}}</p>
 				<p class="card-text">Fee: ${{x.fee}} || Age Requirement: {{x.ageReq}}</p>
-				<button type="submit" ng-click="attend(tourney); updateUser(loggedInUser);" class="btn btn-primary" ng-controller="UserController">Attend!</button>
+				<button type="submit" ng-click="attend(x); updateUser(loggedInUser);" class="btn btn-primary">Attend!</button>
 				<!-- ng-click="attendTourney()" -->
 			</div>
 		</div>

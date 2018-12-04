@@ -15,8 +15,13 @@ function($scope, Users, userInfo) {
 	$scope.detailedInfo = undefined;
 
 	$scope.updateUser = function(user) {
+		console.log("updating user");
+		console.log(userInfo.loggedInUser);
 		Users.update(user._id, user).then(function(response) {
-			userInfo.loggedInUser = response.data[0];
+			userInfo.loggedInUser = response.data;
+			$scope.loggedInUser = userInfo.loggedInUser;
+			console.log("updated user");
+			console.log(userInfo.loggedInUser);
 		}, function(err) {
 			console.log(err);
 		});
@@ -119,9 +124,8 @@ $scope.getLoggedInUser = function() {
 		console.log(response.data.username);
 		Users.getUser(response.data.username).then(function(response) {
 			userInfo.loggedInUser = response.data[0];
-			console.log($scope.loggedInUser);
 			$scope.loggedInUser = userInfo.loggedInUser;
-			console.log($scope.loggedInUser.attending);
+			console.log($scope.loggedInUser);
 		}, function(error) {
 			console.log(error);
 		});
