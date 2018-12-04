@@ -26,6 +26,8 @@ function($scope, Users) {
 */
 const newDate = new Date($scope.year, $scope.month-1, $scope.day);
 
+console.log(newDate);
+
 var confirm_password = document.getElementById("confirm_password"), confirm_email = document.getElementById("confirm_email");
 if(confirm_email.value == $scope.email && confirm_password.value == $scope.password) {
 var newUser = {
@@ -34,11 +36,14 @@ var newUser = {
 	address : $scope.address,
 	password: $scope.password,
 	dob : newDate,
+	attending: [],
 	admin: false
 };
-Users.create(newUser).then(function(response){
+console.log(newUser);
+Users.create(newUser).then(function(response) {
+	alert("Success!");
 }, function(err) {
-	console.log('Could not create new tourney:', err);
+	console.log('Could not create new user:', err);
 });
 }
 else {
@@ -77,7 +82,7 @@ $scope.getLoggedInUser = function() {
 		console.log(response.data.username);
 		Users.getUser(response.data.username).then(function(response) {
 			$scope.loggedInUser = response.data[0];
-			console.log(loggedInUser);
+			console.log($scope.loggedInUser);
 		}, function(error) {
 			console.log(error);
 		});
