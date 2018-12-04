@@ -56,20 +56,18 @@
 	</nav>
 	<center>
 		<h1 class="display-4">My Tournaments</h1>
-		<p>These are the tournaments you've chosen to attend.</p>
+		<p>Here is the list of all the events you've created.</p>
 		<a class="btn btn-primary" href="profileView.html" role="button">Profile View</a>
 	</center>
 
 	<div class="container" ng-controller="UserController">
 		<hr>
-		<div class="jumbotron" ng-repeat="x in users | orderBy: 'username'">
+		<div class="jumbotron" ng-repeat="going in users | orderBy: 'attending'">
 			<div class="row">
 				<h3 class="display-4">Tournament: {{detailedInfo.tournamentName}}</h3>
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-					<img src="/Users/christiansarmiento/TourneyOrganizer/TourneyOrganizer-develop/GTourney Wireframes/GTourney Admin View.jpg"
-					 style="width: 100%;">
 					<hr class="my-4">
 					<div class="btn-group" role="group">
 						<button type="button" class="btn btn-danger">Remove</button>
