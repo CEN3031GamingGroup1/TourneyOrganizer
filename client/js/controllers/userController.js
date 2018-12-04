@@ -115,7 +115,7 @@ $scope.UFdup = function(){
 	alert('🖕😂😝😡👌 That Sucks 🖕🍆💯🧐🅱️👏');
 }
 
-$scope.search = finction(){
+$scope.search = function(){
 	alert('Nice Try, just press cntrl+F (command+F for MacOS) ')
 }
 
