@@ -58,6 +58,11 @@ module.exports.init = function () {
 	});
 
 
+	app.get('/map', function(req, res) {
+		res.sendFile(path.join(__dirname + '../../../client/findTournaments.html'));
+	});
+
+
 	app.get('/create', function (req, res) {
 		res.sendFile(path.join(__dirname + '../../../client/createTourney.html'));
 	});

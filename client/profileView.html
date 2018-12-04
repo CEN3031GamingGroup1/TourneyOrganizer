@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="styles/main.css">
 </head>
 
-<body ng-app="directoryApp" style="padding-top: 70px">
+<body ng-app="directoryApp" style="padding-top: 70px">{{showHostTourneys = true}}
 
 	<style>
 		@media screen{
@@ -55,13 +55,16 @@
 		</div>
 	</nav>
 	<div ng-controller="UserController" ng-app="directoryApp" ng-init="getLoggedInUser()">
+	<div ng-controller="UserController" ng-app="directoryApp" ng-init="getLoggedInUser()">
 	<center >
 		<p>Username: {{loggedInUser.username}}</p>
 		<p>Email: {{loggedInUser.email}}</p>
 		<p>DOB: {{displayDate(loggedInUser)}}</p>
 		<h1 class="display-4">Profile View</h1>
-		<p>Here is the list of all the events you've chosen to attend.</p>
-		<a class="btn btn-primary"  role="button">View My Tournaments</a>
+		<p ng-if="!showHostTourneys">Here is the list of all the events you've chosen to attend.</p>
+		<p ng-if="showHostTourneys">Here is the list of all the events you've chosen to host.</p>
+		<a class="btn btn-primary" ng-click="toggleBoolean(showHostTourneys)" ng-if="showHostTourneys"  role="button">View the tournaments you're hosting</a>
+		<a class="btn btn-primary" ng-click="toggleBoolean(showHostTourneys)" ng-if="!showHostTourneys" role="button">View your attending Tournaments</a>
 	</center>
 	</div>
 
@@ -69,13 +72,27 @@
 		<hr>
 		<div class="jumbotron" ng-app="directoryApp">
 
-			<div class="row" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'" ng-controller="TourneyController">
-				<h3 class="display-4">Tournament: {{detailedInfo.tournamentName}}</h3>
+			<div class="row" ng-if="showHostTourneys" ng-repeat="tourney in loggedInUser.hosting | orderBy: 'tournamentName'" ng-controller="UserController">
+				<h3 class="display-4">Tournament: {{tourney.tournamentName}}</h3>
 				<div class="col-md-4">
 					<hr class="my-4">
 					<div class="btn-group" role="group" aria-label="Basic example">
 						<button type="button" class="btn btn-secondary">Edit</button>
 						<button type="button" class="btn btn-danger">Delete</button>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<!-- <hr class="my-4"> -->
+					<p>Game: {{tourney.game}}</p>
+					<p>Date: {{displayDate(tourney)}}</p>
+					<p>Details: {{tourney.details}}</p>
+				</div>
+			</div>
+			<div class="row" ng-if="!showHostTourneys" ng-repeat="tourney in loggedInUser.attending | orderBy: 'tournamentName'" ng-controller="UserController">
+				<h3 class="display-4">Tournament: {{detailedInfo.tournamentName}}</h3>
+				<div class="col-md-4">
+					<hr class="my-4">
+					<div class="btn-group" role="group" aria-label="Basic example">
 					</div>
 				</div>
 				<div class="col-md-8">
@@ -87,6 +104,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 
 
 	<div class="noScreen"> <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://i.redd.it/7k0zytm6va121.jpg&choe=UTF-8"

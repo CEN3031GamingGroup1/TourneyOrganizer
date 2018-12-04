@@ -3,4 +3,6 @@ angular.module('tourneys', []);
 angular.module('users', []);
 
 /* register the application and inject all the necessary dependencies */
-var app = angular.module('directoryApp', ['tourneys', 'users', 'ngCookies']);
+var app = angular.module('directoryApp', ['tourneys', 'users', 'ngCookies']).service('userInfo', function() {
+	var userInfo = undefined;
+});

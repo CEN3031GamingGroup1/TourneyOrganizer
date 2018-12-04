@@ -1,5 +1,8 @@
-angular.module('users').controller('UserController', ['$scope', 'Users',
-function($scope, Users) {
+angular.module('users')
+.service('userInfo')
+.controller('UserController', ['$scope', 'Users', 'userInfo',
+function($scope, Users, userInfo) {
+
 
 
 	/* Get all the users, then bind it to the scope */
@@ -10,6 +13,7 @@ function($scope, Users) {
 	});
 
 	$scope.detailedInfo = undefined;
+	$scope.loggedInUser = undefined;
 	$scope.createUser = function() {
 		/*  TODO
 		*Save the article using the users factory. If the object is successfully
@@ -99,6 +103,7 @@ $scope.getLoggedInUser = function() {
 		Users.getUser(response.data.username).then(function(response) {
 			$scope.loggedInUser = response.data[0];
 			console.log($scope.loggedInUser);
+			userInfo.loggedInUser = $scope.loggedInUser
 		}, function(error) {
 			console.log(error);
 		});
@@ -107,6 +112,13 @@ $scope.getLoggedInUser = function() {
 	});
 }
 
+$scope.toggleBoolean = function() {
+	if($scope.showHostTourneys)
+		$scope.showHostTourneys = false;
+	else
+		$scope.showHostTourneys = true;
+	console.log($scope.showHostTourneys);
+}
 
 
 $scope.displayDate = function(user) {

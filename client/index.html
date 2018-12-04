@@ -30,7 +30,7 @@
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" ng-controller="UserController">
 		<a class="navbar-brand">
-			<font color="orange">GT</font>
+			<font color="orange" ng-init="getLoggedInUser()">GT</font>
 			<font color="blue">ourney</font>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
@@ -43,7 +43,7 @@
 					<a class="nav-link active" href="/home">Home<span class="sr-only"></span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" ng-init="getLoggedInUser()" href="/map">Find Tournaments</a>
+					<a class="nav-link" href="/map">Find Tournaments</a>
 				</li>
 				<li class="nav-item" ng-if="loggedInUser != undefined">
 					<a class="nav-link" href="/profile">Profile</a>
