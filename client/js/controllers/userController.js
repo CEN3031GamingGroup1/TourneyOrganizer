@@ -93,6 +93,10 @@ $scope.login = function() {
 	});
 }
 
+$scope.UFdup = function(){
+	alert('🖕😂😝😡👌 That Sucks 🖕🍆💯🧐🅱️👏');
+}
+
 $scope.getLoggedInUser = function() {
 	Users.getUsername().then(function(response) {
 		console.log(response.data.username);
