@@ -106,6 +106,7 @@
 					<p>Host: {{tourney.host}}</p>
 					<p>Date: {{displayDate(tourney)}}</p>
 					<p>Details: {{tourney.details}}</p>
+					<button type="button" ng-click="unattend(tourney); updateUser(loggedInUser);" class="btn btn-danger">Unattend!</button>
 				</div>
 			</div>
 		</div>

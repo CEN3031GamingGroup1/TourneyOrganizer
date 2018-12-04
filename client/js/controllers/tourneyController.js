@@ -84,6 +84,20 @@ angular.module('tourneys')
 			}
 		}
 
+		$scope.unattend = function(tourney) {
+			if(userInfo.loggedInUser != undefined) {
+				console.log(userInfo.loggedInUser);
+				var idx = userInfo.loggedInUser.attending.findIndex(t => t._id === tourney._id);
+				userInfo.loggedInUser.attending.splice(idx, 1);
+				console.log(userInfo.loggedInUser);
+			}
+			else {
+				console.log("not logged in?");
+				console.log(userInfo.loggedInUser);
+				location.href='/login';
+			}
+		}
+
 
 		$scope.toggleBoolean = function() {
 		    if($scope.showHostTourneys)
