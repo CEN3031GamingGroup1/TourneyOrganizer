@@ -31,13 +31,7 @@ angular.module('tourneys')
 				ageReq: $scope.ageReq
 			};
 			Tourneys.create(newTourney).then(function (response) {
-				Tourneys.getAll().then(function (response) {
-					$scope.tourneys = response.data;
-					alert('Event Created :)');
-			window.location.href='/home'; //"redirecting" or updating the table again
-				}, function (error) {
-					console.log('Unable to retrieve tourneys:', error);
-				});
+				alert('Event Created :)');
 			}, function (err) {
 				console.log('Could not create new tourney:', err);
 			});
@@ -84,6 +78,7 @@ angular.module('tourneys')
 				location.href='/login';
 			}
 		}
+
 
 		$scope.toggleBoolean = function() {
 		    if($scope.showHostTourneys)
