@@ -75,7 +75,7 @@
 		</div>
 
 		<div class="container">
-			<div class="jumbotron">
+			<div class="jumbotron" ng-if="detailedInfo != undefined">
 				<div class="row">
 					<div class="col-md-4">
 						<h3 class="display-4">Tournament:<br>{{detailedInfo.tournamentName}}</h3>
@@ -92,7 +92,7 @@
 						<p>Game: {{detailedInfo.game}}</p>
 						<p>Date: {{displayDate(detailedInfo)}}</p>
 						<p>Details: {{detailedInfo.details}}</p>
-						<p ng-if="detailedInfo.featured == 1">Featured: {{detailedInfo.featured == 1}}</p>
+						<p>Featured: {{detailedInfo.featured == 1}}</p>
 					</div>
 				</div>
 			</div>
