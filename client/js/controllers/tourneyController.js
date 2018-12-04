@@ -1,5 +1,8 @@
-angular.module('tourneys').controller('TourneyController', ['$scope', '$cookies', 'Tourneys',
-	function ($scope, $cookies, Tourneys) {
+angular.module('tourneys')
+.service('userInfo')
+.controller('TourneyController', ['$scope', '$cookies', 'Tourneys', 'userInfo',
+    function ($scope, $cookies, Tourneys, userInfo) {
+
 
 		/* Get all the tourneys, then bind it to the scope */
 		Tourneys.getAll().then(function (response) {
@@ -67,15 +70,23 @@ angular.module('tourneys').controller('TourneyController', ['$scope', '$cookies'
 		};
 
 		$scope.attend = function(tourney) {
-			if($scope.loggedInUser != undefined) {
-				console.log($scope.loggedInUser);
-				$scope.loggedInUser.attending.push(tourney);
-				console.log($scope.loggedInUser);
+			if(userInfo.loggedInUser != undefined) {
+				console.log(userInfo.loggedInUser);
+				userInfo.loggedInUser.attending.push(tourney);
+				console.log(userInfo.loggedInUser);
 			}
-			else{
+			else {
 				console.log("not logged in?");
-				console.log($scope.loggedInUser);
+				console.log(userInfo.loggedInUser);
 			}
+		}
+
+		$scope.toggleBoolean = function() {
+		    if($scope.showHostTourneys)
+		        $scope.showHostTourneys = false;
+		    else
+		        $scope.showHostTourneys = true;
+		    console.log($scope.showHostTourneys);
 		}
 
 

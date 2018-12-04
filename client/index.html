@@ -95,7 +95,7 @@
 				<p class="card-text">Address: {{x.address}}</p>
 				<p class="card-text">Details: {{x.details}}</p>
 				<p class="card-text">Fee: ${{x.fee}} || Age Requirement: {{x.ageReq}}</p>
-				<button type="submit" ng-click="attend(tourney)" class="btn btn-primary">Attend!</button>
+				<button type="submit" ng-click="attend(tourney); updateUser(loggedInUser);" class="btn btn-primary" ng-controller="UserController">Attend!</button>
 				<!-- ng-click="attendTourney()" -->
 			</div>
 		</div>
