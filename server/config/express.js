@@ -74,7 +74,6 @@ module.exports.init = function () {
 
 
 	app.get('/getUsername', isLoggedIn, function (req, res) {
-		console.log(req.user.username);
 		res.send({username: req.user.username});
 		res.end();
 	});
@@ -87,7 +86,7 @@ module.exports.init = function () {
 
 
 	app.post('/signup', function(req, res) {
-		User.register(new User({username: req.body.username, email: req.body.email, dob: req.body.username, tourneys: []}),
+		User.register(new User({username: req.body.username, email: req.body.email, dob: req.body.dob, tourneys: []}),
 		req.body.password, function(err, user) {
 			if(err) {
 				console.log(err);
@@ -104,12 +103,24 @@ module.exports.init = function () {
 		res.sendFile(path.join(__dirname + '../../../client/login.html'));
 	});
 
+	app.get('/loginSuccess', function(req, res) {
+		res.send(req.user.username);
+	});
+
+	app.get('/loginFailure', function(req, res) {
+		res.send(undefined);
+	});
 
 	app.post('/login', passport.authenticate('local', {
-		successRedirect: '/home',
-		failureRedirect: '/login'
+		successRedirect: '/loginSuccess',
+		failureRedirect: '/loginFailure'
 	}), function(req, res) {
-		res.redirect('/home');
+		if(req.isAuthenticated()) {
+			res.send(req.user.username);
+		}
+		else {
+			res.send(undefined);
+		}
 	});
 
 

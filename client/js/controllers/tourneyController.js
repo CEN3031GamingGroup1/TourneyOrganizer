@@ -65,6 +65,11 @@ angular.module('tourneys').controller('TourneyController', ['$scope', '$cookies'
 			$scope.detailedInfo = tourney;
 		};
 
+$scope.attend = function(tourney) {
+	console.log($scope.loggedInUser);
+	$scope.loggedInUser.attending.push(tourney);
+}
+
 
 		$scope.sendCookies = function (id) {
 			$cookies.put('id', id);
