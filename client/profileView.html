@@ -64,11 +64,12 @@
 		</center>
 	</div>
 
+	<!-- ng-repeat="tourney in tourneys | orderBy: 'tournamentName'" -->
+
 	<div class="container">
 		<hr>
-		<div class="jumbotron" ng-app="directoryApp">
-
-			<div class="row" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'" ng-controller="TourneyController">
+		<div class="jumbotron">
+			<div class="row" ng-controller="TourneyController">
 				<h3 class="display-4">Tournament: {{detailedInfo.tournamentName}}</h3>
 				<div class="col-md-4">
 					<hr class="my-4">
