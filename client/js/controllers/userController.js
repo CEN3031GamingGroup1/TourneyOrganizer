@@ -117,6 +117,7 @@ $scope.getLoggedInUser = function() {
 			userInfo.loggedInUser = response.data[0];
 			console.log($scope.loggedInUser);
 			$scope.loggedInUser = userInfo.loggedInUser;
+			console.log($scope.loggedInUser.attending);
 		}, function(error) {
 			console.log(error);
 		});

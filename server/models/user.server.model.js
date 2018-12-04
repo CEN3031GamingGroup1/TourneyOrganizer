@@ -1,11 +1,11 @@
 /* Import mongoose and define any variables needed to create the schema */
 var mongoose = require('mongoose'),
 	passportLocalMongoose = require('passport-local-mongoose'),
-	tourneySchema = require('mongoose').model('Tourney').schema,
+	tourneySchema = require('./tourney.server.model.js'),
 	Schema = mongoose.Schema;
 
 /* Create your schema */
-var userSchema = new Schema({
+var userSchema = new Schema( {
 	username: {
 		type: String,
 		required: true,
@@ -45,4 +45,4 @@ userSchema.plugin(passportLocalMongoose);
 var User = mongoose.model('User', userSchema);
 
 /* Export the model to make it avaiable to other parts of your Node application */
-module.exports = mongoose.model('User', userSchema);
+module.exports = User;

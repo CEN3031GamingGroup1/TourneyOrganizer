@@ -13,6 +13,8 @@ angular.module('tourneys')
 
 		$scope.detailedInfo = undefined;
 
+
+
 		$scope.createTourney = function () {
 			const newDate = new Date($scope.tournamentDate.year, $scope.tournamentDate.month - 1, $scope.tournamentDate.day);
 			var address = $scope.street+' '+$scope.city+', '+$scope.state+' '+$scope.zip;
@@ -21,6 +23,7 @@ angular.module('tourneys')
 				tournamentName: $scope.tournamentName,
 				game: $scope.game,
 				tournamentDate: newDate,
+				host: $scope.loggedInUser,
 				address: address,
 				details: $scope.details,
 				fee: $scope.fee,

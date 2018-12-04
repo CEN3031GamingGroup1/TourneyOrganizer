@@ -1,5 +1,6 @@
 /* Import mongoose and define any variables needed to create the schema */
 var mongoose = require('mongoose'),
+	userSchema = require('./user.server.model.js').schema,
 	Schema = mongoose.Schema;
 
 /* Create your schema */
@@ -8,8 +9,8 @@ var tourneySchema = new Schema({
 		type: String,
 		required: true,
 		unique: true
-	},//ADD HOST after authentication
-	host:	type: userSchema,
+	}, //ADD HOST after authentication
+	host: userSchema,
 	game: {
 		type: String,
 		required: true

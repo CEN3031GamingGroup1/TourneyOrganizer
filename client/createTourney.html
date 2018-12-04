@@ -10,7 +10,7 @@
 </head>
 <!-- <body ng-app="directoryApp"> -->
 
-<body style="padding-top: 70px">
+<body style="padding-top: 70px" ng-app ="directoryApp" ng-controller="UserController" ng-init="getLoggedInUser()">
 
 	<style>
 		@media screen{
@@ -61,7 +61,7 @@
 		<hr class="col-md-6">
 	</center>
 
-	<div class="container" ng-app ="directoryApp">
+	<div class="container">
 		<form ng-app="directoryApp" ng-controller="TourneyController">
 			<div class="form-row">
 				<div class="form-group col-md-4">
@@ -196,6 +196,8 @@
 	<script src="js/app.js"></script>
 	<script src="js/factories/tourneyFactory.js"></script>
 	<script src="js/controllers/tourneyController.js"></script>
+	<script src="js/factories/userFactory.js"></script>
+	<script src="js/controllers/userController.js"></script>
 </body>
 
 </html>
