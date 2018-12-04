@@ -62,14 +62,12 @@
 
 	<div class="container" ng-controller="UserController">
 		<hr>
-		<div class="jumbotron" ng-repeat="x in users | orderBy: 'username'">
+		<div class="jumbotron" ng-repeat="going in users | orderBy: 'attending'">
 			<div class="row">
 				<h3 class="display-4">Tournament: {{detailedInfo.tournamentName}}</h3>
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-					<img src="/Users/christiansarmiento/TourneyOrganizer/TourneyOrganizer-develop/GTourney Wireframes/GTourney Admin View.jpg"
-					 style="width: 100%;">
 					<hr class="my-4">
 					<div class="btn-group" role="group">
 						<button type="button" class="btn btn-danger">Remove</button>
