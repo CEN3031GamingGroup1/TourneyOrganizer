@@ -26,7 +26,9 @@ angular.module('tourneys').controller('TourneyController', ['$scope', '$cookies'
 			};
 			Tourneys.create(newTourney).then(function (response) {
 				Tourneys.getAll().then(function (response) {
-					$scope.tourneys = response.data; //"redirecting" or updating the table again
+					$scope.tourneys = response.data;
+					alert('Event Created :)');
+			window.location.href='/home'; //"redirecting" or updating the table again
 				}, function (error) {
 					console.log('Unable to retrieve tourneys:', error);
 				});
