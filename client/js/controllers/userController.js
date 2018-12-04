@@ -118,6 +118,10 @@ $scope.UFdup = function(){
 	alert('🖕😂😝😡👌 That Sucks 🖕🍆💯🧐🅱️👏');
 }
 
+$scope.search = function(){
+	alert('Nice Try, just press cntrl+F (command+F for MacOS) ')
+}
+
 $scope.getLoggedInUser = function() {
 	Users.getUsername().then(function(response) {
 		console.log(response.data.username);
