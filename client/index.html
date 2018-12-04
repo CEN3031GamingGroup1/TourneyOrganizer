@@ -15,6 +15,7 @@
 	<style>
 		body{
 			background-color: #537291;
+			background-image: url(gatorhead-striped.jpg)
 		}
 		@media screen {
 			.noPrint{}
@@ -91,7 +92,7 @@
 			<h3 class="display-4">All Current Events</h3>
 		</center>
 		<hr>
-		<div class="card" ng-repeat="x in tourneys | orderBy: 'tournamentName':true">
+		<div class="card" ng-repeat="x in tourneys | orderBy: '-tournamentName':true">
 			<div class="card-header">
 				<p class="display-4">{{x.tournamentName}}</p>
 			</div>
