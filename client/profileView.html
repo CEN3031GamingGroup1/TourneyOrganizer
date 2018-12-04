@@ -59,16 +59,28 @@
 		</div>
 	</nav>
 	<div>
-		<center >
-			<p>Username: {{loggedInUser.username}}</p>
-			<p>Email: {{loggedInUser.email}}</p>
-			<p>DOB: {{displayDate(loggedInUser)}}</p>
-			<h1 class="display-4">Profile View</h1>
-			<p ng-if="!showHostTourneys">Here is the list of all the events you've chosen to attend.</p>
-			<p ng-if="showHostTourneys">Here is the list of all the events you've chosen to host.</p>
-			<a class="btn btn-primary" ng-click="toggleBoolean(showHostTourneys)" ng-if="showHostTourneys"  role="button">View your attending Tournaments</a>
-			<a class="btn btn-primary" ng-click="toggleBoolean(showHostTourneys)" ng-if="!showHostTourneys" role="button">View the tournaments you're hosting</a>
-		</center>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="card" style="width: 18rem;">
+					<div class="card-body">
+						<h5 class="card-title">Profile Details</h5>
+						<hr>
+						<p>Username: {{loggedInUser.username}}</p>
+						<p>Email: {{loggedInUser.email}}</p>
+						<p>DOB: {{displayDate(loggedInUser)}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<center>
+					<h1 class="display-4">Profile View</h1>
+					<p ng-if="!showHostTourneys">Here is the list of all the events you've chosen to attend.</p>
+					<p ng-if="showHostTourneys">Here is the list of all the events you've chosen to host.</p>
+					<a class="btn btn-primary" ng-click="toggleBoolean(showHostTourneys)" ng-if="showHostTourneys"  role="button">View your attending Tournaments</a>
+					<a class="btn btn-primary" ng-click="toggleBoolean(showHostTourneys)" ng-if="!showHostTourneys" role="button">View the tournaments you're hosting</a>
+				</center>
+			</div>
+		</div>
 	</div>
 
 	<div class="container" ng-controller="TourneyController">
