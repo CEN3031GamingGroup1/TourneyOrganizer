@@ -66,20 +66,21 @@
 
 	<!-- ng-repeat="tourney in tourneys | orderBy: 'tournamentName'" -->
 
-	<div class="container">
+	<div class="container" ng-controller="TourneyController">
 		<hr>
 		<div class="jumbotron">
-			<div class="row" ng-controller="TourneyController">
-				<h3 class="display-4">Tournament: {{detailedInfo.tournamentName}}</h3>
+			<div class="row">
 				<div class="col-md-4">
-					<hr class="my-4">
-					<div class="btn-group" role="group" aria-label="Basic example">
-						<button type="button" class="btn btn-secondary">Edit</button>
-						<button type="button" class="btn btn-danger">Delete</button>
-					</div>
+					<h3 class="display-4">Tournament:<br>{{detailedInfo.tournamentName}}</h3>
+					<hr>
+					<center>
+						<div class="btn-group" role="group" aria-label="Basic example">
+							<button type="button" class="btn btn-secondary">Edit</button>
+							<button type="button" ng-click="deleteTourney(detailedInfo)" class="btn btn-danger">Delete</button>
+						</div>
+					</center>
 				</div>
 				<div class="col-md-8">
-					<!-- <hr class="my-4"> -->
 					<p>Game: {{detailedInfo.game}}</p>
 					<p>Date: {{displayDate(detailedInfo)}}</p>
 					<p>Details: {{detailedInfo.details}}</p>
@@ -89,8 +90,7 @@
 	</div>
 
 
-	<div class="noScreen"> <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://i.redd.it/7k0zytm6va121.jpg&choe=UTF-8"
-		 alt="QR Code" /> </div>
+	<div class="noScreen"> <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://i.redd.it/7k0zytm6va121.jpg&choe=UTF-8" alt="QR Code" /> </div>
 
 	<!-- Scripts I've added-->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
