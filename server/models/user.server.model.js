@@ -1,7 +1,7 @@
 /* Import mongoose and define any variables needed to create the schema */
 var mongoose = require('mongoose'),
 	passportLocalMongoose = require('passport-local-mongoose'),
-	tourneySchema = require('./tourney.server.model.js'),
+	tourneySchema = require('./tourney.server.model.js').schema,
 	Schema = mongoose.Schema;
 
 /* Create your schema */

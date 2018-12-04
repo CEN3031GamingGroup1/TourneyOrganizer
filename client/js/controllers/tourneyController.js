@@ -52,7 +52,10 @@ angular.module('tourneys')
 		};
 
 		$scope.featureTourney = function (tourney) {
-			tourney.featured = 1;
+			if(tourney.featured == 1)
+				tourney.featured = 0;
+			else
+				tourney.featured = 1;
 			Tourneys.update(tourney).then(function (response) {
 				Tourneys.getAll().then(function (response) {
 					$scope.tourneys = response.data; //"redirecting" or updating the table again
