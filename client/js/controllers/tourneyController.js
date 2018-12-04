@@ -36,8 +36,8 @@ angular.module('tourneys').controller('TourneyController', ['$scope', '$cookies'
 			});
 		};
 
-		$scope.deleteTourney = function (index) {
-			Tourneys.delete($scope.tourneys[index]._id).then(function (response) {
+		$scope.deleteTourney = function (tourney) {
+			Tourneys.delete(tourney._id).then(function (response) {
 				Tourneys.getAll().then(function (response) {
 					$scope.tourneys = response.data; //"redirecting" or updating the table again
 				}, function (error) {
