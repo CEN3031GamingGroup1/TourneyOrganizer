@@ -53,22 +53,23 @@
 			</ul>
 		</div>
 	</nav>
-	<div ng-controller="UserController" ng-app="directoryApp" ng-init="getLoggedInUser()">
-	<center >
-		<p>Username: {{loggedInUser.username}}</p>
-		<p>Email: {{loggedInUser.email}}</p>
-		<p>DOB: {{displayDate(loggedInUser)}}</p>
-		<h1 class="display-4">Profile View</h1>
-		<p>Here is the list of all the events you've chosen to attend.</p>
-		<a class="btn btn-primary"  role="button">View My Tournaments</a>
-	</center>
+	<div ng-controller="UserController" ng-init="getLoggedInUser()">
+		<center >
+			<p>Username: {{loggedInUser.username}}</p>
+			<p>Email: {{loggedInUser.email}}</p>
+			<p>DOB: {{displayDate(loggedInUser)}}</p>
+			<h1 class="display-4">Profile View</h1>
+			<p>Here is the list of all the events you've chosen to attend.</p>
+			<a class="btn btn-primary"  role="button">View My Tournaments</a>
+		</center>
 	</div>
+
+	<!-- ng-repeat="tourney in tourneys | orderBy: 'tournamentName'" -->
 
 	<div class="container">
 		<hr>
-		<div class="jumbotron" ng-app="directoryApp">
-
-			<div class="row" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'" ng-controller="TourneyController">
+		<div class="jumbotron">
+			<div class="row" ng-controller="TourneyController">
 				<h3 class="display-4">Tournament: {{detailedInfo.tournamentName}}</h3>
 				<div class="col-md-4">
 					<hr class="my-4">
