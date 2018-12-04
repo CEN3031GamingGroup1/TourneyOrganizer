@@ -53,6 +53,9 @@
 				<li class="nav-item" ng-if="loggedInUser == undefined">
 					<a class="nav-link" href="/login">Login<span class="sr-only"></span></a>
 				</li>
+				<li class="nav-item" ng-if="loggedInUser == undefined">
+						<a class="nav-link" href="/signup">Sign Up<span class="sr-only"></span></a>
+				</li>
 				<li class="nav-item" ng-if="loggedInUser != undefined">
 					<a class="nav-link" href="/create">Create Event<span class="sr-only"></span></a>
 				</li>
