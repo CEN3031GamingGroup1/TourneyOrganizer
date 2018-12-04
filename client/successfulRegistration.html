@@ -36,29 +36,29 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="index.html">Home<span class="sr-only"></span></a>
+					<a class="nav-link" href="/home">Home<span class="sr-only"></span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#news">Find Tournaments</a>
+					<a class="nav-link" href="/map">Find Tournaments</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="profileView.html">Profile</a>
+					<a class="nav-link" href="/profile">Profile</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#about">Logout<span class="sr-only"></span></a>
+					<a class="nav-link" href="/logout">Logout<span class="sr-only"></span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="createTourney.html">Create Event<span class="sr-only"></span></a>
+					<a class="nav-link" href="/create">Create Event<span class="sr-only"></span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="AdminPage.html">Admin Page<span class="sr-only"></span></a>
+					<a class="nav-link" href="/admin" ng-if="loggedInUser.admin == true">Admin Page<span class="sr-only"></span></a>
 				</li>
 			</ul>
 		</div>
 	</nav>
 
 	<center>
-		<h1 class="display-4">Registration Successful!</h1>
+		<h1 class="display-4">Event Creation Successful!</h1>
 		<img src="happy-gamer.jpg" alt="RSVP image" width="500" height="400">
 	</center>
 
