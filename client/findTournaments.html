@@ -29,9 +29,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/home">Home<span class="sr-only"></span></a>
+                    <a class="nav-link" href="/home">Home<span class="sr-only"></span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" ng-init="getLoggedInUser()" href="/map">Find Tournaments</a>
                 </li>
                 <li class="nav-item" ng-if="loggedInUser != undefined">
@@ -135,6 +135,5 @@
     <script src="js/controllers/tourneyController.js"></script>
     <script src="js/factories/userFactory.js"></script>
     <script src="js/controllers/userController.js"></script>
-
-
+</body>
 </html>
