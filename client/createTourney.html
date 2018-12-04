@@ -148,8 +148,12 @@
 						<option value="30">30</option>
 						<option value="31">31</option>
 					</select>
-					<input class="year-select" id="tournamentDate" type="number" ng-model="tournamentDate.year" placeholder="Year..."
-					 style="width: 25%" required>
+					<select class="year-select" id="tournamentDate" ng-model="tournamentDate.year" required>
+						<option selected>Select year...</option>
+						<option value="2018">2018</option>
+						<option value="2019">2019</option>
+						<option value="2020">2020</option>
+					</select>
 				</div>
 				<div class="form-group col-md-3">
 					<label for="tournamentAge">Age requirement:</label>
