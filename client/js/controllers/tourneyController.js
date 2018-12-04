@@ -12,13 +12,13 @@ angular.module('tourneys').controller('TourneyController', ['$scope', '$cookies'
 
 		$scope.createTourney = function () {
 			const newDate = new Date($scope.tournamentDate.year, $scope.tournamentDate.month - 1, $scope.tournamentDate.day);
-
+			var address = $scope.street+' '+$scope.city+', '+$scope.state+' '+$scope.zip;
+			console.log(address);
 			var newTourney = {
 				tournamentName: $scope.tournamentName,
 				game: $scope.game,
-				address: $scope.address,
 				tournamentDate: newDate,
-				address: $scope.address,
+				address: address,
 				details: $scope.details,
 				fee: $scope.fee,
 				featured: 0,
