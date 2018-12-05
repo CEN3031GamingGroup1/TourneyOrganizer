@@ -158,6 +158,15 @@ $scope.toggleBoolean = function() {
     console.log($scope.showHostTourneys);
 }
 
+$scope.getAge = function(user) { // birthday is a date
+		var age = new Date(user.dob)
+    var ageDifMs = Date.now() - age;
+		console.log(Date.now());
+		console.log(user.dob);
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
 
 $scope.displayDate = function(user) {
 	var newDate = new Date;

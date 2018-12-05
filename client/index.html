@@ -93,6 +93,7 @@
 		<center>
 			<div class="jumbotron" ng-repeat="tourney in tourneys" ng-if="tourney.featured == 1">
 				<h1 class="display-4">{{tourney.tournamentName}}</h1>
+				<p>{{tourney.game}}</p>
 				<hr class="my-4">
 				<p></p>
 				<p>{{displayDate(tourney)}}</p>
@@ -107,7 +108,8 @@
 			<h3 class="display-4">All Current Events</h3>
 		</center>
 		<hr>
-		<div class="card" ng-repeat="x in tourneys | orderBy: '-tournamentName':true">
+		<div ng-repeat="x in tourneys | orderBy: '-tournamentName':true">
+			<div class="card">
 			<div class="card-header">
 				<p class="display-4">{{x.tournamentName}}</p>
 			</div>
@@ -122,6 +124,8 @@
 				<a type="submit" href="/tourney" ng-click="sendCookies(x._id)" class="btn btn-primary">More Details...</a>
 				<!-- ng-click="attendTourney()" -->
 			</div>
+		</div>
+		<br>
 		</div>
 		<hr>
 	</div>

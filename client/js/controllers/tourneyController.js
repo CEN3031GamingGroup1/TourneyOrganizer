@@ -73,6 +73,15 @@ angular.module('tourneys')
 
 		$scope.attend = function(tourney) {
 			if(userInfo.loggedInUser != undefined) {
+				console.log($scope.getAge(userInfo.loggedInUser))
+				if($scope.getAge(userInfo.loggedInUser) < tourney.ageReq) {
+					alert("You are not old enough for this tournament");
+					return;
+				}
+				if(userInfo.loggedInUser.attending.findIndex(x => x._id === tourney._id) != -1) {
+					alert("You are already attending this tournament.");
+					return;
+				}
 				console.log(userInfo.loggedInUser);
 				userInfo.loggedInUser.attending.push(tourney);
 				console.log(userInfo.loggedInUser);

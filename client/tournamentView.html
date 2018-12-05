@@ -103,9 +103,10 @@
 							<h2>Tournament: {{detailedInfo.tournamentName}}</h2>
 							<!--"Tournament:" is placeholder-->
 							<p>Game: {{detailedInfo.game}}</p>
-							<!--<p>Host: {{detailedInfo.host}}</p>-->
+							<p>Host: {{detailedInfo.host}}</p>
 							<p>Date: {{displayDate(detailedInfo)}}</p>
 							<p>Details: {{detailedInfo.details}}</p>
+							<p>Fee: ${{detailedInfo.fee}} || Age Requirement: {{detailedInfo.ageReq}}</p>
 							<button type="submit" ng-click="attend(tourney); updateUser(loggedInUser);" class="btn btn-primary">Attend!</button>
 							<!-- <p><button type="submit" href="sucessfulRegistration.html" class="btn btn-primary" ng-click"">register!</button></p>
 								*figure out how to get button to redirect to sucessful registration page*

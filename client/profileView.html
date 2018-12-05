@@ -58,7 +58,7 @@
 			</ul>
 		</div>
 	</nav>
-	
+
 	<div>
 		<div class="row">
 			<div class="col-md-4">
@@ -102,6 +102,7 @@
 					<p>Host: {{tourney.host}}</p>
 					<p>Date: {{displayDate(tourney)}}</p>
 					<p>Details: {{tourney.details}}</p>
+					<p>Fee: ${{tourney.fee}} || Age Requirement: {{tourney.ageReq}}</p>
 				</div>
 			</div>
 			<div class="row" ng-if="!showHostTourneys" ng-repeat="tourney in loggedInUser.attending | orderBy: 'tournamentName'">
@@ -117,6 +118,7 @@
 					<p>Host: {{tourney.host}}</p>
 					<p>Date: {{displayDate(tourney)}}</p>
 					<p>Details: {{tourney.details}}</p>
+					<p>Fee: ${{tourney.fee}} || Age Requirement: {{tourney.ageReq}}</p>
 					<button type="button" ng-click="unattend(tourney); updateUser(loggedInUser);" class="btn btn-danger">Unattend!</button>
 				</div>
 			</div>

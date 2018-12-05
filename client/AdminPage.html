@@ -77,23 +77,25 @@
 		<div class="container">
 			<div class="jumbotron" ng-if="detailedInfo != undefined">
 				<div class="row">
-					<div class="col-md-4">
-						<h3 class="display-4">Tournament:<br>{{detailedInfo.tournamentName}}</h3>
+					<div class="col-md-12">
+						<h3 class="display-4">{{detailedInfo.tournamentName}}</h3>
 						<hr>
-						<center>
-							<div class="btn-group" role="group" aria-label="Basic example">
-								<button type="button" class="btn btn-secondary">Edit</button>
-								<button type="button" ng-click="deleteTourney(detailedInfo)" class="btn btn-danger">Delete</button>
-								<button type="button" ng-click="featureTourney(detailedInfo)" class="btn btn-secondary">Toggle Feature</button>
-							</div>
-						</center>
-					</div>
 					<div class="col-md-8">
+						<p>Host: {{detailedInfo.host}}</p>
 						<p>Game: {{detailedInfo.game}}</p>
 						<p>Date: {{displayDate(detailedInfo)}}</p>
 						<p>Details: {{detailedInfo.details}}</p>
+						<p>Fee: ${{detailedInfo.fee}} || Age Requirement: {{detailedInfo.ageReq}}</p>
 						<p>Featured: {{detailedInfo.featured == 1}}</p>
 					</div>
+					<center>
+						<div class="btn-group" role="group" aria-label="Basic example">
+							<button type="button" class="btn btn-secondary">Edit</button>
+							<button type="button" ng-click="deleteTourney(detailedInfo)" class="btn btn-danger">Delete</button>
+							<button type="button" ng-click="featureTourney(detailedInfo)" class="btn btn-secondary">Toggle Feature</button>
+						</div>
+					</center>
+				</div>
 				</div>
 			</div>
 		</div>
