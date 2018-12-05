@@ -18,21 +18,10 @@
 		position:fixed;
         	z-index:1;
         	width:15%;
-        	left:15%;
+        	left:16%;
         	top:75px;
     	}
     	.mapboxgl-ctrl-geocoder { min-width:100%; }
-
-        @media screen{
-            .noPrint{}
-            .noScreen{display:none;}
-        }
-
-        @media print{
-            .noPrint{display:none;}
-            .noScreen{}
-        }
-
      </style>
   </head>
 <body ng-app="directoryApp" style="padding-top: 70px">
@@ -130,33 +119,59 @@ var map = new mapboxgl.Map({
 });
 
 var geocoder = new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken
+
+    accessToken: mapboxgl.accessToken,
+    placeholder: "Please search with tourney address"
+
 });
 
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
 map.on('load', function() {
+
     map.addSource('single-point', {
+
         "type": "geojson",
+
         "data": {
+
             "type": "FeatureCollection",
+
             "features": []
+
         }
+
     });
+
+
 
     map.addLayer({
+
         "id": "point",
+
         "source": "single-point",
+
         "type": "circle",
+
         "paint": {
+
             "circle-radius": 10,
+
             "circle-color": "#007cbf"
+
         }
+
     });
 
+
     geocoder.on('result', function(ev) {
+
         map.getSource('single-point').setData(ev.result.geometry);
+
     });
+
 });
+
 </script>
  <div class="container" ng-controller="TourneyController">
 
@@ -166,9 +181,11 @@ map.on('load', function() {
 
                 <h5 class="Game">Game: {{x.game}}</h5>
 
-                    <h5 class="Date">Date: {{displayDate(x)}}</h5>
+		   <h5 host="Host">Host: {{x.host}}</h5>
 
-                        <p class="Address">Adderss: {{x.address}}</p>
+		      <h5 class="Date">Date: {{displayDate(x)}}</h5>
+
+                         <p class="Address">Address: {{x.address}}</p>
 
                             <p class="Details">Details: {{x.details}}</p>
 
@@ -179,9 +196,12 @@ map.on('load', function() {
         </div>
 
     </div>
+<<<<<<< HEAD
 
     <div class="noScreen"> <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://gtourney69.herokuapp.com/&choe=UTF-8" alt="QR Code" /> </div>
 
+=======
+>>>>>>> 1aa8c536ab75488c9f05ec143fb55fd436c6847f
     <!-- Scripts I've added-->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
