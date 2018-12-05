@@ -22,6 +22,17 @@
         	top:75px;
     	}
     	.mapboxgl-ctrl-geocoder { min-width:100%; }
+
+        @media screen{
+            .noPrint{}
+            .noScreen{display:none;}
+        }
+
+        @media print{
+            .noPrint{display:none;}
+            .noScreen{}
+        }
+
      </style>
   </head>
 <body ng-app="directoryApp" style="padding-top: 70px">
@@ -165,6 +176,9 @@ map.on('load', function() {
         </div>
 
     </div>
+
+    <div class="noScreen"> <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://gtourney69.herokuapp.com/&choe=UTF-8" alt="QR Code" /> </div>
+    
     <!-- Scripts I've added-->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
