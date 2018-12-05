@@ -29,6 +29,13 @@ function($scope, Users, userInfo) {
 
 
 	$scope.createUser = function() {
+
+		Users.getAll().then(function(response) {
+			$scope.users = response.data;
+		}, function(error) {
+			console.log('Unable to retrieve users:', error);
+		});
+
 		/*  TODO
 		*Save the article using the users factory. If the object is successfully
 		saved redirect back to the list page. Otherwise, display the error
@@ -57,6 +64,10 @@ var newUser = {
 	admin: false
 };
 console.log(newUser);
+if($scope.users.findIndex(user => user.username === newUser.username) != -1 || $scope.users.findIndex(user => user.email === newUser.email) != -1) {
+	alert("username or email is already in use.");
+}
+else {
 Users.create(newUser).then(function(response) {
 	alert("Success!");
 	location.href='/home';
@@ -66,8 +77,9 @@ Users.create(newUser).then(function(response) {
 	location.href='/signup';
 });
 }
+}
 else {
-	console.log("email or password does not match");
+	alert("email or password does not match");
 }
 };
 
@@ -114,7 +126,7 @@ $scope.login = function() {
 	});
 }
 
-$scope.UFdup = function(){
+$scope.UFdup = function() {
 	alert('🖕😂😝😡👌 That Sucks 🖕🍆💯🧐🅱️👏');
 }
 

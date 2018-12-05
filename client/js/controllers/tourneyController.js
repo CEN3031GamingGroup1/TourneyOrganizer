@@ -16,9 +16,9 @@ angular.module('tourneys')
 
 
 		$scope.createTourney = function () {
-			const newDate = new Date($scope.tournamentDate.year, $scope.tournamentDate.month - 1, $scope.tournamentDate.day);
+			const newDate = new Date(document.getElementById("year").value + '/' + document.getElementById("month").value + '/' + document.getElementById("day").value + ' ' + document.getElementById("time").value);
 			var address = $scope.street+' '+$scope.city+', '+$scope.state+' '+$scope.zip;
-			console.log(address);
+			console.log(newDate);
 			var newTourney = {
 				tournamentName: $scope.tournamentName,
 				game: $scope.game,
@@ -125,7 +125,7 @@ angular.module('tourneys')
 			catch (err) {
 				return '';
 			}
-			return newDate.toLocaleDateString();
+			return newDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "numeric", minute: "numeric"});
 		}
 	}
 ]);
