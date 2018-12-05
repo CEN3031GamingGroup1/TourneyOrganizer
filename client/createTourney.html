@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Create Event</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="styles/main.css">
+</head>
+<!-- <body ng-app="directoryApp"> -->
+
+<body style="padding-top: 70px" ng-app ="directoryApp" ng-controller="UserController" ng-init="getLoggedInUser()">
+
+	<style>
+		@media screen{
+			.noPrint{}
+			.noScreen{display:none;}
+		}
+
+      @media print{
+			.noPrint{display:none;}
+			.noScreen{}
+		}
+    </style>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<a class="navbar-brand">
+			<font color="orange">GT</font><font color="blue">ourney</font>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+		 aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="/home">Home<span class="sr-only"></span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/map">Find Tournaments</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/profile">Profile</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/logout">Logout<span class="sr-only"></span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="/create">Create Event<span class="sr-only"></span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/admin" ng-if="loggedInUser.admin == true">Admin Page<span class="sr-only"></span></a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<center>
+		<h1 class="display-4">Create an Event</h1>
+		<hr class="col-md-6">
+	</center>
+
+	<div class="container">
+		<form ng-app="directoryApp" ng-controller="TourneyController">
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label for="tourneyName">Tournament Name:</label>
+					<input type="text" class="form-control" id="tourneyName" ng-model="tournamentName" placeholder="Your tournament's name...">
+					<label for="gameName">Game:</label>
+					<input type="text" class="form-control" id="gameName" ng-model="game" placeholder="The game your tournament will be on...">
+				</div>
+				<div class="form-group col-md-8">
+					<label for="tourneyDescription">Description:</label>
+					<textarea class="form-control" id="tourneyDescription" ng-model="details" placeholder="A description about your tournament..."
+					 rows="4"></textarea>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="tourneyAddress">Address:</label>
+				<input type="text" class="form-control" id="tourneyAddress" ng-model="street" placeholder="1234 Main St" required>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="tourneyCity">City:</label>
+					<input type="text" class="form-control" id="tourneyCity" ng-model="city" required>
+				</div>
+				<div class="form-group col-md-4">
+					<label for="tourneyState">State:</label>
+					<input type="text" class="form-control" id="tourneyState" ng-model="state" required>
+				</div>
+				<div class="form-group col-md-2">
+					<label for="tourneyZip">Zip:</label>
+					<input type="number" class="form-control" id="tourneyZip" ng-model="zip" required>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="tournamentDate">Date:</label>
+					<select class="month-select" id="tournamentDate" ng-model="tournamentDate.month" required>
+						<option selected>Select month...</option>
+						<option value="1">January</option>
+						<option value="2">February</option>
+						<option value="3">March</option>
+						<option value="4">April</option>
+						<option value="5">May</option>
+						<option value="6">June</option>
+						<option value="7">July</option>
+						<option value="8">August</option>
+						<option value="9">September</option>
+						<option value="10">October</option>
+						<option value="11">November</option>
+						<option value="12">December</option>
+					</select>
+					<select class="day-select" id="tournamentDate" ng-model="tournamentDate.day" required>
+						<option selected>Select day...</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+					</select>
+					<select class="year-select" id="tournamentDate" ng-model="tournamentDate.year" required>
+						<option selected>Select year...</option>
+						<option value="2018">2018</option>
+						<option value="2019">2019</option>
+						<option value="2020">2020</option>
+					</select>
+				</div>
+				<div class="form-group col-md-3">
+					<label for="tournamentAge">Age requirement:</label>
+					<select class="age-select" id="tournamentAge" ng-model="ageReq" required>
+						<option selected>Select age requirement...</option>
+						<option value="0">All ages</option>
+						<option value="18">18+</option>
+						<option value="21">21+</option>
+					</select>
+				</div>
+				<div class="form-group col-md-2">
+					<label for="tournamentFee">Entrance Fee:</label>
+					<select class="fee-select" id="tournamentFee" ng-model="fee" required>
+						<option selected>Entrance fee...</option>
+						<option value="0">Free</option>
+						<option value="5">$5</option>
+						<option value="10">$10</option>
+						<option value="15">$15</option>
+						<option value="20">$20</option>
+					</select>
+				</div>
+			</div>
+
+			<center>
+				<a type="submit" class="btn btn-primary" ng-click="createTourney()" role="button">Create Event</a>
+			</center>
+		</form>
+	</div>
+
+	<div class="noScreen"> <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://i.redd.it/7k0zytm6va121.jpg&choe=UTF-8" alt="QR Code" /> </div>
+
+	<!-- Scripts I've added-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+	 crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	 crossorigin="anonymous"></script>
+	<!-- Scripts that were already there before minus redundancies -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!-- What are these for? -->
+	<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+	<script src="https://code.angularjs.org/1.4.3/angular-cookies.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/factories/tourneyFactory.js"></script>
+	<script src="js/controllers/tourneyController.js"></script>
+	<script src="js/factories/userFactory.js"></script>
+	<script src="js/controllers/userController.js"></script>
+</body>
+
+</html>

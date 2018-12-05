@@ -1,12 +1,7 @@
-//This file holds any configuration variables we may need 
-//'config.js' is ignored by git to protect sensitive information, such as your database's username and password
-//copy this file's contents to another file 'config.js' and store your MongoLab uri there
-
 module.exports = {
-  db: {
-    uri: 'mongodb://CEN3031:CEN3031TA@ds261332.mlab.com:61332/andydatabase', //place the URI of your mongo database here.
-  },
-    port: 8080
-
+	db: {
+		uri: 'mongodb://andy:abc1234@ds237735.mlab.com:37735/gtourney',
+	},
+	port: process.env.PORT || 8080
+	// BEFORE: port: 8080 -- After: ^^
 };
-
