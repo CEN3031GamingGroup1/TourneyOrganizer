@@ -360,7 +360,7 @@ angular.module('tourneys')
 					//
 					// 	console.log(features);
 
-					});
+					// });
 
 				});
 
