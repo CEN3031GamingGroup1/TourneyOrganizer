@@ -78,11 +78,14 @@
 			</div>
 			<div class="col-md-4">
 				<center>
+					<div class="card text-white bg-dark mb-3" style="max-width: 30rem;">
 					<h1 class="display-4">Profile View</h1>
 					<p ng-if="!showHostTourneys">Here is the list of all the events you've chosen to attend.</p>
 					<p ng-if="showHostTourneys">Here is the list of all the events you've chosen to host.</p>
+					</div> <br>
 					<a class="btn btn-primary" ng-click="toggleBoolean(showHostTourneys)" ng-if="showHostTourneys"  role="button">View your attending Tournaments</a>
 					<a class="btn btn-primary" ng-click="toggleBoolean(showHostTourneys)" ng-if="!showHostTourneys" role="button">View the tournaments you're hosting</a>
+
 				</center>
 			</div>
 		</div>
@@ -92,13 +95,13 @@
 		<hr>
 		<div class="jumbotron">
 			<div class="row" ng-if="showHostTourneys && tourney.host == loggedInUser.username" ng-repeat="tourney in tourneys | orderBy: 'tournamentName'">
-				<h3 class="display-4">Tournament: {{tourney.tournamentName}}</h3>
+				<h3 class="display-4">{{tourney.tournamentName}}</h3>
 				<div class="col-md-4">
 					<center>
-						<div class="btn-group" role="group" aria-label="Basic example">
-							<button type="button" class="btn btn-secondary">Edit</button>
+						
+							
 							<button type="button" ng-click="deleteTourney(tourney)" class="btn btn-danger">Delete</button>
-						</div>
+						
 					</center>
 				</div>
 				<div class="col-md-8">
@@ -106,11 +109,11 @@
 					<p>Host: {{tourney.host}}</p>
 					<p>Date: {{displayDate(tourney)}}</p>
 					<p>Details: {{tourney.details}}</p>
-					<p>Fee: ${{tourney.fee}} || Age Requirement: {{tourney.ageReq}}</p>
+					<p>Fee: ${{tourney.fee}} || Age Requirement: {{tourney.ageReq}}</p><hr>
 				</div>
 			</div>
 			<div class="row" ng-if="!showHostTourneys" ng-repeat="tourney in loggedInUser.attending | orderBy: 'tournamentName'">
-					<h3 class="display-4">Tournament: {{tourney.tournamentName}}</h3>
+					<h3 class="display-4">{{tourney.tournamentName}}</h3>
 				<div class="col-md-4">
 					<center>
 						<div class="btn-group" role="group" aria-label="Basic example">
@@ -123,7 +126,7 @@
 					<p>Date: {{displayDate(tourney)}}</p>
 					<p>Details: {{tourney.details}}</p>
 					<p>Fee: ${{tourney.fee}} || Age Requirement: {{tourney.ageReq}}</p>
-					<button type="button" ng-click="unattend(tourney); updateUser(loggedInUser);" class="btn btn-danger">Unattend!</button>
+					<button type="button" ng-click="unattend(tourney); updateUser(loggedInUser);" class="btn btn-danger">Unattend!</button><hr>
 				</div>
 			</div>
 		</div>

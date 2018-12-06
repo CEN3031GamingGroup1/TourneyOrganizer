@@ -55,17 +55,18 @@
 
 	<center>
 		<br><br><br>
-		
+		<div class="card" style="width: 30rem;">
 		<h1 class="display-3"><font color="black">Login</font></h1>
+	
 		
 
 		<hr class="col-md-6">
-	</center>
+	
 	<div class="container" ng-controller="UserController" ng-app="directoryApp">
-		<center>
+		
 			<br>
 			<form>
-				<div class="form-group col-lg-4">
+				<div class="form-group col-lg-8">
 					<form>
 						<!--<input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Enter email...">
             <tr>or</tr>-->
@@ -74,12 +75,14 @@
 						<input type="password" ng-model="password" class="form-control" id="userPassword" placeholder="Enter password...">
 				</div>
 				<button type="submit" class="btn btn-primary" ng-click="login()" role="button">Login</button>
-				<hr class="col-lg-2">
-				<a class="btn btn-primary" href="/signup" role="button">New User?</a>
+				
+				<a class="btn btn-primary" href="/signup" role="button">New User?</a><br><br>
 				
 			</form>
+			</div>
 		</center>
 	</div>
+
 
 	<div class="noScreen"> <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://gtourney69.herokuapp.com/&choe=UTF-8" alt="QR Code" /> </div>
 
