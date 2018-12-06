@@ -37,7 +37,7 @@
 
 
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top"  ng-init="getLoggedInUser()" ng-controller="UserController">
  	 <a class="navbar-brand">
  		 <font color="orange">GT</font><font color="blue">ourney</font>
  	 </a>
@@ -51,7 +51,7 @@
  				 <a class="nav-link active" href="/home">Home<span class="sr-only"></span></a>
  			 </li>
  			 <li class="nav-item">
- 				 <a class="nav-link" ng-init="getLoggedInUser()" href="/map">Find Tournaments</a>
+ 				 <a class="nav-link" href="/map">Find Tournaments</a>
  			 </li>
  			 <li class="nav-item" ng-if="loggedInUser != undefined">
  				 <a class="nav-link" href="/profile">Profile</a>
@@ -117,6 +117,10 @@
     <script src="js/factories/tourneyFactory.js"></script>
 
     <script src="js/controllers/tourneyController.js"></script>
+
+    <script src="js/factories/userFactory.js"></script>
+
+    <script src="js/controllers/userController.js"></script>
 
 
 
