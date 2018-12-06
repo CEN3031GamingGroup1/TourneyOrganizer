@@ -316,7 +316,7 @@ angular.module('tourneys')
 
 				$scope.tourneys.forEach(function(tourney) {
 
-					var des = "Game: " + tourney.game + "......" + "Address: " + tourney.address;;
+					var des = "Game: " + tourney.game + "......" + "Address: " + tourney.address;
 
 					var a = new mapboxgl.Popup({ offset: 25 }).setText(des);
 
