@@ -18,7 +18,7 @@ angular.module('tourneys')
 
 		}, function (error) {
 
-			console.log('Unable to retrieve listings:', error);
+			console.log('Unable to retrieve tourneys:', error);
 
 		});
 
@@ -87,6 +87,8 @@ angular.module('tourneys')
 				Tourneys.getAll().then(function (response) {
 
 					$scope.tourneys = response.data; //"redirecting" or updating the table again
+
+					alert(tourney.tournamentName + " has been deleted!");
 
 				}, function (error) {
 
@@ -172,11 +174,13 @@ angular.module('tourneys')
 
 				console.log(userInfo.loggedInUser);
 
+				alert("You are now attending " + tourney.tourneyName);
+
 			}
 
 			else {
 
-				console.log("not logged in?");
+				alert("You must log in to sign up for tournaments.");
 
 				console.log(userInfo.loggedInUser);
 
@@ -197,6 +201,8 @@ angular.module('tourneys')
 				var idx = userInfo.loggedInUser.attending.findIndex(t => t._id === tourney._id);
 
 				userInfo.loggedInUser.attending.splice(idx, 1);
+
+				alert("You are no longer attending " + tourney.tournamentName);
 
 				console.log(userInfo.loggedInUser);
 
@@ -309,7 +315,7 @@ angular.module('tourneys')
 				    zoom: 12
 
 				});
-				
+
 
 
 				console.log(map);
@@ -348,23 +354,23 @@ angular.module('tourneys')
 
                                         });
 
-					$http.get('https://api.mapbox.com/geocoding/v5/mapbox.places/' + tourney.address + '.json?access_token=' + accessToken).then(function(res) {
-
-						const features = res.data.features;
-
-						console.log(features);
+					// $http.get('https://api.mapbox.com/geocoding/v5/mapbox.places/' + tourney.address + '.json?access_token=' + accessToken).then(function(res) {
+					//
+					// 	const features = res.data.features;
+					//
+					// 	console.log(features);
 
 					});
 
 				});
 
-				 
+
 
 
 
 			}, function (error) {
 
-				console.log('Unable to retrieve listings:', error);
+				console.log('Unable to retrieve tourneys:', error);
 
 			});
 
