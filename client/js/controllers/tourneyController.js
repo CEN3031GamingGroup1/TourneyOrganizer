@@ -174,7 +174,7 @@ angular.module('tourneys')
 
 				console.log(userInfo.loggedInUser);
 
-				alert("You are now attending " + tourney.tourneyName);
+				alert("You are now attending " + tourney.tournamentName);
 
 			}
 
