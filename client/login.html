@@ -14,15 +14,18 @@
 <body style="padding-top: 70px" ng-app="directoryApp">
 
 	<style>
+		body{
+			background-image: url(pixelgator.png)
+		}
 		@media screen{
         .noPrint{}
         .noScreen{display:none;}
       }
-			@media print {
+		@media print {
 				.noPrint{display:none;}
 				.noScreen{}
 			}
-	    </style>
+	  </style>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 		<a class="navbar-brand">
@@ -52,7 +55,10 @@
 
 	<center>
 		<br><br><br>
-		<h1 class="display-4">Login</h1>
+		
+		<h1 class="display-3"><font color="black">Login</font></h1>
+		
+
 		<hr class="col-md-6">
 	</center>
 	<div class="container" ng-controller="UserController" ng-app="directoryApp">
@@ -70,7 +76,7 @@
 				<button type="submit" class="btn btn-primary" ng-click="login()" role="button">Login</button>
 				<hr class="col-lg-2">
 				<a class="btn btn-primary" href="/signup" role="button">New User?</a>
-				<button class="btn btn-primary" ng-click="UFdup()" role="button">Forgot Password?</button>
+				
 			</form>
 		</center>
 	</div>

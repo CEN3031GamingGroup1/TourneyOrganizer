@@ -110,22 +110,22 @@
 		<hr>
 		<div ng-repeat="x in tourneys | orderBy: '-tournamentName':true">
 			<div class="card">
-			<div class="card-header">
-				<p class="display-4">{{x.tournamentName}}</p>
+				<div class="card-header">
+					<p class="display-4">{{x.tournamentName}}</p>
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">Game: {{x.game}}</h5>
+					<h5 class="card-title">Host: {{x.host}}</h5>
+					<h5 class="card-title">Date: {{displayDate(x)}}</h5>
+					<p class="card-text">Address: {{x.address}}</p>
+					<p class="card-text">Details: {{x.details}}</p>
+					<p class="card-text">Fee: ${{x.fee}} || Age Requirement: {{x.ageReq}}</p>
+					<button type="submit" ng-click="attend(x); updateUser(loggedInUser);" class="btn btn-primary">Attend!</button>
+					<a type="submit" href="/tourney" ng-click="sendCookies(x._id)" class="btn btn-primary">More Details...</a>
+					<!-- ng-click="attendTourney()" -->
+				</div>
 			</div>
-			<div class="card-body">
-				<h5 class="card-title">Game: {{x.game}}</h5>
-				<h5 class="card-title">Host: {{x.host}}</h5>
-				<h5 class="card-title">Date: {{displayDate(x)}}</h5>
-				<p class="card-text">Address: {{x.address}}</p>
-				<p class="card-text">Details: {{x.details}}</p>
-				<p class="card-text">Fee: ${{x.fee}} || Age Requirement: {{x.ageReq}}</p>
-				<button type="submit" ng-click="attend(x); updateUser(loggedInUser);" class="btn btn-primary">Attend!</button>
-				<a type="submit" href="/tourney" ng-click="sendCookies(x._id)" class="btn btn-primary">More Details...</a>
-				<!-- ng-click="attendTourney()" -->
-			</div>
-		</div>
-		<br>
+			<br>
 		</div>
 		<hr>
 	</div>
