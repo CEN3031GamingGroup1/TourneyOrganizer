@@ -1,7 +1,7 @@
 angular.module('tourneys')
 .service('userInfo')
-.controller('TourneyController', ['$scope', '$cookies', 'Tourneys', 'userInfo',
-    function ($scope, $cookies, Tourneys, userInfo) {
+.controller('TourneyController', ['$scope', '$cookies', 'Tourneys', 'userInfo', '$http',
+    function ($scope, $cookies, Tourneys, userInfo, $http) {
 
 
 		/* Get all the tourneys, then bind it to the scope */
@@ -116,6 +116,11 @@ angular.module('tourneys')
 		    console.log($scope.showHostTourneys);
 		}
 
+		$scope.getAddress = function(tourney) {
+			//console.log(tourney.address);
+			return tourney.addess;
+		}
+
 
 		$scope.sendCookies = function (id) {
 			$cookies.put('id', id);
@@ -136,5 +141,76 @@ angular.module('tourneys')
 			}
 			return newDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "numeric", minute: "numeric"});
 		}
+
+		$scope.makeMap = function() {
+			Tourneys.getAll().then(function (response) {
+				$scope.tourneys = response.data;
+
+				const accessToken = 'pk.eyJ1Ijoid2VpbGluMTIyMSIsImEiOiJjanAzZHF6bXMwMTMwM3hvaDU5bTI5YzFnIn0.Ry6afSeTiFttI_rY5F-kfw';
+				mapboxgl.accessToken = accessToken;
+
+				var map = new mapboxgl.Map({
+				    container: 'map',
+				    style: 'mapbox://styles/mapbox/streets-v9',
+				    center: [-82.325020, 29.651980],
+				    zoom: 12
+				});
+
+				console.log(map);
+				$scope.tourneys.forEach(function(tourney) {
+					$http.get('https://api.mapbox.com/geocoding/v5/mapbox.places/' + tourney.address + '.json?access_token=' + accessToken).then(function(res) {
+						const features = res.data.features;
+						console.log(features);
+					});
+				});
+
+				map.on('load', function() {
+
+				    map.addSource('single-point', {
+
+				        "type": "geojson",
+
+				        "data": {
+
+				            "type": "FeatureCollection",
+
+				            "features": []
+
+				        }
+
+				    });
+
+
+
+				    map.addLayer({
+
+				        "id": "point",
+
+				        "source": "single-point",
+
+				        "type": "circle",
+
+				        "paint": {
+
+				            "circle-radius": 10,
+
+				            "circle-color": "#007cbf"
+
+				        }
+
+				    });
+
+				});
+
+			}, function (error) {
+				console.log('Unable to retrieve listings:', error);
+			});
+
+
+
+
+		}
+
+
 	}
 ]);

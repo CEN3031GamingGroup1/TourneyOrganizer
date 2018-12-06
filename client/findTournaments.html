@@ -23,8 +23,9 @@
     	}
     	.mapboxgl-ctrl-geocoder { min-width:100%; }
      </style>
+		 
   </head>
-<body ng-app="directoryApp" style="padding-top: 70px">
+<body ng-app="directoryApp" style="padding-top: 70px"  ng-controller="TourneyController" ng-init="makeMap()">
 
  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 
@@ -108,100 +109,31 @@
 
 <div id='map'></div>
 <div id='geocoder' class='geocoder'></div>
-<script>
-mapboxgl.accessToken = 'pk.eyJ1Ijoid2VpbGluMTIyMSIsImEiOiJjanAzZHF6bXMwMTMwM3hvaDU5bTI5YzFnIn0.Ry6afSeTiFttI_rY5F-kfw';
+<div class="container">
 
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9',
-    center: [-82.325020, 29.651980],
-    zoom: 12
-});
+			 <div class="card" ng-repeat="x in tourneys | orderBy: 'tournamentName':true" id="address" ng-value="getAddress(x)">
 
-var geocoder = new MapboxGeocoder({
+					 <div class="card-body" >
 
-    accessToken: mapboxgl.accessToken,
-    placeholder: "Please search with tourney address"
+							 <h5 class="Game">Game: {{x.game}}</h5>
 
-});
+			<h5 host="Host">Host: {{x.host}}</h5>
 
-document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+				 <h5 class="Date">Date: {{displayDate(x)}}</h5>
 
-map.on('load', function() {
+												<p class="Address">Address: {{x.address}}</p>
 
-    map.addSource('single-point', {
+												<input id="address" type="text">
 
-        "type": "geojson",
+													 <p class="Details">Details: {{x.details}}</p>
 
-        "data": {
+														 <p class="Fee">Fee: ${{x.fee}} || Age Requirement: {{x.ageReq}}</p>
 
-            "type": "FeatureCollection",
+					 </div>
 
-            "features": []
+			 </div>
 
-        }
-
-    });
-
-
-
-    map.addLayer({
-
-        "id": "point",
-
-        "source": "single-point",
-
-        "type": "circle",
-
-        "paint": {
-
-            "circle-radius": 10,
-
-            "circle-color": "#007cbf"
-
-        }
-
-    });
-
-
-    geocoder.on('result', function(ev) {
-
-        map.getSource('single-point').setData(ev.result.geometry);
-
-    });
-
-});
-
-</script>
- <div class="container" ng-controller="TourneyController">
-
-        <div class="card" ng-repeat="x in tourneys | orderBy: 'tournamentName':true" ng-click="getAddress(x)">
-
-            <div class="card-body">
-
-                <h5 class="Game">Game: {{x.game}}</h5>
-
-		   <h5 host="Host">Host: {{x.host}}</h5>
-
-		      <h5 class="Date">Date: {{displayDate(x)}}</h5>
-
-                         <p class="Address">Address: {{x.address}}</p>
-
-                            <p class="Details">Details: {{x.details}}</p>
-
-															<p class="Fee">Fee: ${{x.fee}} || Age Requirement: {{x.ageReq}}</p>
-
-            </div>
-
-        </div>
-
-    </div>
-<<<<<<< HEAD
-
-    <div class="noScreen"> <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://gtourney69.herokuapp.com/&choe=UTF-8" alt="QR Code" /> </div>
-
-=======
->>>>>>> 1aa8c536ab75488c9f05ec143fb55fd436c6847f
+	 </div>
     <!-- Scripts I've added-->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
