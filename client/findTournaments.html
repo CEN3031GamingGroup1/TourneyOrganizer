@@ -37,161 +37,49 @@
 
 
 
- <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-
-
-
-        <a class="navbar-brand">
-
-
-
-            <font color="orange">GT</font><font color="blue">ourney</font>
-
-
-
-        </a>
-
-
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-
-
-
-            aria-expanded="false" aria-label="Toggle navigation">
-
-
-
-            <span class="navbar-toggler-icon"></span>
-
-
-
-        </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-
-
-
-            <ul class="navbar-nav mr-auto">
-
-
-
-                <li class="nav-item">
-
-
-
-                    <a class="nav-link" href="/home">Home<span class="sr-only"></span></a>
-
-
-
-                </li>
-
-
-
-                <li class="nav-item active">
-
-
-
-                    <a class="nav-link" ng-init="getLoggedInUser()" href="/map">Find Tournaments</a>
-
-
-
-                </li>
-
-
-
-                <li class="nav-item" ng-if="loggedInUser != undefined">
-
-
-
-                    <a class="nav-link" href="/profile">Profile</a>
-
-
-
-                </li>
-
-
-
-                <li class="nav-item" ng-if="loggedInUser != undefined">
-
-
-
-                    <a class="nav-link" href="/logout">Logout<span class="sr-only"></span></a>
-
-
-
-                </li>
-
-
-
-                <li class="nav-item" ng-if="loggedInUser == undefined">
-
-
-
-                    <a class="nav-link" href="/login">Login<span class="sr-only"></span></a>
-
-
-
-                </li>
-
-
-
-                <li class="nav-item" ng-if="loggedInUser != undefined">
-
-
-
-                    <a class="nav-link" href="/create">Create Event<span class="sr-only"></span></a>
-
-
-
-                </li>
-
-
-
-                <li class="nav-item" ng-if="loggedInUser != undefined">
-
-
-
-                    <a class="nav-link" href="/admin" ng-if="loggedInUser.admin == true">Admin Page<span class="sr-only"></span></a>
-
-
-
-                </li>
-
-
-
-            </ul>
-
-
-
-            <div align="right">
-
-
-
-                <form class="form-inline my-2 my-lg-8" id="navSearchBar">
-
-
-
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-
-
-
-                    <button class="btn btn-outline-success my-2 my-sm-0" ng-click="search()" type="submit">Search</button>
-
-
-
-                </form>
-
-
-
-            </div>
-
-
-
-        </div>
-
-
-
-    </nav>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+ 	 <a class="navbar-brand">
+ 		 <font color="orange">GT</font><font color="blue">ourney</font>
+ 	 </a>
+ 	 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+ 		aria-expanded="false" aria-label="Toggle navigation">
+ 		 <span class="navbar-toggler-icon"></span>
+ 	 </button>
+ 	 <div class="collapse navbar-collapse" id="navbarNav">
+ 		 <ul class="navbar-nav mr-auto">
+ 			 <li class="nav-item">
+ 				 <a class="nav-link active" href="/home">Home<span class="sr-only"></span></a>
+ 			 </li>
+ 			 <li class="nav-item">
+ 				 <a class="nav-link" ng-init="getLoggedInUser()" href="/map">Find Tournaments</a>
+ 			 </li>
+ 			 <li class="nav-item" ng-if="loggedInUser != undefined">
+ 				 <a class="nav-link" href="/profile">Profile</a>
+ 			 </li>
+ 			 <li class="nav-item" ng-if="loggedInUser != undefined">
+ 				 <a class="nav-link" href="/logout">Logout<span class="sr-only"></span></a>
+ 			 </li>
+ 			 <li class="nav-item" ng-if="loggedInUser == undefined">
+ 				 <a class="nav-link" href="/login">Login<span class="sr-only"></span></a>
+ 			 </li>
+ 			 <li class="nav-item" ng-if="loggedInUser == undefined">
+ 					 <a class="nav-link" href="/signup">Sign Up<span class="sr-only"></span></a>
+ 			 </li>
+ 			 <li class="nav-item" ng-if="loggedInUser != undefined">
+ 				 <a class="nav-link" href="/create">Create Event<span class="sr-only"></span></a>
+ 			 </li>
+ 			 <li class="nav-item" ng-if="loggedInUser != undefined">
+ 				 <a class="nav-link" href="/admin" ng-if="loggedInUser.admin == true">Admin Page<span class="sr-only"></span></a>
+ 			 </li>
+ 		 </ul>
+ 		 <div align="right">
+ 			 <form class="form-inline my-2 my-lg-8" id="navSearchBar">
+ 				 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+ 				 <button class="btn btn-outline-success my-2 my-sm-0" ng-click="search()" type="submit">Search</button>
+ 			 </form>
+ 		 </div>
+ 	 </div>
+  </nav>
 
 
 
