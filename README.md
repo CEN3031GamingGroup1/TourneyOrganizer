@@ -1,1 +1,1 @@
-# TourneyOrganizer
+# GTourneyOrganizer
